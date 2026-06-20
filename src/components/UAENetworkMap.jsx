@@ -24,8 +24,18 @@ const CONNECTIONS = [
   [5, 6],
 ];
 
-// Must exactly match your --color-secondary / section background
 const BG = "#000000";
+
+// Mobile-friendly city positions — compressed into centre so nothing clips
+const CITIES_MOBILE = [
+  { name: "Dubai", rx: 0.35, ry: 0.6, main: true },
+  { name: "Abu Dhabi", rx: 0.2, ry: 0.75, main: true },
+  { name: "Sharjah", rx: 0.55, ry: 0.45, main: false },
+  { name: "Ajman", rx: 0.48, ry: 0.35, main: false },
+  { name: "Umm Al Quwain", rx: 0.65, ry: 0.26, main: false },
+  { name: "Ras Al Khaimah", rx: 0.75, ry: 0.16, main: false },
+  { name: "Fujairah", rx: 0.82, ry: 0.48, main: false },
+];
 
 export default function UAENetworkMap() {
   const canvasRef = useRef(null);
@@ -61,14 +71,21 @@ export default function UAENetworkMap() {
 
     const W = () => canvas.width;
     const H = () => canvas.height;
+
+    // Switch city coords based on canvas aspect ratio
+    function cities() {
+      return W() / H() < 1.1 ? CITIES_MOBILE : CITIES;
+    }
+
     const cx = (c) => c.rx * W();
     const cy = (c) => c.ry * H();
 
     function arcMid(a, b) {
-      const x1 = cx(CITIES[a]),
-        y1 = cy(CITIES[a]);
-      const x2 = cx(CITIES[b]),
-        y2 = cy(CITIES[b]);
+      const C = cities();
+      const x1 = cx(C[a]),
+        y1 = cy(C[a]);
+      const x2 = cx(C[b]),
+        y2 = cy(C[b]);
       return {
         x1,
         y1,
@@ -92,7 +109,6 @@ export default function UAENetworkMap() {
         h = H();
       ctx.clearRect(0, 0, w, h);
 
-      // BG must match section color exactly
       ctx.fillStyle = BG;
       ctx.fillRect(0, 0, w, h);
 
@@ -151,10 +167,25 @@ export default function UAENetworkMap() {
       });
 
       // city nodes
-      CITIES.forEach((city) => {
+      const C = cities();
+      // Responsive font & dot size
+      const isMobile = w < 480;
+      const isTablet = w < 768;
+
+      C.forEach((city) => {
         const x = cx(city),
-          y = cy(city),
-          r = city.main ? 8 : 5;
+          y = cy(city);
+        const r = city.main
+          ? isMobile
+            ? 6
+            : isTablet
+              ? 7
+              : 8
+          : isMobile
+            ? 3
+            : isTablet
+              ? 4
+              : 5;
 
         const glow = ctx.createRadialGradient(x, y, 0, x, y, r * 6);
         glow.addColorStop(
@@ -180,30 +211,35 @@ export default function UAENetworkMap() {
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        ctx.font = `${city.main ? "600" : "400"} ${city.main ? 14 : 12}px sans-serif`;
+        // Responsive label font
+        const fontSize = city.main
+          ? isMobile
+            ? 11
+            : isTablet
+              ? 12
+              : 14
+          : isMobile
+            ? 9
+            : isTablet
+              ? 10
+              : 12;
+        const fontWeight = city.main ? "600" : "400";
+        ctx.font = `${fontWeight} ${fontSize}px sans-serif`;
         ctx.fillStyle = "rgba(255,255,255,0.9)";
         ctx.textAlign = "center";
-        ctx.fillText(city.name, x, y - r - 8);
+
+        // On mobile, shift labels that would clip off the right edge
+        const labelX = Math.min(x, w - 50);
+        ctx.fillText(city.name, labelX, y - r - 6);
       });
 
-      // ── fades drawn ON canvas last so they fully cover any edge ──
-
-      // LEFT: solid BG for first 40%, then dissolve — kills the border line
-      // const fl = ctx.createLinearGradient(0, 0, w * 0.6, 0);
-      // fl.addColorStop(0, BG);
-      // fl.addColorStop(0.4, BG);
-      // fl.addColorStop(1, BG + "00");
-      // ctx.fillStyle = fl;
-      // ctx.fillRect(0, 0, w * 0.6, h);
-
-      // TOP
+      // Edge fades
       const ft = ctx.createLinearGradient(0, 0, 0, h * 0.22);
       ft.addColorStop(0, BG);
       ft.addColorStop(1, BG + "00");
       ctx.fillStyle = ft;
       ctx.fillRect(0, 0, w, h * 0.22);
 
-      // BOTTOM
       const fb = ctx.createLinearGradient(0, h * 0.78, 0, h);
       fb.addColorStop(0, BG + "00");
       fb.addColorStop(1, BG);
@@ -227,9 +263,9 @@ export default function UAENetworkMap() {
         position: "relative",
         width: "100%",
         height: "100%",
-        minHeight: 420,
+        minHeight: 320,
         overflow: "hidden",
-        background: BG, // wrapper same color — no gap between div edge and canvas
+        background: BG,
       }}
     >
       <canvas

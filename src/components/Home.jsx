@@ -3,6 +3,7 @@ import "../css/Home.css";
 import heroBackground from "../assets/tg11.png";
 import UAENetworkMap from "../components/UAENetworkMap";
 import { useEffect } from "react";
+
 // Brand data
 const BRANDS = [
   { name: "Marshall", img: "/images/brands/marshall.png" },
@@ -17,7 +18,7 @@ const PARTNERS = [
   {
     name: "Sharaf DG",
     img: "/images/partners/sharafdg.png",
-    desc: "One of UAE’s largest electronics retailers with strong omni-channel presence.",
+    desc: "One of UAE's largest electronics retailers with strong omni-channel presence.",
   },
   {
     name: "Jumbo Electronics",
@@ -132,14 +133,10 @@ export default function Home() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("active");
         });
       },
-      {
-        threshold: 0.2,
-      },
+      { threshold: 0.2 },
     );
 
     document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
@@ -155,6 +152,8 @@ export default function Home() {
       <section
         className="hero reveal-left"
         style={{
+          // Pass image URL as CSS variable so media queries can override the gradient overlay
+          "--hero-bg": `url(${heroBackground})`,
           backgroundImage: `linear-gradient(rgba(15,15,36,0.35), rgba(15,15,36,0.35)), url(${heroBackground})`,
         }}
       >
@@ -209,8 +208,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-
-            {/* Right image */}
           </div>
         </div>
       </section>
@@ -290,12 +287,11 @@ export default function Home() {
                 style={{ background: cat.color }}
               >
                 <div className="categories__card-bg" />
-
                 <div className="categories__card-content">
                   <div className="categories__brand-tag">{cat.brand}</div>
                   <div className="categories__card-name">{cat.name}</div>
                   <div className="categories__card-sub">{cat.sub}</div>
-                  <div className="categories__card-link">Explore →</div>{" "}
+                  <div className="categories__card-link">Explore →</div>
                 </div>
               </Link>
             ))}
@@ -304,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* ── Brands Marquee ── */}
-      <section className="section  reveal-right">
+      <section className="section reveal-right">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Our Portfolio</span>
@@ -406,7 +402,7 @@ export default function Home() {
             </h2>
           </div>
           <div style={{ maxWidth: 600, margin: "0 auto" }}>
-            {JOURNEY.map((item, i) => (
+            {JOURNEY.map((item) => (
               <div
                 key={item.year}
                 style={{
@@ -457,7 +453,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA Banner ── */}
-      <section className="cta-banner  reveal-right">
+      {/* <section className="cta-banner reveal-right">
         <div className="container">
           <div className="cta-banner__inner">
             <h2 className="cta-banner__title">
@@ -477,7 +473,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
