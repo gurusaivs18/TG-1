@@ -1,0 +1,208 @@
+/* ============================================================
+   FOOTER — Target One
+   ============================================================ */
+
+.footer {
+  background: var(--color-secondary);
+  color: var(--text-on-dark);
+}
+
+/* Van Sales Banner — Static for all pages */
+.footer__van-banner {
+  background: var(--color-primary);
+  padding: 20px 0;
+}
+
+.footer__van-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-md);
+}
+
+.footer__van-banner-text {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer__van-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.footer__van-headline {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.footer__van-sub {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 2px;
+}
+
+/* Footer Main */
+.footer__main {
+  padding: 72px 0 48px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 48px;
+}
+
+.footer__brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.footer__brand-mark {
+  width: 34px;
+  height: 34px;
+  background: var(--color-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.footer__brand-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.footer__tagline {
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 280px;
+}
+
+.footer__flags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer__flag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+}
+
+/* Footer Columns */
+.footer__col-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: 20px;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__link {
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+  transition: color var(--transition);
+}
+
+.footer__link:hover {
+  color: var(--color-white);
+}
+
+/* Contact Info */
+.footer__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--text-sm);
+  color: var(--text-on-dark-muted);
+}
+
+.footer__contact-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Footer Bottom */
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+}
+
+.footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer__copy {
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+}
+
+.footer__bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__bottom-link {
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+  transition: color var(--transition);
+}
+
+.footer__bottom-link:hover {
+  color: var(--color-white);
+}
+
+@media (max-width: 1024px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+  .footer__van-banner-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

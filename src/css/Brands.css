@@ -1,0 +1,333 @@
+/* ============================================================
+   BRANDS PAGE — Target One
+   ============================================================ */
+
+.brands-page__filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border: 1.5px solid var(--color-light-gray);
+  background: var(--color-white);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-btn--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Brand Cards Grid */
+.brands-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-md);
+}
+
+.brand-card {
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition);
+  background: var(--color-white);
+}
+
+.brand-card:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.brand-card__image-wrap {
+  background: var(--color-off-white);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+}
+
+.brand-card__logo {
+  max-height: 60px;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+.brand-card__body {
+  padding: 20px;
+}
+
+.brand-card__category {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.brand-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.brand-card__desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.brand-card__tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.brand-tag {
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-light-gray);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Brand Detail Modal */
+.brand-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.brand-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.brand-modal__box {
+  position: relative;
+  z-index: 1;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.brand-modal__header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+}
+
+.brand-modal__logo-panel {
+  background: var(--color-off-white);
+  padding: 40px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg) 0 0 0;
+}
+
+.brand-modal__logo {
+  max-width: 120px;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.brand-modal__info {
+  padding: 32px;
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
+.brand-modal__category {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.brand-modal__name {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.brand-modal__tagline {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.brand-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background var(--transition);
+  z-index: 10;
+}
+
+.brand-modal__close:hover {
+  background: var(--color-mid-gray);
+}
+
+.brand-modal__content {
+  padding: 32px;
+}
+
+.brand-modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.brand-modal__gallery img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.brand-modal__products-title {
+  font-weight: 700;
+  font-size: var(--text-base);
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.brand-modal__products {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Category Sections on Brands page */
+.brands-category-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-light-gray);
+}
+
+.brands-category-section:first-child {
+  border-top: none;
+}
+
+.brands-category__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.brands-category__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+.brands-category__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap-sm);
+}
+
+.brand-item-mini {
+  padding: 20px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: all var(--transition);
+  cursor: pointer;
+  background: var(--color-white);
+}
+
+.brand-item-mini:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-item-mini__logo {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.brand-item-mini__logo img {
+  max-height: 32px;
+  max-width: 90px;
+  object-fit: contain;
+  filter: grayscale(0.4);
+}
+
+.brand-item-mini__name {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  margin-bottom: 4px;
+}
+
+.brand-item-mini__sub {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .brands-page__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .brands-category__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .brand-modal__header {
+    grid-template-columns: 1fr;
+  }
+  .brand-modal__gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .brands-page__grid {
+    grid-template-columns: 1fr;
+  }
+}

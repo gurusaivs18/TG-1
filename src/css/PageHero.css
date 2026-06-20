@@ -1,0 +1,12 @@
+.page-hero {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #0f0f24 100%);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 160px 0 96px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
