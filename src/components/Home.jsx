@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/Home.css";
 import heroBackground from "../assets/tg11.png";
 import UAENetworkMap from "../components/UAENetworkMap";
+import { useEffect } from "react";
 // Brand data
 const BRANDS = [
   { name: "Marshall", img: "/images/brands/marshall.png" },
@@ -127,11 +128,32 @@ const JOURNEY = [
 ];
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      },
+    );
+
+    document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* ── Hero ── */}
       <section
-        className="hero"
+        className="hero reveal-left"
         style={{
           backgroundImage: `linear-gradient(rgba(15,15,36,0.35), rgba(15,15,36,0.35)), url(${heroBackground})`,
         }}
@@ -194,7 +216,7 @@ export default function Home() {
       </section>
 
       {/* ── Ticker ── */}
-      <div className="ticker">
+      <div className="ticker reveal-right">
         <div className="ticker__track">
           {TICKER_ITEMS.map((item, i) => (
             <span key={i} className="ticker__item">
@@ -206,7 +228,7 @@ export default function Home() {
       </div>
 
       {/* ── What We Do ── */}
-      <section className="section">
+      <section className="section reveal-left">
         <div className="container">
           <div className="section-header">
             <span className="section-eyebrow">What We Do</span>
@@ -232,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="stats-section">
+      <section className="stats-section reveal-right">
         <div className="container">
           <div className="stats-section__grid">
             {STATS.map((s) => (
@@ -249,7 +271,7 @@ export default function Home() {
       </section>
 
       {/* ── Categories ── */}
-      <section className="section section--gray">
+      <section className="section section--gray reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Product Portfolio</span>
@@ -282,7 +304,7 @@ export default function Home() {
       </section>
 
       {/* ── Brands Marquee ── */}
-      <section className="section">
+      <section className="section  reveal-right">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Our Portfolio</span>
@@ -309,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* ── Retail Partners ── */}
-      <section className="section section--gray">
+      <section className="section section--gray reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Market Presence</span>
@@ -334,8 +356,7 @@ export default function Home() {
       </section>
 
       {/* ── Van Sales ── */}
-      {/* ── Van Sales ── */}
-      <section className="van-sales">
+      <section className="van-sales reveal-right">
         <div className="container">
           <div className="van-sales__grid">
             <div className="van-sales__content">
@@ -376,7 +397,7 @@ export default function Home() {
       </section>
 
       {/* ── Journey ── */}
-      <section className="section">
+      <section className="section reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Our Journey</span>
@@ -436,7 +457,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA Banner ── */}
-      <section className="cta-banner">
+      <section className="cta-banner  reveal-right">
         <div className="container">
           <div className="cta-banner__inner">
             <h2 className="cta-banner__title">
