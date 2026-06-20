@@ -187,7 +187,7 @@ export default function Home() {
               </p>
 
               <div className="hero__actions">
-                <Link to="/brands" className="btn btn-primary">
+                <Link to="/brands" className="btn btn-secondary">
                   Explore Our Brands →
                 </Link>
                 <Link to="/contact" className="btn btn-secondary">
