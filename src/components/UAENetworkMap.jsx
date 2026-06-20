@@ -10,6 +10,17 @@ const CITIES = [
   { name: "Fujairah", rx: 0.88, ry: 0.5, main: false },
 ];
 
+// Centered for square/portrait canvas — all cities pulled inward
+const CITIES_MOBILE = [
+  { name: "Dubai", rx: 0.38, ry: 0.58, main: true },
+  { name: "Abu Dhabi", rx: 0.22, ry: 0.72, main: true },
+  { name: "Sharjah", rx: 0.55, ry: 0.43, main: false },
+  { name: "Ajman", rx: 0.48, ry: 0.34, main: false },
+  { name: "Umm Al Quwain", rx: 0.62, ry: 0.26, main: false },
+  { name: "Ras Al Khaimah", rx: 0.72, ry: 0.17, main: false },
+  { name: "Fujairah", rx: 0.78, ry: 0.46, main: false },
+];
+
 const CONNECTIONS = [
   [0, 1],
   [0, 2],
@@ -25,17 +36,6 @@ const CONNECTIONS = [
 ];
 
 const BG = "#000000";
-
-// Mobile-friendly city positions — compressed into centre so nothing clips
-const CITIES_MOBILE = [
-  { name: "Dubai", rx: 0.35, ry: 0.6, main: true },
-  { name: "Abu Dhabi", rx: 0.2, ry: 0.75, main: true },
-  { name: "Sharjah", rx: 0.55, ry: 0.45, main: false },
-  { name: "Ajman", rx: 0.48, ry: 0.35, main: false },
-  { name: "Umm Al Quwain", rx: 0.65, ry: 0.26, main: false },
-  { name: "Ras Al Khaimah", rx: 0.75, ry: 0.16, main: false },
-  { name: "Fujairah", rx: 0.82, ry: 0.48, main: false },
-];
 
 export default function UAENetworkMap() {
   const canvasRef = useRef(null);
@@ -72,13 +72,26 @@ export default function UAENetworkMap() {
     const W = () => canvas.width;
     const H = () => canvas.height;
 
-    // Switch city coords based on canvas aspect ratio
+    function isMobileCanvas() {
+      return W() < 600;
+    }
     function cities() {
-      return W() / H() < 1.1 ? CITIES_MOBILE : CITIES;
+      return isMobileCanvas() ? CITIES_MOBILE : CITIES;
     }
 
-    const cx = (c) => c.rx * W();
-    const cy = (c) => c.ry * H();
+    // Scale city coords — on mobile, center the whole cluster horizontally
+    function cx(c) {
+      if (!isMobileCanvas()) return c.rx * W();
+      // shift cluster to horizontal center: original range ~0.22–0.78, center ~0.50
+      const offset = W() * 0.5 - W() * 0.5;
+      return c.rx * W() + offset;
+    }
+    function cy(c) {
+      if (!isMobileCanvas()) return c.ry * H();
+      // shift cluster to vertical center: original range ~0.17–0.72, center ~0.44
+      const offset = H() * 0.5 - H() * 0.44;
+      return c.ry * H() + offset;
+    }
 
     function arcMid(a, b) {
       const C = cities();
@@ -108,11 +121,10 @@ export default function UAENetworkMap() {
       const w = W(),
         h = H();
       ctx.clearRect(0, 0, w, h);
-
       ctx.fillStyle = BG;
       ctx.fillRect(0, 0, w, h);
 
-      // particles
+      // Particles
       particles.forEach((p) => {
         ctx.beginPath();
         ctx.arc(p.x * w, p.y * h, p.r, 0, Math.PI * 2);
@@ -126,7 +138,7 @@ export default function UAENetworkMap() {
         if (p.y > 1) p.y = 0;
       });
 
-      // static arcs
+      // Static arcs
       CONNECTIONS.forEach(([a, b]) => {
         const { x1, y1, mx, my, x2, y2 } = arcMid(a, b);
         ctx.beginPath();
@@ -137,7 +149,7 @@ export default function UAENetworkMap() {
         ctx.stroke();
       });
 
-      // animated beams
+      // Animated beams
       beams.forEach((beam) => {
         const { x1, y1, mx, my, x2, y2 } = arcMid(beam.a, beam.b);
         ctx.beginPath();
@@ -166,24 +178,23 @@ export default function UAENetworkMap() {
         if (beam.t > 1) beam.t = 0;
       });
 
-      // city nodes
+      // City nodes
       const C = cities();
-      // Responsive font & dot size
-      const isMobile = w < 480;
-      const isTablet = w < 768;
+      const mobile = w < 480;
+      const tablet = w < 768;
 
       C.forEach((city) => {
         const x = cx(city),
           y = cy(city);
         const r = city.main
-          ? isMobile
+          ? mobile
             ? 6
-            : isTablet
+            : tablet
               ? 7
               : 8
-          : isMobile
+          : mobile
             ? 3
-            : isTablet
+            : tablet
               ? 4
               : 5;
 
@@ -211,40 +222,38 @@ export default function UAENetworkMap() {
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        // Responsive label font
         const fontSize = city.main
-          ? isMobile
+          ? mobile
             ? 11
-            : isTablet
+            : tablet
               ? 12
               : 14
-          : isMobile
+          : mobile
             ? 9
-            : isTablet
+            : tablet
               ? 10
               : 12;
-        const fontWeight = city.main ? "600" : "400";
-        ctx.font = `${fontWeight} ${fontSize}px sans-serif`;
+        ctx.font = `${city.main ? "600" : "400"} ${fontSize}px sans-serif`;
         ctx.fillStyle = "rgba(255,255,255,0.9)";
         ctx.textAlign = "center";
 
-        // On mobile, shift labels that would clip off the right edge
-        const labelX = Math.min(x, w - 50);
+        // Clamp label so it never clips left or right edge
+        const labelX = Math.max(30, Math.min(x, w - 55));
         ctx.fillText(city.name, labelX, y - r - 6);
       });
 
       // Edge fades
-      const ft = ctx.createLinearGradient(0, 0, 0, h * 0.22);
+      const ft = ctx.createLinearGradient(0, 0, 0, h * 0.18);
       ft.addColorStop(0, BG);
       ft.addColorStop(1, BG + "00");
       ctx.fillStyle = ft;
-      ctx.fillRect(0, 0, w, h * 0.22);
+      ctx.fillRect(0, 0, w, h * 0.18);
 
-      const fb = ctx.createLinearGradient(0, h * 0.78, 0, h);
+      const fb = ctx.createLinearGradient(0, h * 0.82, 0, h);
       fb.addColorStop(0, BG + "00");
       fb.addColorStop(1, BG);
       ctx.fillStyle = fb;
-      ctx.fillRect(0, h * 0.78, w, h * 0.22);
+      ctx.fillRect(0, h * 0.82, w, h * 0.18);
 
       rafRef.current = requestAnimationFrame(draw);
     }
@@ -263,7 +272,7 @@ export default function UAENetworkMap() {
         position: "relative",
         width: "100%",
         height: "100%",
-        minHeight: 320,
+        minHeight: 360,
         overflow: "hidden",
         background: BG,
       }}

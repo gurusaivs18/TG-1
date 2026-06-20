@@ -246,7 +246,7 @@
     background-position: 60% top;
     /* Stronger overlay so text stays readable on busy background */
     background-image:
-      linear-gradient(rgba(10, 10, 28, 0.55), rgba(10, 10, 28, 0.65)),
+      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
       var(--hero-bg) !important;
   }
 }
@@ -258,7 +258,7 @@
     background-position: 65% top;
     background-size: cover;
     background-image:
-      linear-gradient(rgba(10, 10, 28, 0.6), rgba(10, 10, 28, 0.75)),
+      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
       var(--hero-bg) !important;
   }
 }
@@ -798,7 +798,7 @@
     background-position: center top;
     /* Stronger overlay for tablet */
     background-image:
-      linear-gradient(rgba(10, 10, 28, 0.5), rgba(10, 10, 28, 0.6)),
+      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
       var(--hero-bg) !important;
   }
 
@@ -849,7 +849,7 @@
     background-position: 60% top;
     background-size: cover;
     background-image:
-      linear-gradient(rgba(10, 10, 28, 0.55), rgba(10, 10, 28, 0.68)),
+      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
       var(--hero-bg) !important;
   }
 
@@ -948,7 +948,7 @@
     padding-top: 100px;
     background-position: 65% top;
     background-image:
-      linear-gradient(rgba(10, 10, 28, 0.62), rgba(10, 10, 28, 0.75)),
+      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
       var(--hero-bg) !important;
   }
 
