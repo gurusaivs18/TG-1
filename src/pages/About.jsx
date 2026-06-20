@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import PageHero from "../components/PageHero";
+// import PageHero from "../components/PageHero";
 import "../css/About.css";
 import "../css/Home.css";
-import aboutHero from "../assets/sp2.jpg";
+// import aboutHero from "../assets/sp2.jpg";
 const JOURNEY = [
   {
     year: "2016",
@@ -72,7 +72,7 @@ const SERVICES = [
 export default function About() {
   return (
     <>
-      <PageHero
+      {/* <PageHero
         eyebrow="About Us"
         title="About Target One"
         subtitle="Leading electronics distributor"
@@ -89,7 +89,7 @@ export default function About() {
           <span className="hero__tag">🇦🇪 United Arab Emirates</span>
           <span className="hero__tag">🇶🇦 Qatar</span>
         </div>
-      </PageHero>
+      </PageHero> */}
 
       {/* ── Vision & Mission ── */}
       <section className="section">

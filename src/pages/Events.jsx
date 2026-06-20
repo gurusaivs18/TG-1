@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PageHero from "../components/PageHero";
+// import PageHero from "../components/PageHero";
 import "../css/Pages.css";
 import "../css/Home.css";
-import eventsHero from "../assets/sp3.jpg";
+// import eventsHero from "../assets/sp3.jpg";
 
 const EVENTS = [
   {
@@ -77,11 +77,11 @@ export default function Events() {
 
   return (
     <>
-      <PageHero
+      {/* <PageHero
         title="Events"
         subtitle="Latest exhibitions"
         backgroundImage={eventsHero}
-      />
+      /> */}
 
       <section className="section">
         <div className="container">

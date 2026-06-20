@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import PageHero from "../components/PageHero";
+// import PageHero from "../components/PageHero";
 import "../css/Brands.css";
 import "../css/Home.css";
-import brandsHero from "../assets/sp1.jpg";
+// import brandsHero from "../assets/sp1.jpg";
 
 const BRANDS = [
   {
@@ -136,11 +136,11 @@ export default function Brands() {
 
   return (
     <>
-      <PageHero
+      {/* <PageHero
         title="Our Brands"
         subtitle="Premium global brands"
         backgroundImage={brandsHero}
-      />
+      /> */}
 
       {/* ── Brand Listing ── */}
       <section className="section">

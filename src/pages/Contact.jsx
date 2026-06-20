@@ -41,6 +41,8 @@ export default function Contact() {
   return (
     <>
       <PageHero
+        className="page-title
+      "
         eyebrow="Reach Out"
         title="Contact Us"
         subtitle="Whether you're a retailer, brand, or partner — we'd love to hear from you. Our team typically responds within 24 hours."
