@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../css/Navbar.css";
 
@@ -15,12 +15,19 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navbarRef = useRef(null);
 
+  // ── Scroll: mark navbar + close menu on scroll down ──
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      if (window.scrollY > 40) setMenuOpen(false); // close on scroll
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // ── Close menu when resized to desktop ──
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth > 768) setMenuOpen(false);
@@ -28,12 +35,34 @@ export default function Navbar() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  // ── Close menu on route change ──
   useEffect(() => {
     setMenuOpen(false);
   }, [location]);
 
+  // ── Close menu when clicking outside the navbar ──
+  useEffect(() => {
+    const onClickOutside = (e) => {
+      if (
+        menuOpen &&
+        navbarRef.current &&
+        !navbarRef.current.contains(e.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("touchstart", onClickOutside, { passive: true });
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("touchstart", onClickOutside);
+    };
+  }, [menuOpen]);
+
   return (
     <header
+      ref={navbarRef}
       className={`navbar ${scrolled ? "navbar--scrolled" : "navbar--transparent"}`}
     >
       <div className="container">
@@ -66,7 +95,7 @@ export default function Navbar() {
           {/* Hamburger */}
           <button
             className={`navbar__hamburger ${menuOpen ? "open" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
           >
             <span />
