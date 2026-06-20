@@ -189,12 +189,12 @@ export default function UAENetworkMap() {
       // ── fades drawn ON canvas last so they fully cover any edge ──
 
       // LEFT: solid BG for first 40%, then dissolve — kills the border line
-      const fl = ctx.createLinearGradient(0, 0, w * 0.6, 0);
-      fl.addColorStop(0, BG);
-      fl.addColorStop(0.4, BG);
-      fl.addColorStop(1, BG + "00");
-      ctx.fillStyle = fl;
-      ctx.fillRect(0, 0, w * 0.6, h);
+      // const fl = ctx.createLinearGradient(0, 0, w * 0.6, 0);
+      // fl.addColorStop(0, BG);
+      // fl.addColorStop(0.4, BG);
+      // fl.addColorStop(1, BG + "00");
+      // ctx.fillStyle = fl;
+      // ctx.fillRect(0, 0, w * 0.6, h);
 
       // TOP
       const ft = ctx.createLinearGradient(0, 0, 0, h * 0.22);
