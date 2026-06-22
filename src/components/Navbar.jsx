@@ -93,11 +93,7 @@ export default function Navbar() {
         <div className="navbar__inner">
           {/* Logo */}
           <Link to="/" className="navbar__logo">
-            <img
-              src={logo} 
-              alt="Target One"
-              className="navbar__logo-img"
-            />
+            <img src={logo} alt="Target One" className="navbar__logo-img" />
           </Link>
 
           {/* Desktop Nav */}
