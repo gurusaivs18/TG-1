@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../css/Navbar.css";
+import logo from "../assets/targetone_transparent.png";
 
 const NAV_LINKS = [
   { label: "Home", path: "/" },
@@ -92,11 +93,11 @@ export default function Navbar() {
         <div className="navbar__inner">
           {/* Logo */}
           <Link to="/" className="navbar__logo">
-            <div className="navbar__logo-mark">T</div>
-            <div className="navbar__logo-text">
-              Target One
-              <span className="navbar__logo-sub">Electronics Distribution</span>
-            </div>
+            <img
+              src={logo} 
+              alt="Target One"
+              className="navbar__logo-img"
+            />
           </Link>
 
           {/* Desktop Nav */}
