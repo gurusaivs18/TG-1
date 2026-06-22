@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: "Our Brands", path: "/brands" },
   { label: "Events", path: "/events" },
   { label: "Blogs", path: "/blogs" },
-  { label: "Contact", path: "/contact" },
+  { label: "Contact Us", path: "/contact" },
 ];
 
 export default function Navbar() {
