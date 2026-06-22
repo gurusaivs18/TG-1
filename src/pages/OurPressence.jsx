@@ -1,9 +1,5 @@
-
-
 function OurPressence() {
-  return (
-    <div>OurPressence</div>
-  )
+  return <div>OurPressence</div>;
 }
 
-export default OurPressence
+export default OurPressence;
