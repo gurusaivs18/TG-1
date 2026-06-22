@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../css/Navbar.css";
-import logo from "../assets/targetone_transparent.png";
+import logo from "../assets/targetone.png";
 
 const NAV_LINKS = [
   { label: "Home", path: "/" },

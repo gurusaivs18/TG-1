@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+
 import Home from "./components/Home";
 import About from "./pages/About";
 import Brands from "./pages/Brands";
@@ -11,20 +14,26 @@ import Categories from "./pages/Categories";
 import OurPressence from "./pages/OurPressence";
 import Blogs from "./pages/Blogs";
 
-// Scroll to top on route change
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
-
 function AppLayout() {
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   return (
     <>
-      <ScrollToTop />
+      {loading && <Loader />}
+
       <Navbar />
+
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -33,10 +42,11 @@ function AppLayout() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/brands" element={<Brands />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/blogs" element={<Blogs/>} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+
       <Footer />
     </>
   );
