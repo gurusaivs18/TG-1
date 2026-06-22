@@ -244,7 +244,6 @@
   .hero {
     min-height: 100svh;
     background-position: 60% top;
-    /* Stronger overlay so text stays readable on busy background */
     background-image:
       linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
       var(--hero-bg) !important;
@@ -796,7 +795,6 @@
     min-height: 100svh;
     padding: 100px 0 70px;
     background-position: center top;
-    /* Stronger overlay for tablet */
     background-image:
       linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
       var(--hero-bg) !important;
@@ -880,6 +878,11 @@
   .categories__grid,
   .partners__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* ✅ FIX: prevent cards from being too tall on mobile */
+  .categories__card {
+    aspect-ratio: 16 / 9;
   }
 
   .van-sales__grid {
@@ -979,6 +982,11 @@
 
   .categories__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* ✅ FIX: slightly taller ratio on small phones is fine */
+  .categories__card {
+    aspect-ratio: 4 / 3;
   }
 
   .container {

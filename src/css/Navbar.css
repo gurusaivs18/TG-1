@@ -25,14 +25,17 @@
 }
 
 /* ── Desktop nav links always black ── */
-.navbar--scrolled .navbar__link,
 .navbar--transparent .navbar__link {
   color: #000000;
 }
+.navbar--scrolled .navbar__link {
+  color: #000000;
+}
 
+/* ── Hover always red ── */
 .navbar--scrolled .navbar__link:hover,
 .navbar--transparent .navbar__link:hover {
-  color: var(--color-primary);
+  color: #e8314a;
 }
 
 .navbar__inner {
@@ -82,6 +85,10 @@
   line-height: 1.1;
 }
 
+.navbar--scrolled .navbar__logo-text {
+  color: #000000;
+}
+
 .navbar__logo-sub {
   font-size: var(--text-xs);
   font-weight: 400;
@@ -89,6 +96,10 @@
   color: #000000;
   opacity: 0.6;
   display: block;
+}
+
+.navbar--scrolled .navbar__logo-sub {
+  color: #000000;
 }
 
 /* ── Desktop Nav Links ── */
@@ -112,7 +123,7 @@
   letter-spacing: 0.01em;
 }
 
-/* Animated underline on desktop links */
+/* Animated underline — red */
 .navbar__link::after {
   content: "";
   position: absolute;
@@ -120,7 +131,7 @@
   left: 14px;
   right: 14px;
   height: 2px;
-  background: var(--color-primary);
+  background: #e8314a;
   border-radius: 2px;
   transform: scaleX(0);
   transform-origin: center;
@@ -133,12 +144,12 @@
 }
 
 .navbar__link:hover {
-  color: var(--color-primary);
+  color: #e8314a;
   transform: translateY(-1px);
 }
 
 .navbar__link--active {
-  color: var(--color-primary) !important;
+  color: #e8314a !important;
 }
 
 .navbar__cta {
@@ -157,6 +168,10 @@
   border: none;
   cursor: pointer;
   padding: 8px;
+  color: #000000;
+}
+
+.navbar--scrolled .navbar__hamburger {
   color: #000000;
 }
 
@@ -245,9 +260,10 @@
   transition-delay: 0.33s;
 }
 
+/* ── Mobile hover red ── */
 .navbar__mobile-link:hover {
-  color: var(--color-primary);
-  background: rgba(0, 0, 0, 0.03);
+  color: #e8314a;
+  background: rgba(232, 49, 74, 0.05);
   padding-left: 30px;
 }
 
@@ -266,16 +282,21 @@
   transition-delay: 0.38s;
 }
 
-/* ── Responsive — ONE breakpoint only ── */
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .navbar__nav {
     display: none;
   }
   .navbar__hamburger {
     display: flex;
-    color: #000000;
   }
-  .navbar--scrolled .navbar__hamburger {
-    color: #000000;
-  }
+}
+.navbar {
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.navbar--hidden {
+  transform: translateY(-100%);
 }

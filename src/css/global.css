@@ -14,23 +14,23 @@ body {
 }
 :root {
   /* Brand Colors */
-  --color-primary: #c8102e; /* TG Red */
-  --color-primary-dark: #9b0b22;
-  --color-primary-light: #e8314a;
-  --color-secondary: #1a1a2e; /* Deep Navy */
-  --color-secondary-light: #252545;
-  --color-accent: #f5a623; /* Gold accent */
+  --color-primary: #1D4ED8;         /* Primary Blue */
+  --color-primary-dark: #1740b0;
+  --color-primary-light: #3b6fec;
+  --color-secondary: #0F172A;       /* Dark background */
+  --color-secondary-light: #1e293b;
+  --color-accent: #F97316;          /* Orange CTA */
 
   /* Neutral Palette */
   --color-white: #ffffff;
-  --color-off-white: #f8f8f8;
-  --color-light-gray: #f1f1f1;
+  --color-off-white: #F8FAFC;       /* Clean background */
+  --color-light-gray: #e2e8f0;
   --color-mid-gray: #bdbdbd;
   --color-dark-gray: #4a4a4a;
-  --color-black: #111111;
+  --color-black: #0F172A;           /* Dark text */
 
   /* Text */
-  --text-primary: #111111;
+  --text-primary: #0F172A;          /* Dark text */
   --text-secondary: #4a4a4a;
   --text-muted: #888888;
   --text-on-dark: #ffffff;
@@ -41,16 +41,16 @@ body {
   --font-body: "Inter", sans-serif;
 
   /* Type Scale */
-  --text-xs: 0.75rem; /* 12px */
-  --text-sm: 0.875rem; /* 14px */
-  --text-base: 1rem; /* 16px */
-  --text-lg: 1.125rem; /* 18px */
-  --text-xl: 1.25rem; /* 20px */
-  --text-2xl: 1.5rem; /* 24px */
-  --text-3xl: 1.875rem; /* 30px */
-  --text-4xl: 2.25rem; /* 36px */
-  --text-5xl: 3rem; /* 48px */
-  --text-6xl: 3.75rem; /* 60px */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
 
   /* Uniform Section Spacing */
   --section-padding-y: 96px;
@@ -230,7 +230,7 @@ button {
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.35);
+  box-shadow: 0 6px 20px rgba(29, 78, 216, 0.35);
 }
 
 .btn-secondary {

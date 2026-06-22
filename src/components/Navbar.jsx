@@ -15,20 +15,38 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const navbarRef = useRef(null);
+  const lastScrollY = useRef(0);
 
-  // ── Scroll: mark navbar + close menu on scroll down ──
+  // ── Scroll: hide on scroll down, show on scroll up ──
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      if (window.scrollY > 40) setMenuOpen(false); // close on scroll
+      const currentY = window.scrollY;
+      const lastY = lastScrollY.current;
+
+      setScrolled(currentY > 40);
+
+      const scrollingDown = currentY > lastY;
+      const scrollingUp = currentY < lastY;
+
+      if (currentY > 100 && scrollingDown) {
+        setHidden(true);
+        setMenuOpen(false);
+      }
+
+      if (scrollingUp) {
+        setHidden(false);
+      }
+
+      lastScrollY.current = currentY;
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
   // ── Close menu when resized to desktop ──
   useEffect(() => {
     const onResize = () => {
@@ -65,7 +83,10 @@ export default function Navbar() {
   return (
     <header
       ref={navbarRef}
-      className={`navbar ${scrolled ? "navbar--scrolled" : "navbar--transparent"}`}
+      className={`navbar
+        ${scrolled ? "navbar--scrolled" : "navbar--transparent"}
+        ${hidden ? "navbar--hidden" : ""}
+      `}
     >
       <div className="container">
         <div className="navbar__inner">
