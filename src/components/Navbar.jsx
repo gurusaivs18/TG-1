@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../css/Navbar.css";
 import logo from "../assets/targetone_transparent.png";
-
+import uaeFlag from "../assets/flagUae.avif";
+import qatarFlag from "../assets/Qtrflag.avif";
 const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
@@ -85,9 +86,9 @@ export default function Navbar() {
     <header
       ref={navbarRef}
       className={`navbar
-        ${scrolled ? "navbar--scrolled" : "navbar--transparent"}
-        ${hidden ? "navbar--hidden" : ""}
-      `}
+      ${scrolled ? "navbar--scrolled" : "navbar--transparent"}
+      ${hidden ? "navbar--hidden" : ""}
+    `}
     >
       <div className="container">
         <div className="navbar__inner">
@@ -102,14 +103,23 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`navbar__link ${location.pathname === link.path ? "navbar__link--active" : ""}`}
+                className={`navbar__link ${
+                  location.pathname === link.path ? "navbar__link--active" : ""
+                }`}
               >
                 {link.label}
               </Link>
             ))}
+
             <Link to="/contact" className="btn btn-primary navbar__cta">
               Get in Touch
             </Link>
+
+            {/* Country Flags */}
+            <div className="navbar__flags">
+              <img src={uaeFlag} alt="UAE" className="navbar__flag" />
+              <img src={qatarFlag} alt="Qatar" className="navbar__flag" />
+            </div>
           </nav>
 
           {/* Hamburger */}
@@ -131,11 +141,14 @@ export default function Navbar() {
           <Link
             key={link.path}
             to={link.path}
-            className={`navbar__mobile-link ${location.pathname === link.path ? "navbar__link--active" : ""}`}
+            className={`navbar__mobile-link ${
+              location.pathname === link.path ? "navbar__link--active" : ""
+            }`}
           >
             {link.label}
           </Link>
         ))}
+
         <div className="navbar__mobile-cta">
           <Link
             to="/contact"
