@@ -70,8 +70,15 @@ export default function Events() {
 
   const filtered = EVENTS.filter((e) => {
     const matchYear = yearFilter === "All" || e.date.year === yearFilter;
-    const matchStatus =
-      statusFilter === "All" || e.status === statusFilter.toLowerCase();
+
+    let matchStatus = true;
+
+    if (statusFilter === "Past") {
+      matchStatus = e.status === "past" && Number(e.date.year) >= 2025;
+    } else if (statusFilter === "Upcoming") {
+      matchStatus = e.status === "upcoming";
+    }
+
     return matchYear && matchStatus;
   });
 
