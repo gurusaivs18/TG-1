@@ -6,7 +6,7 @@ export default function Loader() {
       <div className="loader-content">
         <div className="loader-ring"></div>
         <h2 className="loader-logo">Target One</h2>
-        <p>Loading Experience...</p>
+        <p>please Wait...</p>
       </div>
     </div>
   );

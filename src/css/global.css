@@ -4,8 +4,8 @@
    ============================================================ */
 
 /* ---------- Google Fonts Import ---------- */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap");
-
+/* ---------- Google Fonts Import ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 /* ---------- CSS Variables ---------- */
 html,
 body {
@@ -14,31 +14,32 @@ body {
 }
 :root {
   /* Brand Colors */
-  --color-primary: #1D4ED8;         /* Primary Blue */
+  --color-primary: #1d4ed8; /* Primary Blue */
   --color-primary-dark: #1740b0;
   --color-primary-light: #3b6fec;
-  --color-secondary: #0F172A;       /* Dark background */
+  --color-secondary: #0f172a; /* Dark background */
   --color-secondary-light: #1e293b;
-  --color-accent: #F97316;          /* Orange CTA */
+  --color-accent: #f97316; /* Orange CTA */
 
   /* Neutral Palette */
   --color-white: #ffffff;
-  --color-off-white: #F8FAFC;       /* Clean background */
+  --color-off-white: #f8fafc; /* Clean background */
   --color-light-gray: #e2e8f0;
   --color-mid-gray: #bdbdbd;
   --color-dark-gray: #4a4a4a;
-  --color-black: #0F172A;           /* Dark text */
+  --color-black: #0f172a; /* Dark text */
 
   /* Text */
-  --text-primary: #0F172A;          /* Dark text */
+  --text-primary: #0f172a; /* Dark text */
   --text-secondary: #4a4a4a;
   --text-muted: #888888;
   --text-on-dark: #ffffff;
   --text-on-dark-muted: rgba(255, 255, 255, 0.65);
 
   /* Typography */
-  --font-display: "Syne", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+
 
   /* Type Scale */
   --text-xs: 0.75rem;
@@ -224,7 +225,7 @@ button {
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-white);
-  border-color: var(--color-primary);
+  border-color: white;
 }
 .btn-primary:hover {
   background: var(--color-primary-dark);
