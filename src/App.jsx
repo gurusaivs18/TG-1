@@ -10,9 +10,9 @@ import About from "./pages/About";
 import Brands from "./pages/Brands";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
-import Categories from "./pages/Categories";
-import OurPressence from "./pages/OurPressence";
-import Blogs from "./pages/Blogs";
+// import Categories from "./pages/Categories";
+// import OurPressence from "./pages/OurPressence";
+// import Blogs from "./pages/Blogs";
 
 function AppLayout() {
   const location = useLocation();
@@ -38,11 +38,11 @@ function AppLayout() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/ourpressence" element={<OurPressence />} />
-          <Route path="/categories" element={<Categories />} />
+          {/* <Route path="/ourpressence" element={<OurPressence />} /> */}
+          {/* <Route path="/categories" element={<Categories />} /> */}
           <Route path="/brands" element={<Brands />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/blogs" element={<Blogs />} />
+          {/* <Route path="/blogs" element={<Blogs />} /> */}
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

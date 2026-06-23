@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../css/Home.css";
-import heroBackground from "../assets/tg11.png";
+import heroBackground from "../assets/Target One Image from FB.jpg.jpeg";
 import UAENetworkMap from "../components/UAENetworkMap";
 import { useEffect } from "react";
 

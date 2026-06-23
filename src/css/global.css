@@ -4,8 +4,8 @@
    ============================================================ */
 
 /* ---------- Google Fonts Import ---------- */
-/* ---------- Google Fonts Import ---------- */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
 /* ---------- CSS Variables ---------- */
 html,
 body {
@@ -14,32 +14,31 @@ body {
 }
 :root {
   /* Brand Colors */
-  --color-primary: #1d4ed8; /* Primary Blue */
-  --color-primary-dark: #1740b0;
-  --color-primary-light: #3b6fec;
-  --color-secondary: #0f172a; /* Dark background */
-  --color-secondary-light: #1e293b;
-  --color-accent: #f97316; /* Orange CTA */
+  --color-primary: #a3202d; /* Primary Red */
+  --color-primary-dark: #8a1a25;
+  --color-primary-light: #c2263b;
+  --color-secondary: #3b1a0a; /* Dark Brown background */
+  --color-secondary-light: #5c2d1a;
+  --color-accent: #c2410c; /* Burnt Orange/Brown CTA */
 
   /* Neutral Palette */
   --color-white: #ffffff;
-  --color-off-white: #f8fafc; /* Clean background */
-  --color-light-gray: #e2e8f0;
-  --color-mid-gray: #bdbdbd;
-  --color-dark-gray: #4a4a4a;
-  --color-black: #0f172a; /* Dark text */
+  --color-off-white: #fdf8f5; /* Warm white background */
+  --color-light-gray: #f0e6df; /* Warm light tone */
+  --color-mid-gray: #c4a98f; /* Warm mid tone */
+  --color-dark-gray: #6b3d2a; /* Brown gray */
+  --color-black: #3b1a0a; /* Dark Brown text */
 
   /* Text */
-  --text-primary: #0f172a; /* Dark text */
-  --text-secondary: #4a4a4a;
-  --text-muted: #888888;
+  --text-primary: #3b1a0a; /* Dark Brown text */
+  --text-secondary: #6b3d2a;
+  --text-muted: #9e6e56;
   --text-on-dark: #ffffff;
   --text-on-dark-muted: rgba(255, 255, 255, 0.65);
 
   /* Typography */
   --font-display: "Poppins", sans-serif;
   --font-body: "Poppins", sans-serif;
-
 
   /* Type Scale */
   --text-xs: 0.75rem;
@@ -231,7 +230,7 @@ button {
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(29, 78, 216, 0.35);
+  box-shadow: 0 6px 20px rgba(163, 32, 45, 0.35);
 }
 
 .btn-secondary {
