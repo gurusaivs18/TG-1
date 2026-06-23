@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       {/* ── Van Sales Banner ── always visible on every page */}
-      <div className="footer__van-banner">
+      {/* <div className="footer__van-banner">
         <div className="container">
           <div className="footer__van-banner-inner">
             <div className="footer__van-banner-text">
@@ -25,7 +25,7 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* ── Main Footer ── */}
       <div className="footer__main">

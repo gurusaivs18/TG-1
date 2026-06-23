@@ -14,10 +14,10 @@
 }
 
 .navbar--scrolled {
-  background: rgba(218, 176, 176, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
 }
 .navbar__logo {
   display: flex;
