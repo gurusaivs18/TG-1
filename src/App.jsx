@@ -10,10 +10,23 @@ import About from "./pages/About";
 import Brands from "./pages/Brands";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
-// import Categories from "./pages/Categories";
-// import OurPressence from "./pages/OurPressence";
-// import Blogs from "./pages/Blogs";
 
+// -----------------------------
+// Scroll to Top on Route Change
+// -----------------------------
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+}
+
+// -----------------------------
+// App Layout
+// -----------------------------
 function AppLayout() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
@@ -38,11 +51,8 @@ function AppLayout() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/ourpressence" element={<OurPressence />} /> */}
-          {/* <Route path="/categories" element={<Categories />} /> */}
           <Route path="/brands" element={<Brands />} />
           <Route path="/events" element={<Events />} />
-          {/* <Route path="/blogs" element={<Blogs />} /> */}
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
@@ -52,9 +62,13 @@ function AppLayout() {
   );
 }
 
+// -----------------------------
+// Root App
+// -----------------------------
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AppLayout />
     </BrowserRouter>
   );
