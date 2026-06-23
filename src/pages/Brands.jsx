@@ -2,84 +2,68 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 // import PageHero from "../components/PageHero";
 import "../css/Brands.css";
-import "../css/Home.css";
 // import brandsHero from "../assets/sp1.jpg";
+import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
+import benq from "../assets/benq rework2.jpeg";
+import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
+import soundpeats from "../assets/soundpeats.jpeg";
+// import acefast from "../assets/acefast.png";
+import alogic from "../assets/alogic.jpeg";
 
 const BRANDS = [
   {
     id: "marshall",
     name: "Marshall",
-    logo: "/images/brands/marshall.png",
+    logo: marshall,
     category: "Audio",
-    tagline:
-      "Iconic rock & roll sound. Premium headphones, speakers, and earphones.",
-    desc: "Marshall is a global audio brand known for its legendary rock heritage. We distribute the full Marshall portfolio across UAE & Qatar — from portable Bluetooth speakers to premium headphones.",
+    tagline: "Iconic rock & roll sound.",
+    desc: "Marshall is a global audio brand...",
     products: ["Bluetooth Speakers", "Headphones", "Earphones", "Amplifiers"],
-    gallery: [
-      "/images/brands/lifestyle_marshall.png",
-      "/images/brands/marshall.png",
-    ],
   },
   {
     id: "benq",
     name: "BenQ",
-    logo: "/images/brands/benq.png",
+    logo: benq,
     category: "Video & Monitors",
-    tagline:
-      "Bringing Enjoyment Quality to Life — displays, projectors, and monitors.",
-    desc: "BenQ delivers industry-leading projectors and professional-grade monitors for business, gaming, and education. We distribute BenQ across the GCC with full retail and B2B support.",
-    products: [
-      "Projectors",
-      "Gaming Monitors",
-      "Business Displays",
-      "4K Monitors",
-    ],
-    gallery: [],
+    tagline: "Displays and projectors.",
+    desc: "BenQ delivers industry-leading projectors...",
+    products: ["Projectors", "Gaming Monitors", "Business Displays"],
   },
   {
     id: "dicota",
     name: "Dicota",
-    logo: "/images/brands/dicota.png",
+    logo: dicota,
     category: "Bags & Cases",
-    tagline: "Professional laptop bags, backpacks, and travel accessories.",
-    desc: "Dicota is a European brand specializing in high-quality laptop bags, backpacks, and accessories designed for professionals and business travelers.",
-    products: ["Laptop Bags", "Backpacks", "Sleeves", "Travel Accessories"],
-    gallery: [],
+    tagline: "Laptop bags & backpacks.",
+    desc: "Dicota is a European brand...",
+    products: ["Laptop Bags", "Backpacks", "Sleeves"],
   },
   {
     id: "soundpeats",
     name: "SoundPEATS",
-    logo: "/images/brands/soundpeats.png",
+    logo: soundpeats,
     category: "Audio",
-    tagline: "True wireless earbuds and audio accessories for everyday life.",
-    desc: "SoundPEATS delivers high-quality True Wireless Stereo (TWS) earbuds and audio products at competitive price points, ideal for the mid-range retail segment.",
-    products: ["TWS Earbuds", "Neckband Earphones", "Sports Earphones"],
-    gallery: [],
+    tagline: "True wireless earbuds.",
+    desc: "SoundPEATS delivers high-quality earbuds...",
+    products: ["TWS Earbuds", "Neckband Earphones"],
   },
-  {
-    id: "acefast",
-    name: "AceFast",
-    logo: "/images/brands/acefast.png",
-    category: "Accessories",
-    tagline: "Smart charging, cables, and connectivity accessories.",
-    desc: "AceFast is a rising tech accessories brand with a strong portfolio of fast chargers, USB-C cables, audio adapters, and lifestyle accessories.",
-    products: [
-      "Fast Chargers",
-      "USB-C Cables",
-      "Audio Adapters",
-      "Power Banks",
-    ],
-    gallery: [],
-  },
+  // {
+  //   id: "acefast",
+  //   name: "AceFast",
+  //   logo: acefast,
+  //   category: "Accessories",
+  //   tagline: "Smart charging accessories.",
+  //   desc: "AceFast is a rising tech accessories brand...",
+  //   products: ["Fast Chargers", "USB-C Cables"],
+  // },
   {
     id: "alogic",
     name: "Alogic",
-    logo: "/images/brands/alogic.png",
+    logo: alogic,
     category: "Connectivity",
-    tagline: "Premium connectivity solutions for modern workspaces.",
-    desc: "Alogic specializes in premium USB-C hubs, docking stations, HDMI cables, and workspace connectivity products for professionals and businesses.",
-    products: ["USB-C Hubs", "Docking Stations", "Cables", "Adapters"],
-    gallery: [],
+    tagline: "Premium connectivity solutions.",
+    desc: "Alogic specializes in USB-C hubs...",
+    products: ["USB-C Hubs", "Docking Stations"],
   },
 ];
 
@@ -175,7 +159,7 @@ export default function Brands() {
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    className="brand-card__logo"
+                    className={`brand-card__logo brand-card__logo--${brand.id}`}
                   />
                 </div>
                 <div className="brand-card__body">

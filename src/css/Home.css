@@ -230,8 +230,6 @@
 }
 
 /* ── Responsive Hero Background ── */
-
-/* Tablet: shift focus slightly up so subject stays visible */
 @media (max-width: 1024px) {
   .hero {
     background-position: center top;
@@ -239,25 +237,34 @@
   }
 }
 
-/* Mobile landscape & portrait: darken overlay more + anchor top */
 @media (max-width: 768px) {
   .hero {
     min-height: 100svh;
-    background-position: 60% top;
+    background-size: contain;
+    background-position: center bottom;
     background-image:
-      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
+      linear-gradient(
+        to bottom,
+        rgba(15, 15, 36, 0.9) 0%,
+        rgba(15, 15, 36, 0.75) 50%,
+        rgba(15, 15, 36, 0.2) 100%
+      ),
       var(--hero-bg) !important;
   }
 }
 
-/* Small phones: center subject and add extra overlay depth */
 @media (max-width: 480px) {
   .hero {
     min-height: 100svh;
-    background-position: 65% top;
-    background-size: cover;
+    background-size: contain;
+    background-position: center bottom;
     background-image:
-      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
+      linear-gradient(
+        to bottom,
+        rgba(15, 15, 36, 0.92) 0%,
+        rgba(15, 15, 36, 0.78) 48%,
+        rgba(15, 15, 36, 0.15) 100%
+      ),
       var(--hero-bg) !important;
   }
 }
@@ -478,44 +485,144 @@
   letter-spacing: 0.04em;
 }
 
-/* ---------- Brands Marquee ---------- */
+/* ============================================================
+   BRANDS MARQUEE — Premium redesign
+   - White card with subtle border + shadow
+   - Fixed height so all logos appear uniform
+   - grayscale → full colour on hover
+   - object-fit: contain so no letterboxing/cropping
+   - Edge fade via a CSS mask so the scroll looks seamless
+============================================================ */
 .brands__marquee-wrap {
   overflow: hidden;
   margin-top: 48px;
+  /* soft fade-out on both edges for a polished infinite-scroll feel */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
 }
 
 .brands__marquee-track {
   display: flex;
-  gap: 48px;
-  animation: ticker-scroll 18s linear infinite;
+  align-items: center;
+  gap: 24px;
+  animation: ticker-scroll 28s linear infinite;
   width: max-content;
 }
 
+/* Each logo card */
 .brands__logo-item {
-  background: var(--color-white);
-  border: 1px solid var(--color-light-gray);
-  border-radius: var(--radius-md);
-  padding: 16px 28px;
+  flex-shrink: 0;
+  width: 240px;
+  height: 130px;
+  background: #ffffff;
+  border: 1px solid #e8e8ee;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 140px;
-  height: 72px;
-  flex-shrink: 0;
-  transition: box-shadow var(--transition);
-  filter: grayscale(1);
-  opacity: 0.65;
+
+  padding: 18px 28px;
+
+  transition: all 0.3s ease;
 }
 
 .brands__logo-item:hover {
   filter: grayscale(0);
   opacity: 1;
-  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 24px rgba(200, 16, 46, 0.12);
+  transform: translateY(-3px);
 }
 
+/* The image inside always fills the card without distortion */
 .brands__logo-item img {
-  max-height: 36px;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
+  display: block;
+}
+
+/* Marshall (bigger, premium logo) */
+.logo--marshall img {
+  max-height: 100px;
+  transform: scale(1.05);
+}
+
+/* BenQ (wide logo) */
+.logo--benq img {
+  max-height: 90px;
+  transform: scale(0.95);
+}
+
+/* Dicota (taller logo) */
+.logo--dicota img {
+  max-height: 90px;
+}
+
+/* SoundPEATS (small compact logo) */
+.logo--soundpeats img {
+  max-height: 150px;
+  transform: scale(0.9);
+}
+
+/* Alogic (needs more prominence) */
+.logo--alogic img {
+  max-height: 100px;
+  transform: scale(1.1);
+}
+/* Tablet — slightly smaller cards */
+@media (max-width: 1024px) {
+  .brands__logo-item {
+    width: 200px;
+    height: 110px;
+    padding: 12px 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .brands__marquee-wrap {
+    margin-top: 32px;
+  }
+  .brands__logo-item {
+    width: 180px;
+    height: 100px;
+    padding: 10px 16px;
+    border-radius: 10px;
+  }
+  .brands__marquee-track {
+    gap: 16px;
+    /* speed up slightly on mobile so motion is clear */
+    animation-duration: 22s;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .brands__logo-item {
+    width: 160px;
+    height: 90px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+  .brands__marquee-track {
+    gap: 12px;
+    animation-duration: 18s;
+  }
 }
 
 /* ---------- Partners Section ---------- */
@@ -766,7 +873,6 @@
   .hero__content {
     order: 1;
   }
-
   .hero__image-wrap {
     order: 2;
     max-width: 100%;
@@ -803,7 +909,6 @@
   .hero__content {
     text-align: center;
   }
-
   .hero__description {
     margin: 0 auto 30px;
     max-width: 100%;
@@ -844,25 +949,48 @@
   .hero {
     min-height: 100svh;
     padding-top: 88px;
-    background-position: 60% top;
-    background-size: cover;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-size: contain;
+    background-position: center bottom;
     background-image:
-      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
+      linear-gradient(
+        to bottom,
+        rgba(15, 15, 36, 0.9) 0%,
+        rgba(15, 15, 36, 0.75) 50%,
+        rgba(15, 15, 36, 0.2) 100%
+      ),
       var(--hero-bg) !important;
+  }
+
+  .hero .container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .hero__inner {
+    padding: 32px 0 24px;
+    width: 100%;
   }
 
   .hero__title {
     font-size: 2.4rem;
     line-height: 1.15;
+    margin-bottom: 16px;
   }
-
   .hero__description {
     font-size: 1rem;
+    margin-bottom: 24px;
   }
 
   .hero__actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
+    margin-bottom: 24px;
   }
 
   .hero__actions .btn {
@@ -870,7 +998,11 @@
     text-align: center;
   }
 
-  .hero__stats,
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 0;
+  }
+
   .stats-section__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -880,9 +1012,8 @@
     grid-template-columns: 1fr;
   }
 
-  /* ✅ FIX: prevent cards from being too tall on mobile */
   .categories__card {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
   }
 
   .van-sales__grid {
@@ -899,7 +1030,6 @@
   .van-sales__content {
     padding: 40px 0;
   }
-
   .van-sales__metrics {
     grid-template-columns: 1fr;
   }
@@ -922,24 +1052,16 @@
     gap: 24px;
   }
 
-  .brands__logo-item {
-    min-width: 110px;
-    height: 60px;
-  }
-
   .journey__timeline::before {
     left: 24px;
   }
-
   .journey__item {
     grid-template-columns: auto 1fr;
   }
-
   .journey__item--left .journey__content {
     text-align: left;
     grid-column: 2;
   }
-
   .journey__empty {
     display: none;
   }
@@ -949,9 +1071,15 @@
 @media (max-width: 480px) {
   .hero {
     padding-top: 100px;
-    background-position: 65% top;
+    background-size: contain;
+    background-position: center bottom;
     background-image:
-      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
+      linear-gradient(
+        to bottom,
+        rgba(15, 15, 36, 0.92) 0%,
+        rgba(15, 15, 36, 0.78) 48%,
+        rgba(15, 15, 36, 0.15) 100%
+      ),
       var(--hero-bg) !important;
   }
 
@@ -983,10 +1111,8 @@
   .categories__grid {
     grid-template-columns: 1fr;
   }
-
-  /* ✅ FIX: slightly taller ratio on small phones is fine */
   .categories__card {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4/3;
   }
 
   .container {

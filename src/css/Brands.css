@@ -34,6 +34,10 @@
 }
 
 /* Brand Cards Grid */
+.logo-card {
+  width: 160px;
+  min-height: 115px;
+}
 .brands-page__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -56,20 +60,39 @@
 }
 
 .brand-card__image-wrap {
-  background: var(--color-off-white);
-  padding: 32px;
+  height: 180px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 160px;
+  overflow: hidden;
 }
-
 .brand-card__logo {
-  max-height: 60px;
-  max-width: 140px;
+  max-height: 90px;
+  max-width: 180px;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
+/* controlli size of logo custom */
+.brand-card__logo--marshall {
+  transform: scale(1.9);
+}
 
+.brand-card__logo--benq {
+  transform: scale(1.9);
+}
+.brand-card__logo--dicota {
+  transform: scale(1.6);
+}
+
+.brand-card__logo--soundpeats {
+  transform: scale(2);
+}
+
+.brand-card__logo--alogic {
+  transform: scale(2);
+}
 .brand-card__body {
   padding: 20px;
 }
@@ -284,22 +307,47 @@
   border-color: var(--color-primary);
   box-shadow: var(--shadow-sm);
 }
-
 .brand-item-mini__logo {
-  height: 40px;
+  height: 120px; /* increase this */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  overflow: hidden; /* or remove */
 }
-
 .brand-item-mini__logo img {
-  max-height: 32px;
-  max-width: 90px;
+  max-height: 120px;
+  max-width: 180px;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  filter: grayscale(0.4);
 }
 
+/* per branjd sizing for product featured  */
+
+.brand-item-mini__logo img[alt="Marshall"] {
+  max-height: 150px;
+}
+
+.brand-item-mini__logo img[alt="BenQ"] {
+  max-height: 140px;
+}
+
+.brand-item-mini__logo img[alt="Dicota"] {
+  max-height: 150px;
+}
+
+.brand-item-mini__logo img[alt="SoundPEATS"] {
+  max-height: 150px;
+}
+
+.brand-item-mini__logo img[alt="Alogic"] {
+  max-height: 140px;
+}
+
+.brand-item-mini {
+  padding: 24px 20px;
+}
 .brand-item-mini__name {
   font-weight: 600;
   font-size: var(--text-sm);
@@ -321,8 +369,24 @@
   .brand-modal__header {
     grid-template-columns: 1fr;
   }
+  .brand-item-mini__logo {
+    height: 60px;
+  }
+
   .brand-modal__gallery {
     grid-template-columns: 1fr 1fr;
+  }
+  .brand-item-mini__logo img {
+    max-height: 60px;
+    max-width: 140px;
+  }
+  .brand-card__image-wrap {
+    height: 180px;
+    padding: 30px;
+  }
+  .brand-card__logo {
+    max-height: 90px;
+    max-width: 200px;
   }
 }
 

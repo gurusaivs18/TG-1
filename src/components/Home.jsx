@@ -14,12 +14,11 @@ import alogic from "../assets/alogic.jpeg";
 
 // Brand data
 const BRANDS = [
-  { name: "Marshall", img: marshall },
-  { name: "BenQ", img: benq },
-  { name: "Dicota", img: dicota },
-  { name: "SoundPEATS", img: soundpeats },
-  // { name: "AceFast", img: acefast },
-  { name: "Alogic", img: alogic },
+  { name: "Marshall", img: marshall, className: "logo--marshall" },
+  { name: "BenQ", img: benq, className: "logo--benq" },
+  { name: "Dicota", img: dicota, className: "logo--dicota" },
+  { name: "SoundPEATS", img: soundpeats, className: "logo--soundpeats" },
+  { name: "Alogic", img: alogic, className: "logo--alogic" },
 ];
 
 const PARTNERS = [
@@ -318,7 +317,10 @@ export default function Home() {
         <div className="brands__marquee-wrap">
           <div className="brands__marquee-track">
             {[...BRANDS, ...BRANDS].map((brand, i) => (
-              <div key={i} className="brands__logo-item">
+              <div
+                key={i}
+                className={`brands__logo-item ${brand.className || ""}`}
+              >
                 <img src={brand.img} alt={brand.name} />
               </div>
             ))}
