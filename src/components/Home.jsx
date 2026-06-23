@@ -4,14 +4,22 @@ import heroBackground from "../assets/tg11.png";
 import UAENetworkMap from "../components/UAENetworkMap";
 import { useEffect } from "react";
 
+// brands
+import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
+import benq from "../assets/benq rework2.jpeg";
+import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
+import soundpeats from "../assets/soundpeats.jpeg";
+// import acefast from "../assets/brands/acefast.png";
+import alogic from "../assets/alogic.jpeg";
+
 // Brand data
 const BRANDS = [
-  { name: "Marshall", img: "/images/brands/marshall.png" },
-  { name: "BenQ", img: "/images/brands/benq.png" },
-  { name: "Dicota", img: "/images/brands/dicota.png" },
-  { name: "SoundPEATS", img: "/images/brands/soundpeats.png" },
-  { name: "AceFast", img: "/images/brands/acefast.png" },
-  { name: "Alogic", img: "/images/brands/alogic.png" },
+  { name: "Marshall", img: marshall },
+  { name: "BenQ", img: benq },
+  { name: "Dicota", img: dicota },
+  { name: "SoundPEATS", img: soundpeats },
+  // { name: "AceFast", img: acefast },
+  { name: "Alogic", img: alogic },
 ];
 
 const PARTNERS = [
