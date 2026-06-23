@@ -88,9 +88,12 @@ export default function UAENetworkMap() {
     }
     function cy(c) {
       if (!isMobileCanvas()) return c.ry * H();
-      // shift cluster to vertical center: original range ~0.17–0.72, center ~0.44
-      const offset = H() * 0.5 - H() * 0.44;
-      return c.ry * H() + offset;
+
+      const shiftUp = H() * 0.08; // reduce from 0.14 → 0.08
+
+      const y = c.ry * H() - shiftUp;
+
+      return Math.max(20, Math.min(H() - 20, y));
     }
 
     function arcMid(a, b) {
