@@ -71,7 +71,8 @@ const SERVICES = [
 
 export default function About() {
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    // Existing reveal observer
+    const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add("active");
@@ -80,9 +81,33 @@ export default function About() {
       { threshold: 0.2 },
     );
     document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
-      observer.observe(el);
+      revealObserver.observe(el);
     });
-    return () => observer.disconnect();
+
+    // Journey hang animation
+    const journeyItems = document.querySelectorAll(".journey-alt__item");
+    const journeyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            journeyItems.forEach((item, i) => {
+              setTimeout(() => {
+                item.classList.add("hang-in");
+              }, i * 300);
+            });
+            journeyObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    const journeySection = document.querySelector(".journey-alt");
+    if (journeySection) journeyObserver.observe(journeySection);
+
+    return () => {
+      revealObserver.disconnect();
+      journeyObserver.disconnect();
+    };
   }, []);
 
   return (

@@ -93,7 +93,6 @@
   line-height: 1.6;
 }
 
-
 .journey-alt {
   display: flex;
   flex-direction: column;
@@ -106,7 +105,7 @@
 .journey-alt::before {
   content: "";
   position: absolute;
-  left: 8px;
+  left: 14px;
   top: 4px;
   bottom: 4px;
   width: 2px;
@@ -116,6 +115,9 @@
 .journey-alt__item {
   position: relative;
   padding: 0 0 40px 32px;
+  opacity: 0;
+  transform-origin: left top;
+  transform: translateY(-40px) rotate(-8deg);
 }
 
 .journey-alt__item::before {
@@ -129,6 +131,40 @@
   background: var(--color-primary);
   border: 3px solid var(--color-white);
   box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.journey-alt__item.hang-in {
+  animation: pendulumDrop 3.2s cubic-bezier(0.15, 0.5, 0.4, 1) forwards;
+}
+
+@keyframes pendulumDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) rotate(-8deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0px) rotate(5deg);
+  }
+  38% {
+    transform: translateY(0px) rotate(-3.5deg);
+  }
+  54% {
+    transform: translateY(0px) rotate(2deg);
+  }
+  68% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  80% {
+    transform: translateY(0px) rotate(0.4deg);
+  }
+  90% {
+    transform: translateY(0px) rotate(-0.1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
 .journey-alt__year {
@@ -150,6 +186,14 @@
   font-size: var(--text-sm);
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-alt__item {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 @media (max-width: 768px) {
