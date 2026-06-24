@@ -411,57 +411,23 @@ export default function Home() {
               Building Regional Presence Since 2016
             </h2>
           </div>
-          <div style={{ maxWidth: 600, margin: "0 auto" }}>
+
+          <div className="journey__timeline">
             {JOURNEY.map((item) => (
-              <div
-                key={item.year}
-                style={{
-                  display: "flex",
-                  gap: 24,
-                  alignItems: "flex-start",
-                  marginBottom: 28,
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    minWidth: 60,
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 700,
-                    color: "var(--color-primary)",
-                    fontSize: "var(--text-sm)",
-                    paddingTop: 3,
-                  }}
-                >
-                  {item.year}
+              <div key={item.year} className="journey__item">
+                <div className="journey__year">{item.year}</div>
+
+                <div className="journey__center">
+                  <span className="journey__line" />
+                  <span className="journey__dot" />
                 </div>
-                <div
-                  style={{
-                    width: 12,
-                    height: 12,
-                    borderRadius: "50%",
-                    background: "var(--color-primary)",
-                    flexShrink: 0,
-                    marginTop: 5,
-                    position: "relative",
-                    zIndex: 1,
-                  }}
-                />
-                <div
-                  style={{
-                    fontWeight: 600,
-                    fontSize: "var(--text-base)",
-                    paddingTop: 2,
-                  }}
-                >
-                  {item.milestone}
-                </div>
+
+                <div className="journey__milestone">{item.milestone}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
       {/* ── CTA Banner ── */}
       {/* <section className="cta-banner reveal-right">
         <div className="container">
