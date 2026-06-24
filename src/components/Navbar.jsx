@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../css/Navbar.css";
 import logo from "../assets/targetone_transparent.png";
-import uaeFlag from "../assets/flagUae.avif";
-import qatarFlag from "../assets/Qtrflag.avif";
+import uaeFlag from "../assets/uaeFlagnew.webp";
+import qatarFlag from "../assets/qtrFlagnew.webp";
 const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
@@ -117,8 +117,12 @@ export default function Navbar() {
 
             {/* Country Flags */}
             <div className="navbar__flags">
-              <img src={uaeFlag} alt="UAE" className="navbar__flag" />
-              <img src={qatarFlag} alt="Qatar" className="navbar__flag" />
+              <span className="navbar__flag-eye">
+                <img src={uaeFlag} alt="UAE" className="navbar__flag" />
+              </span>
+              <span className="navbar__flag-eye">
+                <img src={qatarFlag} alt="Qatar" className="navbar__flag" />
+              </span>
             </div>
           </nav>
 
