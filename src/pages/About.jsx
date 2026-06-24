@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-// import PageHero from "../components/PageHero";
 import "../css/About.css";
 import "../css/Home.css";
-// import aboutHero from "../assets/sp2.jpg";
+import { useEffect } from "react";
+
 const JOURNEY = [
   {
     year: "2016",
@@ -70,29 +70,24 @@ const SERVICES = [
 ];
 
 export default function About() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.2 },
+    );
+    document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
+      observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
-      {/* <PageHero
-        eyebrow="About Us"
-        title="About Target One"
-        subtitle="Leading electronics distributor"
-        backgroundImage={aboutHero}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 10,
-            marginTop: 24,
-          }}
-        >
-          <span className="hero__tag">🇦🇪 United Arab Emirates</span>
-          <span className="hero__tag">🇶🇦 Qatar</span>
-        </div>
-      </PageHero> */}
-
-      {/* ── Vision & Mission ── */}
-      <section className="section">
+      <section className="section reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Our Purpose</span>
@@ -125,8 +120,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── What We Do ── */}
-      <section className="section section--gray">
+      <section className="section section--gray reveal-right">
         <div className="container">
           <div className="section-header">
             <span className="section-eyebrow">What We Do</span>
@@ -150,8 +144,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Our Journey ── */}
-      <section className="section">
+      <section className="section reveal-left">
         <div className="container">
           <div className="section-header">
             <span className="section-eyebrow">Our Journey</span>
@@ -175,8 +168,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="cta-banner">
+      <section className="cta-banner reveal-right">
         <div className="container">
           <div className="cta-banner__inner">
             <h2 className="cta-banner__title">

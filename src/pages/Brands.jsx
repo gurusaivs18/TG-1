@@ -1,13 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import PageHero from "../components/PageHero";
 import "../css/Brands.css";
-// import brandsHero from "../assets/sp1.jpg";
 import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
 import benq from "../assets/benq rework2.jpeg";
 import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
 import soundpeats from "../assets/soundpeats.jpeg";
-// import acefast from "../assets/acefast.png";
 import alogic from "../assets/alogic.jpeg";
 
 const BRANDS = [
@@ -47,15 +44,6 @@ const BRANDS = [
     desc: "SoundPEATS delivers high-quality earbuds...",
     products: ["TWS Earbuds", "Neckband Earphones"],
   },
-  // {
-  //   id: "acefast",
-  //   name: "AceFast",
-  //   logo: acefast,
-  //   category: "Accessories",
-  //   tagline: "Smart charging accessories.",
-  //   desc: "AceFast is a rising tech accessories brand...",
-  //   products: ["Fast Chargers", "USB-C Cables"],
-  // },
   {
     id: "alogic",
     name: "Alogic",
@@ -107,6 +95,21 @@ export default function Brands() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [selectedBrand, setSelectedBrand] = useState(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.2 },
+    );
+    document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
+      observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const filtered =
     activeFilter === "All"
       ? BRANDS
@@ -120,21 +123,12 @@ export default function Brands() {
 
   return (
     <>
-      {/* <PageHero
-        title="Our Brands"
-        subtitle="Premium global brands"
-        backgroundImage={brandsHero}
-      /> */}
-
-      {/* ── Brand Listing ── */}
-      <section className="section">
+      <section className="section reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">All Brands</span>
             <h2 className="section-title">Browse Our Portfolio</h2>
           </div>
-
-          {/* Filter Bar */}
           <div className="brands-page__filter-bar">
             {FILTERS.map((f) => (
               <button
@@ -146,8 +140,6 @@ export default function Brands() {
               </button>
             ))}
           </div>
-
-          {/* Brand Cards */}
           <div className="brands-page__grid">
             {filtered.map((brand) => (
               <div
@@ -180,8 +172,7 @@ export default function Brands() {
         </div>
       </section>
 
-      {/* ── Category Browse Sections ── */}
-      <section className="section section--gray">
+      <section className="section section--gray reveal-right">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Browse by Category</span>
@@ -191,7 +182,6 @@ export default function Brands() {
               with curated brand and item selections.
             </p>
           </div>
-
           {CATEGORIES_CONFIG.map((cat) => {
             const catBrands = BRANDS.filter((b) => cat.brands.includes(b.name));
             return (
@@ -228,7 +218,6 @@ export default function Brands() {
                       </div>
                     </div>
                   ))}
-                  {/* Menu-style items under each brand */}
                   {catBrands
                     .flatMap((b) =>
                       b.products.map((p) => (
@@ -257,7 +246,6 @@ export default function Brands() {
         </div>
       </section>
 
-      {/* ── Brand Modal ── */}
       {selectedBrand && (
         <div className="brand-modal">
           <div
@@ -297,13 +285,6 @@ export default function Brands() {
               >
                 {selectedBrand.desc}
               </p>
-              {selectedBrand.gallery.length > 0 && (
-                <div className="brand-modal__gallery">
-                  {selectedBrand.gallery.map((img, i) => (
-                    <img key={i} src={img} alt={selectedBrand.name} />
-                  ))}
-                </div>
-              )}
               <div className="brand-modal__products-title">Product Lines</div>
               <div className="brand-modal__products">
                 {selectedBrand.products.map((p) => (

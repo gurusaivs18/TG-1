@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageHero from "../components/PageHero";
 import "../css/Pages.css";
 import "../css/Home.css";
@@ -25,6 +25,21 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.2 },
+    );
+    document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
+      observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
@@ -41,17 +56,14 @@ export default function Contact() {
   return (
     <>
       <PageHero
-        className="page-title
-      "
         eyebrow="Reach Out"
         title="Contact Us"
         subtitle="Whether you're a retailer, brand, or partner — we'd love to hear from you. Our team typically responds within 24 hours."
       />
 
-      <section className="section">
+      <section className="section reveal-left">
         <div className="container">
           <div className="contact__grid">
-            {/* Info Column */}
             <div>
               <h2 className="contact__info-title">Get in Touch</h2>
               <p className="contact__info-desc">
@@ -59,7 +71,6 @@ export default function Contact() {
                 distribution enquiries, van sales coverage, or any other
                 business queries.
               </p>
-
               <div className="contact__info-items">
                 <div className="contact__info-item">
                   <div className="contact__info-icon-wrap">📍</div>
@@ -94,8 +105,6 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-
-              {/* Flags */}
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 <span
                   className="hero__tag"
@@ -124,8 +133,6 @@ export default function Contact() {
                   🇶🇦 Qatar Operations
                 </span>
               </div>
-
-              {/* Partnership Enquiry Banner — Contact page only */}
               <div className="partnership-banner" style={{ marginTop: 36 }}>
                 <div>
                   <div className="partnership-banner__text">
@@ -140,7 +147,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Form Column */}
             <div className="contact__form">
               {submitted ? (
                 <div style={{ textAlign: "center", padding: "40px 0" }}>
@@ -195,7 +201,6 @@ export default function Contact() {
                         />
                       </div>
                     </div>
-
                     <div className="form-row">
                       <div className="form-group">
                         <label className="form-label">Email Address *</label>
@@ -221,7 +226,6 @@ export default function Contact() {
                         />
                       </div>
                     </div>
-
                     <div className="form-group">
                       <label className="form-label">
                         Company / Organisation
@@ -231,10 +235,9 @@ export default function Contact() {
                         name="company"
                         value={form.company}
                         onChange={handleChange}
-                        placeholder="     "
+                        placeholder=" "
                       />
                     </div>
-
                     <div className="form-group">
                       <label className="form-label">Subject *</label>
                       <select
@@ -252,7 +255,6 @@ export default function Contact() {
                         ))}
                       </select>
                     </div>
-
                     <div className="form-group">
                       <label className="form-label">Message *</label>
                       <textarea
@@ -265,7 +267,6 @@ export default function Contact() {
                         rows={5}
                       />
                     </div>
-
                     <button
                       type="submit"
                       className="btn btn-primary"

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../css/Home.css";
-import heroBackground from "../assets/tg11.png";
+import heroBackground from "../assets/tg11.webp";
 import UAENetworkMap from "../components/UAENetworkMap";
 import { useEffect } from "react";
 

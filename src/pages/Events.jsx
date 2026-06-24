@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import PageHero from "../components/PageHero";
 import "../css/Pages.css";
 import "../css/Home.css";
-// import eventsHero from "../assets/sp3.jpg";
+import Blogs from "./Blogs";
 
 const EVENTS = [
   {
@@ -68,31 +67,34 @@ export default function Events() {
   const [yearFilter, setYearFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.2 },
+    );
+    document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
+      observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const filtered = EVENTS.filter((e) => {
     const matchYear = yearFilter === "All" || e.date.year === yearFilter;
-
     let matchStatus = true;
-
-    if (statusFilter === "Past") {
+    if (statusFilter === "Past")
       matchStatus = e.status === "past" && Number(e.date.year) >= 2025;
-    } else if (statusFilter === "Upcoming") {
-      matchStatus = e.status === "upcoming";
-    }
-
+    else if (statusFilter === "Upcoming") matchStatus = e.status === "upcoming";
     return matchYear && matchStatus;
   });
 
   return (
     <>
-      {/* <PageHero
-        title="Events"
-        subtitle="Latest exhibitions"
-        backgroundImage={eventsHero}
-      /> */}
-
-      <section className="section">
+      <section className="section reveal-left">
         <div className="container">
-          {/* Filters */}
           <div
             style={{
               display: "flex",
@@ -113,7 +115,7 @@ export default function Events() {
                 </button>
               ))}
             </div>
-            <div className="" style={{ marginBottom: 0 }}>
+            <div style={{ marginBottom: 0 }}>
               {["All", "Upcoming", "Past"].map((s) => (
                 <button
                   key={s}
@@ -126,7 +128,6 @@ export default function Events() {
             </div>
           </div>
 
-          {/* Events Grid */}
           <div className="events__grid">
             {filtered.map((event) => (
               <div key={event.id} className="event-card">
@@ -184,8 +185,11 @@ export default function Events() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section section--gray">
+      <section className="reveal-right">
+        <Blogs />
+      </section>
+
+      <section className="section section--gray reveal-left">
         <div className="container" style={{ textAlign: "center" }}>
           <span className="section-eyebrow">Stay Connected</span>
           <h2 className="section-title" style={{ marginBottom: 16 }}>

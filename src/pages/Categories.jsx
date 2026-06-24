@@ -1,9 +1,21 @@
+import { useEffect } from "react";
+import "../css/Home.css";
 
+export default function Categories() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.2 },
+    );
+    document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
+      observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
-function Categories() {
-  return (
-    <div>Categories</div>
-  )
+  return <div className="section reveal-left">Categories</div>;
 }
-
-export default Categories
