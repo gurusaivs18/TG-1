@@ -305,7 +305,7 @@ export default function Home() {
           if (entry.isIntersecting) entry.target.classList.add("active");
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.05 },
     );
 
     document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {

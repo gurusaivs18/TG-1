@@ -3,7 +3,7 @@ import "../css/Home.css";
 
 export default function Categories() {
   useEffect(() => {
-    const observer = new IntersectionObserver(
+     = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add("active");

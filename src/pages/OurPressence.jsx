@@ -9,7 +9,7 @@ export default function OurPresence() {
           if (entry.isIntersecting) entry.target.classList.add("active");
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.05 },
     );
     document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
       observer.observe(el);
@@ -17,9 +17,5 @@ export default function OurPresence() {
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <div className="section reveal-left">
-      OurPresence
-    </div>
-  );
+  return <div className="section reveal-left">OurPresence</div>;
 }
