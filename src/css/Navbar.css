@@ -69,7 +69,7 @@
   border-radius: var(--radius-sm);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: #000000;
+  color: white;
   transition:
     color 0.25s ease,
     background 0.25s ease,
@@ -143,13 +143,27 @@
 }
 
 @keyframes eyeShift {
-  0%   { transform: translateX(0); }
-  15%  { transform: translateX(-5px); }
-  35%  { transform: translateX(-5px); }
-  50%  { transform: translateX(0); }
-  65%  { transform: translateX(5px); }
-  85%  { transform: translateX(5px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-5px);
+  }
+  35% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  65% {
+    transform: translateX(5px);
+  }
+  85% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 /* ── Hamburger ── */
 .navbar__hamburger {
