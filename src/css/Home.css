@@ -25,7 +25,6 @@
 .hero__bg-grid {
   display: none;
 }
-
 .hero__accent {
   display: none;
 }
@@ -121,7 +120,6 @@
   margin-top: 3px;
 }
 
-/* Hero Image Side */
 .hero__image-wrap {
   position: relative;
   display: flex;
@@ -227,46 +225,6 @@
   font-size: var(--text-xs);
   opacity: 0.85;
   margin-top: 2px;
-}
-
-/* ── Responsive Hero Background ── */
-@media (max-width: 1024px) {
-  .hero {
-    background-position: center top;
-    min-height: 100svh;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    min-height: 100svh;
-    background-size: contain;
-    background-position: center bottom;
-    background-image:
-      linear-gradient(
-        to bottom,
-        rgba(15, 15, 36, 0.9) 0%,
-        rgba(15, 15, 36, 0.75) 50%,
-        rgba(15, 15, 36, 0.2) 100%
-      ),
-      var(--hero-bg) !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    min-height: 100svh;
-    background-size: contain;
-    background-position: center bottom;
-    background-image:
-      linear-gradient(
-        to bottom,
-        rgba(15, 15, 36, 0.92) 0%,
-        rgba(15, 15, 36, 0.78) 48%,
-        rgba(15, 15, 36, 0.15) 100%
-      ),
-      var(--hero-bg) !important;
-  }
 }
 
 /* ---------- Scroll Ticker ---------- */
@@ -417,7 +375,7 @@
   letter-spacing: 0.08em;
 }
 
-/* ---------- Categories Section ---------- */
+/* ---------- Categories ---------- */
 .categories__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -485,18 +443,10 @@
   letter-spacing: 0.04em;
 }
 
-/* ============================================================
-   BRANDS MARQUEE — Premium redesign
-   - White card with subtle border + shadow
-   - Fixed height so all logos appear uniform
-   - grayscale → full colour on hover
-   - object-fit: contain so no letterboxing/cropping
-   - Edge fade via a CSS mask so the scroll looks seamless
-============================================================ */
+/* ---------- Brands Marquee ---------- */
 .brands__marquee-wrap {
   overflow: hidden;
   margin-top: 48px;
-  /* soft fade-out on both edges for a polished infinite-scroll feel */
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -521,7 +471,6 @@
   width: max-content;
 }
 
-/* Each logo card */
 .brands__logo-item {
   flex-shrink: 0;
   width: 240px;
@@ -530,25 +479,20 @@
   border: 1px solid #e8e8ee;
   border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 18px 28px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
 .brands__logo-item:hover {
-  filter: grayscale(0);
-  opacity: 1;
   border-color: var(--color-primary);
   box-shadow: 0 6px 24px rgba(200, 16, 46, 0.12);
   transform: translateY(-3px);
 }
 
-/* The image inside always fills the card without distortion */
 .brands__logo-item img {
   width: 100%;
   height: 100%;
@@ -556,36 +500,27 @@
   display: block;
 }
 
-/* Marshall (bigger, premium logo) */
 .logo--marshall img {
   max-height: 100px;
   transform: scale(1.8);
 }
-
-/* BenQ (wide logo) */
 .logo--benq img {
   max-height: 90px;
   transform: scale(1.5);
 }
-
-/* Dicota (taller logo) */
 .logo--dicota img {
   max-height: 90px;
   transform: scale(1.4);
 }
-
-/* SoundPEATS (small compact logo) */
 .logo--soundpeats img {
   max-height: 150px;
   transform: scale(1.9);
 }
-
-/* Alogic (needs more prominence) */
 .logo--alogic img {
   max-height: 100px;
   transform: scale(1.9);
 }
-/* Tablet — slightly smaller cards */
+
 @media (max-width: 1024px) {
   .brands__logo-item {
     width: 200px;
@@ -593,8 +528,6 @@
     padding: 12px 18px;
   }
 }
-
-/* Mobile */
 @media (max-width: 768px) {
   .brands__marquee-wrap {
     margin-top: 32px;
@@ -607,12 +540,9 @@
   }
   .brands__marquee-track {
     gap: 16px;
-    /* speed up slightly on mobile so motion is clear */
     animation-duration: 22s;
   }
 }
-
-/* Small phones */
 @media (max-width: 480px) {
   .brands__logo-item {
     width: 160px;
@@ -626,7 +556,7 @@
   }
 }
 
-/* ---------- Partners Section ---------- */
+/* ---------- Partners ---------- */
 .partners__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -661,20 +591,18 @@
   object-fit: contain;
   filter: grayscale(0.4);
 }
-
 .partner-card__name {
   font-weight: 600;
   font-size: var(--text-sm);
   margin-bottom: 6px;
 }
-
 .partner-card__desc {
   font-size: var(--text-xs);
   color: var(--text-muted);
   line-height: 1.5;
 }
 
-/* ---------- Van Sales Section ---------- */
+/* ---------- Van Sales ---------- */
 .van-sales {
   background: black;
   position: relative;
@@ -734,11 +662,14 @@
   margin-top: 4px;
 }
 
-/* ---------- Journey / Timeline ---------- */
-
-/* ================================
-   JOURNEY TIMELINE (RESPONSIVE FIX)
-================================ */
+/* ============================================================
+   JOURNEY TIMELINE
+   Strategy: ONE layout, ONE spine approach per viewport.
+   Desktop — centred spine via ::before on the wrapper.
+   Mobile  — left-rail spine drawn through the dot's own ::before,
+             so line and dot are always in the same coordinate system
+             and can never drift apart.
+============================================================ */
 
 .journey__timeline {
   position: relative;
@@ -746,7 +677,7 @@
   margin: 60px auto 0;
 }
 
-/* vertical line (full spine) */
+/* ── DESKTOP spine (centred) ── */
 .journey__timeline::before {
   content: "";
   position: absolute;
@@ -756,34 +687,40 @@
   width: 2px;
   background: var(--color-primary);
   transform: translateX(-50%);
+  z-index: 0;
 }
 
-/* each row */
+/* 3-column row: year | dot-col | milestone */
 .journey__item {
   display: grid;
   grid-template-columns: 1fr 60px 1fr;
   align-items: center;
   margin-bottom: 44px;
+  position: relative;
 }
 
-/* year */
 .journey__year {
   text-align: right;
   padding-right: 18px;
   font-weight: 700;
   color: var(--color-primary);
   font-family: var(--font-display);
+  font-size: var(--text-lg);
 }
 
-/* center column */
 .journey__center {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* dot */
+/* suppress any leftover line span from the JSX */
+.journey__line {
+  display: none;
+}
+
 .journey__dot {
   width: 14px;
   height: 14px;
@@ -791,70 +728,14 @@
   background: var(--color-primary);
   border: 3px solid var(--color-white);
   box-shadow: 0 0 0 2px var(--color-primary);
+  flex-shrink: 0;
+  position: relative;
   z-index: 2;
 }
 
-/* milestone text */
 .journey__milestone {
   padding-left: 18px;
   font-weight: 600;
-}
-
-/* ================================
-   🔥 RESPONSIVE FIX (IMPORTANT)
-================================ */
-
-@media (max-width: 768px) {
-  .journey__timeline::before {
-    left: 18px; /* move spine to left */
-  }
-
-  .journey__item {
-    grid-template-columns: 40px 1fr;
-    gap: 14px;
-  }
-
-  .journey__year {
-    display: none;
-  }
-
-  .journey__center {
-    justify-content: flex-start;
-  }
-
-  .journey__milestone {
-    padding-left: 0;
-  }
-}
-/* ---------- CTA Banner ---------- */
-.cta-banner {
-  background: var(--color-primary);
-  padding: 80px 0;
-}
-
-.cta-banner__inner {
-  text-align: center;
-}
-
-.cta-banner__title {
-  font-family: var(--font-display);
-  font-size: var(--text-4xl);
-  font-weight: 800;
-  color: var(--color-white);
-  margin-bottom: 16px;
-}
-
-.cta-banner__sub {
-  font-size: var(--text-lg);
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 36px;
-}
-
-.cta-banner__actions {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* ============================================================
@@ -878,95 +759,99 @@
   transform: translateX(0);
 }
 
+/* ---------- CTA Banner ---------- */
+.cta-banner {
+  background: var(--color-primary);
+  padding: 80px 0;
+}
+.cta-banner__inner {
+  text-align: center;
+}
+.cta-banner__title {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 16px;
+}
+.cta-banner__sub {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 36px;
+}
+.cta-banner__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — large → small, no conflicts
 ============================================================ */
 
-/* Tablets */
+/* ── ≤1024px : large tablets ── */
 @media (max-width: 1024px) {
   .hero {
     min-height: auto;
     padding: 120px 0 80px;
     background-position: center top;
   }
-
   .hero__inner {
     grid-template-columns: 1fr;
     gap: 50px;
     text-align: center;
   }
-
-  .hero__content {
-    order: 1;
-  }
-  .hero__image-wrap {
-    order: 2;
-    max-width: 100%;
-    margin: auto;
-  }
-
   .hero__description {
     max-width: 700px;
     margin: 0 auto 35px;
   }
-
   .hero__actions,
   .hero__presence {
     justify-content: center;
+  }
+
+  .categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .partners__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* ── ≤992px : tablets ── */
 @media (max-width: 992px) {
-  .hero__inner,
-  .van-sales__grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   .hero {
     min-height: 100svh;
     padding: 100px 0 70px;
-    background-position: center top;
-    background-image:
-      linear-gradient(rgba(15, 15, 36, 0.35), rgba(15, 15, 36, 0.35)),
-      var(--hero-bg) !important;
   }
-
   .hero__content {
     text-align: center;
   }
-  .hero__description {
-    margin: 0 auto 30px;
-    max-width: 100%;
-  }
-
-  .hero__actions,
-  .hero__presence {
-    justify-content: center;
-  }
-
   .hero__stats,
   .stats-section__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .categories__grid,
-  .partners__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .what-we-do__grid {
     grid-template-columns: 1fr;
   }
 
+  .van-sales__grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
   .van-sales__canvas-wrap {
     position: relative;
     width: 100%;
     height: 350px;
   }
+
+  .journey__timeline {
+    max-width: 600px;
+  }
 }
 
-/* Mobile */
+/* ── ≤768px : mobile ── */
 @media (max-width: 768px) {
   .section {
     padding: 60px 0;
@@ -990,18 +875,15 @@
       ),
       var(--hero-bg) !important;
   }
-
   .hero .container {
     flex: 1;
     display: flex;
     align-items: flex-start;
   }
-
   .hero__inner {
     padding: 32px 0 24px;
     width: 100%;
   }
-
   .hero__title {
     font-size: 2.4rem;
     line-height: 1.15;
@@ -1011,19 +893,16 @@
     font-size: 1rem;
     margin-bottom: 24px;
   }
-
   .hero__actions {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
     margin-bottom: 24px;
   }
-
   .hero__actions .btn {
     width: 100%;
     text-align: center;
   }
-
   .hero__stats {
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 0;
@@ -1032,39 +911,23 @@
   .stats-section__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .categories__grid,
-  .partners__grid {
+  .categories__grid {
     grid-template-columns: 1fr;
   }
-
   .categories__card {
     aspect-ratio: 16/9;
   }
-
-  .van-sales__grid {
-    grid-template-columns: 1fr;
-    min-height: auto;
+  .partners__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-
   .van-sales__canvas-wrap {
-    position: relative;
-    width: 100%;
     height: 300px;
   }
-
   .van-sales__content {
     padding: 40px 0;
   }
   .van-sales__metrics {
     grid-template-columns: 1fr;
-  }
-
-  .cta-banner__actions {
-    flex-direction: column;
-  }
-  .cta-banner__actions .btn {
-    width: 100%;
   }
 
   .section-title {
@@ -1073,27 +936,91 @@
   .section-subtitle {
     font-size: 1rem;
   }
-
   .ticker__track {
     gap: 24px;
   }
+  .cta-banner__actions {
+    flex-direction: column;
+  }
+  .cta-banner__actions .btn {
+    width: 100%;
+  }
 
+  /* ── Journey mobile: left-rail layout ──
+     Key insight: remove the wrapper ::before entirely.
+     Draw the spine through the dot's own ::before instead,
+     so line and dot share the exact same origin and can never drift.
+  */
+  .journey__timeline {
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  /* kill the centred desktop spine */
   .journey__timeline::before {
-    left: 24px;
-  }
-  .journey__item {
-    grid-template-columns: auto 1fr;
-  }
-  .journey__item--left .journey__content {
-    text-align: left;
-    grid-column: 2;
-  }
-  .journey__empty {
     display: none;
+  }
+
+  /* 3-col → 2-col: [dot column | milestone], year hidden */
+  .journey__item {
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 0; /* spacing now comes from padding on the dot col */
+  }
+
+  .journey__year {
+    display: none;
+  }
+
+  /* The centre column becomes the dot column */
+  .journey__center {
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2px; /* nudge dot to align with first line of text */
+    /* draw the spine as a pseudo-element centred on itself */
+    position: relative;
+  }
+
+  /* Spine: a vertical line through the centre of the dot column */
+  .journey__center::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: -44px; /* bridge to the next item's dot — matches margin-bottom below */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: var(--color-primary);
+    z-index: 0;
+  }
+
+  /* Last item — don't draw the line past the final dot */
+  .journey__item:last-child .journey__center::before {
+    display: none;
+  }
+
+  .journey__item {
+    padding-bottom: 44px; /* create the gap the spine bridges over */
+  }
+
+  .journey__item:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Dot sits on top of the spine */
+  .journey__dot {
+    position: relative;
+    z-index: 1;
+  }
+
+  .journey__milestone {
+    padding-left: 0;
+    padding-top: 0;
   }
 }
 
-/* Small phones */
+/* ── ≤480px : small phones ── */
 @media (max-width: 480px) {
   .hero {
     padding-top: 100px;
@@ -1108,24 +1035,18 @@
       ),
       var(--hero-bg) !important;
   }
-
   .hero__title {
     font-size: 2rem;
   }
-
   .hero__tag {
     font-size: 11px;
     padding: 4px 8px;
   }
-
   .hero__stat {
     padding: 14px;
   }
   .hero__stat-num {
     font-size: 1.5rem;
-  }
-  .hero__stats {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .what-we-do__card,
@@ -1140,9 +1061,31 @@
   .categories__card {
     aspect-ratio: 4/3;
   }
+  .partners__grid {
+    grid-template-columns: 1fr;
+  }
 
   .container {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  /* tighten journey on tiny screens */
+  .journey__item {
+    grid-template-columns: 36px 1fr;
+    gap: 10px;
+  }
+  .journey__dot {
+    width: 12px;
+    height: 12px;
+  }
+  .journey__center::before {
+    bottom: -36px;
+  }
+  .journey__item {
+    padding-bottom: 36px;
+  }
+  .journey__item:last-child {
+    padding-bottom: 0;
   }
 }

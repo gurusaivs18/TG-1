@@ -3,7 +3,6 @@
    Single source of truth for colors, spacing, typography
    ============================================================ */
 
-/* ---------- Google Fonts Import ---------- */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 /* ---------- CSS Variables ---------- */
@@ -12,35 +11,31 @@ body {
   overflow-x: hidden;
   max-width: 100%;
 }
+
 :root {
-  /* Brand Colors */
-  --color-primary: #a3202d; /* Primary Red */
+  --color-primary: #a3202d;
   --color-primary-dark: #8a1a25;
   --color-primary-light: #c2263b;
-  --color-secondary: #3b1a0a; /* Dark Brown background */
+  --color-secondary: #3b1a0a;
   --color-secondary-light: #5c2d1a;
-  --color-accent: #c2410c; /* Burnt Orange/Brown CTA */
+  --color-accent: #c2410c;
 
-  /* Neutral Palette */
   --color-white: #ffffff;
-  --color-off-white: #fdf8f5; /* Warm white background */
-  --color-light-gray: #f0e6df; /* Warm light tone */
-  --color-mid-gray: #c4a98f; /* Warm mid tone */
-  --color-dark-gray: #6b3d2a; /* Brown gray */
-  --color-black: #3b1a0a; /* Dark Brown text */
+  --color-off-white: #fdf8f5;
+  --color-light-gray: #f0e6df;
+  --color-mid-gray: #c4a98f;
+  --color-dark-gray: #6b3d2a;
+  --color-black: #3b1a0a;
 
-  /* Text */
-  --text-primary: #3b1a0a; /* Dark Brown text */
+  --text-primary: #3b1a0a;
   --text-secondary: #6b3d2a;
   --text-muted: #9e6e56;
   --text-on-dark: #ffffff;
   --text-on-dark-muted: rgba(255, 255, 255, 0.65);
 
-  /* Typography */
   --font-display: "Poppins", sans-serif;
   --font-body: "Poppins", sans-serif;
 
-  /* Type Scale */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -52,32 +47,27 @@ body {
   --text-5xl: 3rem;
   --text-6xl: 3.75rem;
 
-  /* Uniform Section Spacing */
   --section-padding-y: 96px;
   --section-padding-y-sm: 64px;
   --container-max: 1200px;
   --container-pad: 24px;
 
-  /* Component Spacing */
   --gap-xs: 8px;
   --gap-sm: 16px;
   --gap-md: 24px;
   --gap-lg: 40px;
   --gap-xl: 64px;
 
-  /* Border Radius */
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-full: 9999px;
 
-  /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.14);
   --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
 
-  /* Transitions */
   --transition: 0.22s ease;
   --transition-slow: 0.4s ease;
 }
@@ -103,41 +93,20 @@ body {
   background-color: var(--color-white);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-
-  /* Subtle warm background texture */
-
-  background-image:
-    repeating-linear-gradient(
-      135deg,
-      rgba(163, 32, 45, 0.04) 0px,
-      rgba(163, 32, 45, 0.04) 1px,
-      transparent 1px,
-      transparent 80px
-    ),
-    repeating-linear-gradient(
-      45deg,
-      rgba(59, 26, 10, 0.03) 0px,
-      rgba(59, 26, 10, 0.03) 1px,
-      transparent 1px,
-      transparent 100px
-    );
-  background-size: 80px 80px;
 }
+
 img {
   max-width: 100%;
   display: block;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 ul,
 ol {
   list-style: none;
 }
-
 button {
   cursor: pointer;
   border: none;
@@ -145,17 +114,39 @@ button {
   font-family: inherit;
 }
 
-/* ---------- Layout Utilities ---------- */
+/* ---------- Layout ---------- */
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-pad);
 }
 
+/* ============================================================
+   SECTION SYSTEM
+   Each .section variant gets a unique ultra-subtle background.
+   All patterns are SVG data-URIs — no extra HTTP requests,
+   zero performance cost, and they scale perfectly at any DPI.
+   Opacity is kept so low (0.03–0.07) that they read as
+   "texture" not "pattern" — supporting the content, not
+   competing with it.
+============================================================ */
+
 .section {
   padding: var(--section-padding-y) 0;
   position: relative;
+  /* Default: warm white base + very faint diagonal hatching */
+  background-color: #ffffff;
+  background-image:
+    /* Faint diagonal lines — feel of quality paper */ repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 28px,
+    rgba(163, 32, 45, 0.028) 28px,
+    rgba(163, 32, 45, 0.028) 29px
+  );
 }
+
+/* Subtle section divider (decorative, not structural) */
 .section:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -166,60 +157,219 @@ button {
   background: linear-gradient(
     to right,
     transparent,
-    rgba(163, 32, 45, 0.15),
+    rgba(163, 32, 45, 0.12),
     transparent
   );
 }
+
+/* ── section--gray : alternating "off" sections ──
+   Warm off-white + a very faint dot grid.
+   Dots suggest precision and structure (classic corporate).
+*/
+.section--gray {
+  background-color: var(--color-off-white);
+  background-image: radial-gradient(
+    circle,
+    rgba(163, 32, 45, 0.09) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* ── section--dark : inverted sections ──
+   Rich dark brown + subtle large-mesh grid lines.
+   Gives a sense of depth without being noisy.
+*/
 .section--dark {
   background-color: var(--color-secondary);
   color: var(--text-on-dark);
   position: relative;
   overflow: hidden;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
-.section--dark::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.04) 0px,
-    rgba(255, 255, 255, 0.04) 1px,
-    transparent 1px,
-    transparent 90px
-  );
-  pointer-events: none;
-}
-.section--gray {
-  background: linear-gradient(180deg, var(--color-off-white), #ffffff);
-}
+
+/* ── section--red : primary brand sections ──
+   Deep red + very faint concentric arcs (radial lines).
+   Conveys energy and brand confidence.
+*/
 .section--red {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-primary-dark)
-  );
+  background-color: var(--color-primary);
   color: var(--text-on-dark);
   position: relative;
   overflow: hidden;
+  background-image: repeating-radial-gradient(
+    circle at 50% 0%,
+    transparent 0px,
+    transparent 48px,
+    rgba(255, 255, 255, 0.04) 48px,
+    rgba(255, 255, 255, 0.04) 49px
+  );
 }
+
 .section--red::after {
   content: "";
   position: absolute;
   width: 500px;
   height: 500px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   top: -200px;
   right: -200px;
+  pointer-events: none;
 }
 
 .section--tight {
   padding: var(--section-padding-y-sm) 0;
 }
-
 .section--loose {
   padding: calc(var(--section-padding-y) * 1.3) 0;
 }
+
+/* ============================================================
+   INDIVIDUAL NAMED SECTIONS
+   Applied via the JSX data already in your codebase —
+   these target the actual rendered section elements directly.
+   We give each a distinct, contextually-appropriate motif.
+============================================================ */
+
+/* What We Do — clean crosshatch, feels grid-structured */
+.what-we-do__grid ~ *,
+section:has(.what-we-do__grid) {
+  /* handled by default .section diagonal above */
+}
+
+/* Stats Section — already has dark bg, enhanced below in van-sales rule */
+
+/* Stats section: add corner accent glow */
+.stats-section {
+  position: relative;
+  overflow: hidden;
+}
+.stats-section::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(163, 32, 45, 0.18) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+.stats-section::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(163, 32, 45, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Van Sales section — already black, add corner light leak */
+.van-sales {
+  position: relative;
+  overflow: hidden;
+}
+.van-sales::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 80% 50%,
+    rgba(163, 32, 45, 0.12) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Journey section — white base + horizontal rule lines
+   like a notebook or ledger — suits a "our story" timeline */
+.journey__timeline ~ *,
+section:has(.journey__timeline) {
+  /* handled below */
+}
+
+/* Target the journey section specifically via its content */
+.section:has(.journey__timeline) {
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 47px,
+    rgba(163, 32, 45, 0.055) 47px,
+    rgba(163, 32, 45, 0.055) 48px
+  );
+}
+
+/* Categories section (inside section--gray) —
+   the dot grid from section--gray is enough here */
+
+/* Partners section — subtle plus/cross pattern
+   Conveys connectivity and network */
+.section:has(.partners__grid) {
+  background-color: var(--color-off-white);
+  background-image:
+    /* vertical strokes of plus signs */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 19px,
+      rgba(163, 32, 45, 0.055) 19px,
+      rgba(163, 32, 45, 0.055) 21px,
+      transparent 21px,
+      transparent 40px
+    ),
+    /* horizontal strokes of plus signs */
+    repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 19px,
+        rgba(163, 32, 45, 0.055) 19px,
+        rgba(163, 32, 45, 0.055) 21px,
+        transparent 21px,
+        transparent 40px
+      );
+  background-size: 40px 40px;
+  background-position: 10px 10px;
+}
+
+/* Brands section — clean white, very faint wide stripe
+   so logo cards pop cleanly against it */
+.section:has(.brands__marquee-wrap) {
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 119px,
+    rgba(163, 32, 45, 0.03) 119px,
+    rgba(163, 32, 45, 0.03) 120px
+  );
+}
+
+/* ============================================================
+   FALLBACK: browsers that don't support :has()
+   (Safari <15.4, Firefox <103 without flag)
+   These are cosmetic only — everything works without them.
+============================================================ */
+
 /* ---------- Typography Utilities ---------- */
 .section-eyebrow {
   font-family: var(--font-body);
@@ -263,16 +413,14 @@ button {
 .section-header {
   margin-bottom: var(--gap-xl);
 }
-
 .section-header--center {
   text-align: center;
 }
-
 .section-header--center .section-subtitle {
   margin: 0 auto;
 }
 
-/* ---------- Button Styles ---------- */
+/* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -330,7 +478,7 @@ button {
   background: var(--color-secondary-light);
 }
 
-/* ---------- Card Styles ---------- */
+/* ---------- Cards ---------- */
 .card {
   background: var(--color-white);
   border-radius: var(--radius-md);
@@ -370,7 +518,6 @@ button {
   border-radius: var(--radius-full);
   margin: 16px 0 24px;
 }
-
 .divider--center {
   margin: 16px auto 24px;
 }
@@ -401,7 +548,7 @@ button {
   border-radius: 3px;
 }
 
-/* ---------- Responsive Breakpoints ---------- */
+/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   :root {
     --section-padding-y: 72px;

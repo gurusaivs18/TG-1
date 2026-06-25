@@ -185,10 +185,6 @@ export default function Events() {
         </div>
       </section>
 
-      <section className="reveal-right">
-        <Blogs />
-      </section>
-
       <section className="section section--gray reveal-left">
         <div className="container" style={{ textAlign: "center" }}>
           <span className="section-eyebrow">Stay Connected</span>
