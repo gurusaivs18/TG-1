@@ -9,7 +9,9 @@ body {
   overflow-x: hidden;
   max-width: 100%;
 }
-
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 :root {
   --color-primary: #a3202d;
   --color-primary-dark: #8a1a25;
