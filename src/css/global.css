@@ -9,8 +9,15 @@ body {
   overflow-x: hidden;
   max-width: 100%;
 }
-* {
-  -webkit-tap-highlight-color: transparent;
+button,
+a,
+.brand-card {
+  outline: none;
+}
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+.brand-card:focus:not(:focus-visible) {
+  outline: none;
 }
 :root {
   --color-primary: #a3202d;
