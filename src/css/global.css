@@ -1,11 +1,9 @@
 /* ============================================================
    GLOBAL CSS — Target One
-   Single source of truth for colors, spacing, typography
    ============================================================ */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
-/* ---------- CSS Variables ---------- */
 html,
 body {
   overflow-x: hidden;
@@ -19,23 +17,19 @@ body {
   --color-secondary: #3b1a0a;
   --color-secondary-light: #5c2d1a;
   --color-accent: #c2410c;
-
   --color-white: #ffffff;
   --color-off-white: #fdf8f5;
   --color-light-gray: #f0e6df;
   --color-mid-gray: #c4a98f;
   --color-dark-gray: #6b3d2a;
   --color-black: #3b1a0a;
-
   --text-primary: #3b1a0a;
   --text-secondary: #6b3d2a;
   --text-muted: #9e6e56;
   --text-on-dark: #ffffff;
   --text-on-dark-muted: rgba(255, 255, 255, 0.65);
-
   --font-display: "Poppins", sans-serif;
   --font-body: "Poppins", sans-serif;
-
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -46,33 +40,27 @@ body {
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
   --text-6xl: 3.75rem;
-
   --section-padding-y: 96px;
   --section-padding-y-sm: 64px;
   --container-max: 1200px;
   --container-pad: 24px;
-
   --gap-xs: 8px;
   --gap-sm: 16px;
   --gap-md: 24px;
   --gap-lg: 40px;
   --gap-xl: 64px;
-
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-full: 9999px;
-
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.14);
   --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
-
   --transition: 0.22s ease;
   --transition-slow: 0.4s ease;
 }
 
-/* ---------- Reset & Base ---------- */
 *,
 *::before,
 *::after {
@@ -80,12 +68,10 @@ body {
   margin: 0;
   padding: 0;
 }
-
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
-
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -94,7 +80,6 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
-
 img {
   max-width: 100%;
   display: block;
@@ -114,7 +99,6 @@ button {
   font-family: inherit;
 }
 
-/* ---------- Layout ---------- */
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
@@ -123,30 +107,26 @@ button {
 
 /* ============================================================
    SECTION SYSTEM
-   Each .section variant gets a unique ultra-subtle background.
-   All patterns are SVG data-URIs — no extra HTTP requests,
-   zero performance cost, and they scale perfectly at any DPI.
-   Opacity is kept so low (0.03–0.07) that they read as
-   "texture" not "pattern" — supporting the content, not
-   competing with it.
+   Strategy: ::before carries the background art on EVERY section.
+   ::after is ONLY used for the bottom divider line.
+   No conflicts, no overrides fighting each other.
+   All SVG patterns are inline data-URIs — zero HTTP cost.
 ============================================================ */
 
 .section {
   padding: var(--section-padding-y) 0;
   position: relative;
-  /* Default: warm white base + very faint diagonal hatching */
+  overflow: hidden;
   background-color: #ffffff;
-  background-image:
-    /* Faint diagonal lines — feel of quality paper */ repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 28px,
-    rgba(163, 32, 45, 0.028) 28px,
-    rgba(163, 32, 45, 0.028) 29px
-  );
 }
 
-/* Subtle section divider (decorative, not structural) */
+/* ALL section content sits above the decorative layer */
+.section > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Thin bottom divider — lives on ::after, always */
 .section:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -157,68 +137,208 @@ button {
   background: linear-gradient(
     to right,
     transparent,
-    rgba(163, 32, 45, 0.12),
+    rgba(163, 32, 45, 0.13),
     transparent
   );
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* ── section--gray : alternating "off" sections ──
-   Warm off-white + a very faint dot grid.
-   Dots suggest precision and structure (classic corporate).
+/* ── DEFAULT .section — Fibonacci Golden Spiral
+   Two large arcs from opposite corners approximate the
+   mathematical golden spiral. Organic, timeless, premium.
+   Opacity low enough to read as "quality paper" not "decoration".
+*/
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    bottom left,
+    top right;
+  background-size:
+    55% auto,
+    42% auto;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M0,600 Q0,480 120,480'/%3E%3Cpath d='M120,480 Q240,480 240,360'/%3E%3Cpath d='M240,360 Q240,240 120,240'/%3E%3Cpath d='M120,240 Q0,240 0,360'/%3E%3Cpath d='M0,360 Q0,480 120,480'/%3E%3Cpath d='M120,480 Q480,480 480,120'/%3E%3Cpath d='M480,120 Q480,-240 120,-240'/%3E%3Cpath d='M120,-240 Q-360,-240 -360,360'/%3E%3Cpath d='M-360,360 Q-360,840 120,840'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.045' stroke-width='1.2'%3E%3Cpath d='M400,0 Q400,120 280,120'/%3E%3Cpath d='M280,120 Q160,120 160,240'/%3E%3Cpath d='M160,240 Q160,360 280,360'/%3E%3Cpath d='M280,360 Q400,360 400,240'/%3E%3Cpath d='M400,240 Q400,120 280,120'/%3E%3Cpath d='M280,120 Q40,120 40,360'/%3E%3Cpath d='M40,360 Q40,560 280,560'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── .section--gray — Rhodonea Rose (5-petal) tiled
+   Five overlapping ellipses rotated at 36° intervals form a
+   botanical rose / mandala tile. Suggests growth, network, reach.
 */
 .section--gray {
   background-color: var(--color-off-white);
-  background-image: radial-gradient(
-    circle,
-    rgba(163, 32, 45, 0.09) 1px,
-    transparent 1px
-  );
-  background-size: 28px 28px;
+}
+.section--gray::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.07' stroke-width='1'%3E%3Cellipse cx='100' cy='100' rx='85' ry='24' transform='rotate(0,100,100)'/%3E%3Cellipse cx='100' cy='100' rx='85' ry='24' transform='rotate(36,100,100)'/%3E%3Cellipse cx='100' cy='100' rx='85' ry='24' transform='rotate(72,100,100)'/%3E%3Cellipse cx='100' cy='100' rx='85' ry='24' transform='rotate(108,100,100)'/%3E%3Cellipse cx='100' cy='100' rx='85' ry='24' transform='rotate(144,100,100)'/%3E%3Ccircle cx='100' cy='100' r='68' stroke-opacity='0.05'/%3E%3Ccircle cx='100' cy='100' r='42' stroke-opacity='0.04'/%3E%3Ccircle cx='100' cy='100' r='18' stroke-opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  background-position: 0 0;
 }
 
-/* ── section--dark : inverted sections ──
-   Rich dark brown + subtle large-mesh grid lines.
-   Gives a sense of depth without being noisy.
+/* ── .section--dark — Sonar / Radar pulses from centre
+   Concentric expanding rings. Feels high-tech, authoritative.
+   White strokes on dark brown — appears as subtle depth.
 */
 .section--dark {
   background-color: var(--color-secondary);
   color: var(--text-on-dark);
-  position: relative;
-  overflow: hidden;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+}
+.section--dark::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 500'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.055' stroke-width='1'%3E%3Ccircle cx='450' cy='250' r='70'/%3E%3Ccircle cx='450' cy='250' r='140'/%3E%3Ccircle cx='450' cy='250' r='210'/%3E%3Ccircle cx='450' cy='250' r='280'/%3E%3Ccircle cx='450' cy='250' r='360'/%3E%3Ccircle cx='450' cy='250' r='450'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
-/* ── section--red : primary brand sections ──
-   Deep red + very faint concentric arcs (radial lines).
-   Conveys energy and brand confidence.
+/* ── .section--red — Sunray spokes from bottom-left corner
+   Lines fan from a single vanishing point like broadcast signals.
+   White strokes on red at 7% — bold energy, never distracting.
 */
 .section--red {
   background-color: var(--color-primary);
   color: var(--text-on-dark);
-  position: relative;
-  overflow: hidden;
-  background-image: repeating-radial-gradient(
-    circle at 50% 0%,
-    transparent 0px,
-    transparent 48px,
-    rgba(255, 255, 255, 0.04) 48px,
-    rgba(255, 255, 255, 0.04) 49px
-  );
 }
-
+.section--red::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Cg stroke='%23ffffff' stroke-opacity='0.07' stroke-width='1' fill='none'%3E%3Cline x1='0' y1='500' x2='200' y2='0'/%3E%3Cline x1='0' y1='500' x2='350' y2='0'/%3E%3Cline x1='0' y1='500' x2='500' y2='0'/%3E%3Cline x1='0' y1='500' x2='650' y2='0'/%3E%3Cline x1='0' y1='500' x2='800' y2='0'/%3E%3Cline x1='0' y1='500' x2='1000' y2='0'/%3E%3Cline x1='0' y1='500' x2='1000' y2='100'/%3E%3Cline x1='0' y1='500' x2='1000' y2='250'/%3E%3Cline x1='0' y1='500' x2='1000' y2='400'/%3E%3Cline x1='0' y1='500' x2='50' y2='0'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: cover;
+}
 .section--red::after {
   content: "";
   position: absolute;
-  width: 500px;
-  height: 500px;
-  background: rgba(255, 255, 255, 0.05);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
-  top: -200px;
-  right: -200px;
+  top: -160px;
+  right: -100px;
   pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Stats section — Wave interference pattern
+   Sinusoidal standing waves on dark brown background.
+   Brand-red radial glow bleeds from top-right.
+*/
+.stats-section {
+  position: relative;
+  overflow: hidden;
+}
+.stats-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.055' stroke-width='1.2'%3E%3Cpath d='M0,150 C100,80 200,220 300,150 C400,80 500,220 600,150 C700,80 800,220 900,150 C1000,80 1100,220 1200,150'/%3E%3Cpath d='M0,150 C100,220 200,80 300,150 C400,220 500,80 600,150 C700,220 800,80 900,150 C1000,220 1100,80 1200,150'/%3E%3Cpath d='M0,150 C150,60 300,240 450,150 C600,60 750,240 900,150 C1050,60 1200,150 1200,150'/%3E%3Cpath d='M0,150 C150,240 300,60 450,150 C600,240 750,60 900,150 C1050,240 1200,150 1200,150'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.stats-section::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(163, 32, 45, 0.25) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Van Sales — Radar rings from right edge (where map lives)
+   Concentric arcs pulse outward from the map canvas position.
+   Red strokes on black — data signal / coverage map feel.
+*/
+.van-sales {
+  position: relative;
+  overflow: hidden;
+}
+.van-sales::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 500'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.2' stroke-width='1'%3E%3Ccircle cx='780' cy='250' r='100'/%3E%3Ccircle cx='780' cy='250' r='200'/%3E%3Ccircle cx='780' cy='250' r='310'/%3E%3Ccircle cx='780' cy='250' r='440'/%3E%3Ccircle cx='780' cy='250' r='590'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+
+/* ── Journey section — DNA Double Helix waves
+   Two phase-offset sine curves running full width,
+   repeating vertically. Evokes time, progression, story.
+*/
+.section:has(.journey__timeline) {
+  background-color: #ffffff;
+}
+.section:has(.journey__timeline)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 180'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.065' stroke-width='1.4'%3E%3Cpath d='M0,90 C100,20 200,160 300,90 C400,20 500,160 600,90 C700,20 800,160 900,90 C1000,20 1100,160 1200,90'/%3E%3Cpath d='M0,90 C100,160 200,20 300,90 C400,160 500,20 600,90 C700,160 800,20 900,90 C1000,160 1100,20 1200,90'/%3E%3Ccircle cx='150' cy='20' r='3' fill='%23a3202d' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='150' cy='160' r='3' fill='%23a3202d' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='450' cy='20' r='3' fill='%23a3202d' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='450' cy='160' r='3' fill='%23a3202d' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='750' cy='20' r='3' fill='%23a3202d' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='750' cy='160' r='3' fill='%23a3202d' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='1050' cy='20' r='3' fill='%23a3202d' fill-opacity='0.08' stroke='none'/%3E%3Ccircle cx='1050' cy='160' r='3' fill='%23a3202d' fill-opacity='0.08' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-size: 100% 180px;
+  background-position: 0 0;
+}
+
+/* ── Partners section — Honeycomb tiling
+   Hexagons = strength, efficiency, partnership networks.
+*/
+.section:has(.partners__grid) {
+  background-color: var(--color-off-white);
+}
+.section:has(.partners__grid)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 98' width='56' height='98'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.075' stroke-width='1'%3E%3Cpolygon points='28,2 52,15 52,43 28,56 4,43 4,15'/%3E%3Cpolygon points='28,56 52,69 52,97 28,110 4,97 4,69'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 56px 98px;
+}
+
+/* ── Brands section — Isometric cube lattice
+   3D perspective grid = supply chain, logistics, global structure.
+*/
+.section:has(.brands__marquee-wrap) {
+  background-color: #ffffff;
+}
+.section:has(.brands__marquee-wrap)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.055' stroke-width='0.9'%3E%3Cpath d='M50,8 L92,30 L50,52 L8,30 Z'/%3E%3Cpath d='M8,30 L8,72 L50,94 L50,52 Z'/%3E%3Cpath d='M92,30 L92,72 L50,94 L50,52 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 100px 100px;
+}
+
+/* ── What We Do section — Fine Archimedean spiral (tightly coiled)
+   Built from a long smooth path that coils inward.
+   Placed bottom-right. Feels precise and engineered.
+*/
+.section:has(.what-we-do__grid) {
+  background-color: #ffffff;
+}
+.section:has(.what-we-do__grid)::before {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.06' stroke-width='1.3'%3E%3Cpath d='M250,250 Q270,230 290,250 Q310,270 290,290 Q270,310 250,290 Q220,270 220,250 Q220,210 250,200 Q290,190 310,220 Q330,250 320,280 Q300,320 260,330 Q210,340 180,310 Q150,280 160,240 Q170,190 210,170 Q260,150 300,165 Q350,180 365,230 Q380,280 360,320 Q335,365 285,375 Q225,385 185,355 Q140,320 140,270 Q140,205 185,175 Q235,145 285,155 Q340,165 370,210 Q400,260 390,310'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Cg fill='none' stroke='%23a3202d' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M400,600 Q380,580 400,560 Q420,540 400,520 Q370,500 350,520 Q330,540 350,570 Q370,600 400,600'/%3E%3Cpath d='M400,600 Q360,560 400,520 Q440,480 400,440 Q350,400 310,440 Q270,480 310,530 Q350,580 400,600'/%3E%3Cpath d='M400,600 Q340,540 400,480 Q460,420 400,360 Q330,300 270,360 Q210,420 270,490 Q330,560 400,600'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    center center,
+    bottom right;
+  background-size:
+    60% auto,
+    40% auto;
 }
 
 .section--tight {
@@ -228,149 +348,7 @@ button {
   padding: calc(var(--section-padding-y) * 1.3) 0;
 }
 
-/* ============================================================
-   INDIVIDUAL NAMED SECTIONS
-   Applied via the JSX data already in your codebase —
-   these target the actual rendered section elements directly.
-   We give each a distinct, contextually-appropriate motif.
-============================================================ */
-
-/* What We Do — clean crosshatch, feels grid-structured */
-.what-we-do__grid ~ *,
-section:has(.what-we-do__grid) {
-  /* handled by default .section diagonal above */
-}
-
-/* Stats Section — already has dark bg, enhanced below in van-sales rule */
-
-/* Stats section: add corner accent glow */
-.stats-section {
-  position: relative;
-  overflow: hidden;
-}
-.stats-section::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  left: -80px;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(163, 32, 45, 0.18) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-.stats-section::after {
-  content: "";
-  position: absolute;
-  bottom: -80px;
-  right: -80px;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(163, 32, 45, 0.12) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
-/* Van Sales section — already black, add corner light leak */
-.van-sales {
-  position: relative;
-  overflow: hidden;
-}
-.van-sales::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    ellipse at 80% 50%,
-    rgba(163, 32, 45, 0.12) 0%,
-    transparent 55%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Journey section — white base + horizontal rule lines
-   like a notebook or ledger — suits a "our story" timeline */
-.journey__timeline ~ *,
-section:has(.journey__timeline) {
-  /* handled below */
-}
-
-/* Target the journey section specifically via its content */
-.section:has(.journey__timeline) {
-  background-color: #ffffff;
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 47px,
-    rgba(163, 32, 45, 0.055) 47px,
-    rgba(163, 32, 45, 0.055) 48px
-  );
-}
-
-/* Categories section (inside section--gray) —
-   the dot grid from section--gray is enough here */
-
-/* Partners section — subtle plus/cross pattern
-   Conveys connectivity and network */
-.section:has(.partners__grid) {
-  background-color: var(--color-off-white);
-  background-image:
-    /* vertical strokes of plus signs */
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 19px,
-      rgba(163, 32, 45, 0.055) 19px,
-      rgba(163, 32, 45, 0.055) 21px,
-      transparent 21px,
-      transparent 40px
-    ),
-    /* horizontal strokes of plus signs */
-    repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 19px,
-        rgba(163, 32, 45, 0.055) 19px,
-        rgba(163, 32, 45, 0.055) 21px,
-        transparent 21px,
-        transparent 40px
-      );
-  background-size: 40px 40px;
-  background-position: 10px 10px;
-}
-
-/* Brands section — clean white, very faint wide stripe
-   so logo cards pop cleanly against it */
-.section:has(.brands__marquee-wrap) {
-  background-color: #ffffff;
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 119px,
-    rgba(163, 32, 45, 0.03) 119px,
-    rgba(163, 32, 45, 0.03) 120px
-  );
-}
-
-/* ============================================================
-   FALLBACK: browsers that don't support :has()
-   (Safari <15.4, Firefox <103 without flag)
-   These are cosmetic only — everything works without them.
-============================================================ */
-
-/* ---------- Typography Utilities ---------- */
+/* ---------- Typography ---------- */
 .section-eyebrow {
   font-family: var(--font-body);
   font-size: var(--text-xs);
@@ -381,7 +359,6 @@ section:has(.journey__timeline) {
   margin-bottom: 12px;
   display: block;
 }
-
 .section-eyebrow--light {
   color: var(--color-accent);
 }
@@ -394,7 +371,6 @@ section:has(.journey__timeline) {
   color: var(--text-primary);
   margin-bottom: var(--gap-md);
 }
-
 .section-title--light {
   color: var(--text-on-dark);
 }
@@ -405,7 +381,6 @@ section:has(.journey__timeline) {
   max-width: 600px;
   line-height: 1.7;
 }
-
 .section-subtitle--light {
   color: var(--text-on-dark-muted);
 }
@@ -436,7 +411,6 @@ section:has(.journey__timeline) {
   border: 2px solid transparent;
   white-space: nowrap;
 }
-
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-white);
@@ -448,7 +422,6 @@ section:has(.journey__timeline) {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(163, 32, 45, 0.35);
 }
-
 .btn-secondary {
   background: transparent;
   color: var(--color-white);
@@ -458,7 +431,6 @@ section:has(.journey__timeline) {
   border-color: var(--color-white);
   background: rgba(255, 255, 255, 0.1);
 }
-
 .btn-outline {
   background: transparent;
   color: var(--color-primary);
@@ -468,7 +440,6 @@ section:has(.journey__timeline) {
   background: var(--color-primary);
   color: var(--color-white);
 }
-
 .btn-dark {
   background: var(--color-secondary);
   color: var(--color-white);
@@ -574,5 +545,15 @@ section:has(.journey__timeline) {
   }
   .container {
     padding: 0 16px;
+  }
+
+  /* tone down all decorative layers on small screens */
+  .section::before,
+  .section--gray::before,
+  .section:has(.what-we-do__grid)::before,
+  .section:has(.journey__timeline)::before,
+  .section:has(.partners__grid)::before,
+  .section:has(.brands__marquee-wrap)::before {
+    opacity: 0.55;
   }
 }
