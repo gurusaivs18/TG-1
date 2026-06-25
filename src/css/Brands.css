@@ -46,7 +46,7 @@
 
 .filter-btn:hover {
   border-color: var(--color-primary);
-  color: var(--color-primary);
+  color:none;
 }
 
 .filter-btn--active {
