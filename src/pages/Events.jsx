@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/Pages.css";
 import "../css/Home.css";
-import Blogs from "./Blogs";
+
 
 const EVENTS = [
   {

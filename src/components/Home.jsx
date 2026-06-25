@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/Home.css";
 import heroBackground from "../assets/tg11.webp";
 import UAENetworkMap from "../components/UAENetworkMap";
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 // brands
 import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
@@ -21,26 +21,80 @@ const BRANDS = [
   { name: "Alogic", img: alogic, className: "logo--alogic" },
 ];
 
-const PARTNERS = [
+// Distribution Channels — replace logos with real imports when available
+const CHANNELS = [
   {
-    name: "Sharaf DG",
-    img: "/images/partners/sharafdg.png",
-    desc: "One of UAE's largest electronics retailers with strong omni-channel presence.",
+    id: "power-retailers",
+    label: "Power Retailers",
+    icon: "🏬",
+    desc: "Premium electronics & tech retail chains across UAE & Qatar.",
+    partners: [
+      { name: "Virgin Megastore", img: "/images/partners/virgin.png" },
+      { name: "Jumbo Electronics", img: "/images/partners/jumbo.png" },
+      { name: "Emax", img: "/images/partners/emax.png" },
+      { name: "Sharaf DG", img: "/images/partners/sharafdg.png" },
+      { name: "Grand Stores", img: "/images/partners/grandstores.png" },
+      { name: "iStyle", img: "/images/partners/istyle.png" },
+      { name: "Eros Digital Home", img: "/images/partners/eros.png" },
+    ],
   },
   {
-    name: "Jumbo Electronics",
-    img: "/images/partners/jumbo.png",
-    desc: "Premium electronics retailer with a strong footprint across the GCC.",
+    id: "hypermarkets",
+    label: "Hypermarkets",
+    icon: "🛒",
+    desc: "High-footfall hypermarket chains serving millions of shoppers.",
+    partners: [
+      { name: "Carrefour", img: "/images/partners/carrefour.png" },
+      { name: "LuLu Hypermarket", img: "/images/partners/lulu.png" },
+      { name: "Safari", img: "/images/partners/safari.png" },
+      { name: "Géant", img: "/images/partners/geant.png" },
+      { name: "Union Coop", img: "/images/partners/unioncoop.png" },
+      { name: "Nesto", img: "/images/partners/nesto.png" },
+    ],
   },
   {
-    name: "Lulu Hypermarket",
-    img: "/images/partners/lulu.png",
-    desc: "Regional retail giant serving millions of customers across Middle East.",
+    id: "ecommerce",
+    label: "E-Commerce",
+    icon: "🛍️",
+    desc: "Leading online marketplaces and digital-first retail platforms.",
+    partners: [
+      { name: "Amazon", img: "/images/partners/amazon.png" },
+      { name: "Noon", img: "/images/partners/noon.png" },
+      { name: "Namshi", img: "/images/partners/namshi.png" },
+      { name: "Microless", img: "/images/partners/microless.png" },
+      { name: "Careem", img: "/images/partners/careem.png" },
+    ],
   },
   {
-    name: "Virgin Megastore",
-    img: "/images/partners/virgin.png",
-    desc: "Lifestyle electronics and entertainment brand with flagship stores.",
+    id: "operator",
+    label: "Operator",
+    icon: "📡",
+    desc: "Telecom operator retail channels with nationwide coverage.",
+    partners: [
+      { name: "Etisalat by e&", img: "/images/partners/etisalat.png" },
+    ],
+  },
+  {
+    id: "travel-retail",
+    label: "Travel Retail",
+    icon: "✈️",
+    desc: "Duty-free and airport retail locations serving global travellers.",
+    partners: [
+      { name: "Dubai Duty Free", img: "/images/partners/dubaidutyfree.png" },
+      {
+        name: "Abu Dhabi Duty Free",
+        img: "/images/partners/abudhabidutyfree.png",
+      },
+      { name: "WHSmith", img: "/images/partners/whsmith.png" },
+    ],
+  },
+  {
+    id: "ir-channel",
+    label: "Independent Reseller Channel (IR)",
+    icon: "🚐",
+    desc: "A fleet of six vans ensuring widespread coverage across the UAE.",
+    partners: [],
+    note: "A fleet of six vans to ensure widespread coverage across the UAE.",
   },
 ];
 
@@ -135,7 +189,67 @@ const JOURNEY = [
   { year: "2026", milestone: "Regional Presence" },
 ];
 
+// ── Channel Modal ──
+function ChannelModal({ channel, onClose }) {
+  const handleBackdropClick = useCallback(
+    (e) => {
+      if (e.target === e.currentTarget) onClose();
+    },
+    [onClose],
+  );
+
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div className="ch-modal__backdrop" onClick={handleBackdropClick}>
+      <div className="ch-modal__box" role="dialog" aria-modal="true">
+        <div className="ch-modal__header">
+          <div className="ch-modal__header-left">
+            <span className="ch-modal__icon">{channel.icon}</span>
+            <h3 className="ch-modal__title">{channel.label}</h3>
+          </div>
+          <button
+            className="ch-modal__close"
+            onClick={onClose}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+        <p className="ch-modal__desc">{channel.desc}</p>
+
+        {channel.note && <div className="ch-modal__note">{channel.note}</div>}
+
+        {channel.partners.length > 0 ? (
+          <div className="ch-modal__grid">
+            {channel.partners.map((p) => (
+              <div key={p.name} className="ch-modal__logo-card">
+                <div className="ch-modal__logo-wrap">
+                  <img src={p.img} alt={p.name} />
+                </div>
+                <span className="ch-modal__logo-name">{p.name}</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          !channel.note && <p className="ch-modal__empty">Logos coming soon.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
+  const [activeChannel, setActiveChannel] = useState(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -159,7 +273,6 @@ export default function Home() {
       <section
         className="hero reveal-left"
         style={{
-          // Pass image URL as CSS variable so media queries can override the gradient overlay
           "--hero-bg": `url(${heroBackground})`,
           backgroundImage: `linear-gradient(rgba(15,15,36,0.35), rgba(15,15,36,0.35)), url(${heroBackground})`,
         }}
@@ -336,26 +449,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Retail Partners ── */}
+      {/* ── Channels of Distribution ── */}
       <section className="section section--gray reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Market Presence</span>
-            <h2 className="section-title">Our Retail Partners</h2>
+            <h2 className="section-title">Channels of Distribution</h2>
             <p className="section-subtitle">
-              Working with leading power retailers across UAE & Qatar, enabling
-              strong brand visibility and nationwide distribution.
+              Working with leading retailers across every channel — from power
+              retail to e-commerce and travel retail — enabling strong brand
+              visibility and nationwide distribution.
             </p>
           </div>
-          <div className="partners__grid">
-            {PARTNERS.map((p) => (
-              <div key={p.name} className="partner-card">
-                <div className="partner-card__logo">
-                  <img src={p.img} alt={p.name} />
+          <div className="channels__grid">
+            {CHANNELS.map((ch) => (
+              <button
+                key={ch.id}
+                className="channel-card"
+                onClick={() => setActiveChannel(ch)}
+                aria-haspopup="dialog"
+              >
+                <div className="channel-card__icon">{ch.icon}</div>
+                <div className="channel-card__label">{ch.label}</div>
+                <div className="channel-card__desc">{ch.desc}</div>
+                <div className="channel-card__cta">
+                  View Partners <span className="channel-card__arrow">→</span>
                 </div>
-                <div className="partner-card__name">{p.name}</div>
-                <div className="partner-card__desc">{p.desc}</div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -428,28 +548,14 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* ── CTA Banner ── */}
-      {/* <section className="cta-banner reveal-right">
-        <div className="container">
-          <div className="cta-banner__inner">
-            <h2 className="cta-banner__title">
-              Ready to Grow Your Retail Business?
-            </h2>
-            <p className="cta-banner__sub">
-              Partner with Target One for reliable supply, strong brand support,
-              and GCC-wide reach.
-            </p>
-            <div className="cta-banner__actions">
-              <Link to="/contact" className="btn btn-dark">
-                Contact Us Today
-              </Link>
-              <Link to="/brands" className="btn btn-secondary">
-                Browse Our Brands
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
+
+      {/* ── Channel Modal ── */}
+      {activeChannel && (
+        <ChannelModal
+          channel={activeChannel}
+          onClose={() => setActiveChannel(null)}
+        />
+      )}
     </>
   );
 }
