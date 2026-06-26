@@ -7,15 +7,19 @@ import { BRANDS, CATEGORY_TABS } from "../Data/brands";
 // HELPER — renders logo image OR styled text fallback
 // ─────────────────────────────────────────────────────────────────────────────
 function BrandLogoDisplay({ brand, context = "card" }) {
-  if (brand.logo) {
+  const logo =
+    context === "detail" && brand.detailLogo ? brand.detailLogo : brand.logo;
+
+  if (logo) {
     return (
       <img
-        src={brand.logo}
+        src={logo}
         alt={brand.name}
         className={`bl-img bl-img--${context} ${brand.logoClass || ""}`}
       />
     );
   }
+
   return (
     <span
       className={`bl-text bl-text--${context}`}
@@ -72,7 +76,6 @@ function BrandCard({ brand, onSelect }) {
     </div>
   );
 }
-
 // ─────────────────────────────────────────────────────────────────────────────
 // BRAND DETAIL PAGE  (replaces listing when a brand is selected)
 // ─────────────────────────────────────────────────────────────────────────────

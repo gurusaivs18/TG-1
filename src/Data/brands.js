@@ -14,11 +14,13 @@ export const BRANDS = [
     id: "marshall",
     name: "Marshall",
     logo: marshall,
+    detailLogo: marshall,
     logoClass: "logo--marshall",
     category: "Audio",
     tagline: "Legendary Sound. Iconic Design.",
     description:
       "Marshall is a British audio icon with more than six decades of heritage rooted in rock & roll. From the legendary amplifiers that shaped music history to today's range of premium wireless speakers and headphones, Marshall brings unmistakable style and powerful acoustic performance to every product. As the authorised distributor across UAE and Qatar, Target One brings the full Marshall portfolio to power retailers and major chains throughout the Gulf region.",
+
     subCategories: [
       { name: "Home Speakers", icon: "🔊" },
       { name: "TV Sound", icon: "📺" },
