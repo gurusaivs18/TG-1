@@ -7,6 +7,7 @@
 import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
 import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
 import soundpeats from "../assets/soundpeats.jpeg";
+import yaben from "../assets/yaben .png";
 
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────
@@ -237,7 +238,7 @@ export const BRANDS = [
   {
     id: "yaben",
     name: "Yaben",
-    logo: null,
+    logo: yaben,
     logoText: "Yaben",
     category: "Projectors & Networking",
     tagline: "Entertainment Projector. Anywhere.",
