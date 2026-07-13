@@ -7,7 +7,7 @@
 import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
 import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
 import soundpeats from "../assets/soundpeats.jpeg";
-import yaben from "../assets/yaben .png";
+import yaber from "../assets/yaber.png";
 
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────
@@ -238,7 +238,7 @@ export const BRANDS = [
   {
     id: "yaber",
     name: "Yaber",
-    logo: yaben,
+    logo: yaber,
     logoClass: "logo--yaber",
     logoText: "Yaber",
     category: "Projectors & Networking",
