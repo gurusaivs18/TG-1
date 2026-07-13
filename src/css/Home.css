@@ -554,7 +554,10 @@
   max-height: 100px;
   transform: scale(1.9);
 }
-
+.logo--yaber img {
+  max-height: 100px;
+  transform: scale(1.50);
+}
 @media (max-width: 1024px) {
   .brands__logo-item {
     width: 200px;

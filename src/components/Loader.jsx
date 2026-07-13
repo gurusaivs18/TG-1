@@ -1,11 +1,14 @@
 import "../css/Loader.css";
-
+import targetOneLogo from "../assets/targetone.png"; // adjust the path
 export default function Loader() {
   return (
     <div className="preloader">
       <div className="loader-content">
         <div className="loader-ring"></div>
-        <h2 className="loader-logo">Target One</h2>
+        <div className="loader-brand">
+          <img src={targetOneLogo} alt="Target One" className="loader-logo" />
+          <h2 className="loader-title">Target One</h2>
+        </div>{" "}
         <p>please Wait...</p>
       </div>
     </div>

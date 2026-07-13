@@ -12,7 +12,7 @@ import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
 import soundpeats from "../assets/soundpeats.jpeg";
 // import acefast from "../assets/brands/acefast.png";
 import alogic from "../assets/alogic.jpeg";
-import yaben from "../assets/yaben .png";
+import yaber from "../assets/yaber.png";
 
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
@@ -21,7 +21,7 @@ const BRANDS = [
   { name: "Dicota", img: dicota, className: "logo--dicota" },
   { name: "SoundPEATS", img: soundpeats, className: "logo--soundpeats" },
   { name: "Alogic", img: alogic, className: "logo--alogic" },
-  { name: "Yaben", img: yaben, className: "logo--yaben" },
+  { name: "Yaber", img: yaber, className: "logo--yaber" },
 ];
 
 // Distribution Channels — replace logos with real imports when available
