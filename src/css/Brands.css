@@ -142,6 +142,9 @@
 .bl-img--card.logo--alogic {
   transform: scale(1.5);
 }
+.bl-img--card.logo--yaben {
+  transform: scale(2.9);
+}
 
 /* Text logo fallback */
 .bl-text--card {
@@ -317,6 +320,10 @@
 }
 .bl-img--detail.logo--alogic {
   transform: scale(1.8);
+}
+.bl-img--card.logo--yaber {
+  transform: scale(2);
+
 }
 
 .bl-text--detail {
@@ -553,6 +560,13 @@
   .filter-btn {
     font-size: 12px;
     padding: 6px 14px;
+  }
+
+  .reveal-left,
+  .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

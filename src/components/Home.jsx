@@ -12,6 +12,7 @@ import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
 import soundpeats from "../assets/soundpeats.jpeg";
 // import acefast from "../assets/brands/acefast.png";
 import alogic from "../assets/alogic.jpeg";
+import yaben from "../assets/yaben .png";
 
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
@@ -20,6 +21,7 @@ const BRANDS = [
   { name: "Dicota", img: dicota, className: "logo--dicota" },
   { name: "SoundPEATS", img: soundpeats, className: "logo--soundpeats" },
   { name: "Alogic", img: alogic, className: "logo--alogic" },
+  { name: "Yaben", img: yaben, className: "logo--yaben" },
 ];
 
 // Distribution Channels — replace logos with real imports when available
@@ -318,7 +320,9 @@ export default function Home() {
   // Redirect to the matching brand's detail page on /brands
   const handleSelectCategoryBrand = (brand) => {
     setActiveCategory(null);
-    navigate(`/brands?brand=${brand.id}`);
+    if (brand?.id) {
+      navigate(`/brands?brand=${brand.id}`);
+    }
   };
 
   return (
@@ -484,7 +488,7 @@ export default function Home() {
           <div className="brands__marquee-track">
             {[...BRANDS, ...BRANDS].map((brand, i) => (
               <div
-                key={i}
+                key={`${brand.name}-${i}`}
                 className={`brands__logo-item ${brand.className || ""}`}
               >
                 <img src={brand.img} alt={brand.name} />
@@ -615,7 +619,7 @@ export default function Home() {
         <CategoryModal
           category={activeCategory}
           brands={BRAND_CATALOG.filter(
-            (b) => b.category === activeCategory.name,
+            (b) => b.categoryId === activeCategory.id,
           )}
           onClose={() => setActiveCategory(null)}
           onSelectBrand={handleSelectCategoryBrand}

@@ -236,10 +236,11 @@ export const BRANDS = [
 
   // ── PROJECTORS & NETWORKING ───────────────────────────────────────────────
   {
-    id: "yaben",
-    name: "Yaben",
+    id: "yaber",
+    name: "Yaber",
     logo: yaben,
-    logoText: "Yaben",
+    logoClass: "logo--yaber",
+    logoText: "Yaber",
     category: "Projectors & Networking",
     tagline: "Entertainment Projector. Anywhere.",
     description:

@@ -111,9 +111,9 @@ export default function Navbar() {
               </Link>
             ))}
 
-            <Link to="/contact" className="btn btn-primary navbar__cta">
+            {/* <Link to="/contact" className="btn btn-primary navbar__cta">
               Get in Touch
-            </Link>
+            </Link> */}
 
             {/* Country Flags */}
             <div className="navbar__flags">

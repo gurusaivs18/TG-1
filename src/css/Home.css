@@ -267,6 +267,14 @@
     transform: translateX(-50%);
   }
 }
+@keyframes brands-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 /* ---------- What We Do ---------- */
 .what-we-do__grid {
@@ -494,10 +502,9 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  animation: ticker-scroll 28s linear infinite;
+  animation: brands-scroll 28s linear infinite;
   width: max-content;
 }
-
 .brands__logo-item {
   flex-shrink: 0;
   width: 240px;

@@ -189,19 +189,33 @@ export default function Brands() {
     if (match) setSelectedBrand(match);
   }, [searchParams]);
 
+  
   // Scroll-reveal for listing
   useEffect(() => {
     if (selectedBrand) return;
+
+    const elements = document.querySelectorAll(".reveal-left, .reveal-right");
+
     const observer = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
           if (e.isIntersecting) e.target.classList.add("active");
         }),
-      { threshold: 0.1 },
+      { threshold: 0.1, rootMargin: "0px 0px -5% 0px" },
     );
-    document
-      .querySelectorAll(".reveal-left, .reveal-right")
-      .forEach((el) => observer.observe(el));
+
+    elements.forEach((el) => {
+      // If it's already in (or near) the viewport on mount, reveal it
+      // immediately instead of waiting on the observer — mobile Safari/Chrome
+      // often don't fire IntersectionObserver until the first scroll event.
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("active");
+      } else {
+        observer.observe(el);
+      }
+    });
+
     return () => observer.disconnect();
   }, [selectedBrand]);
 
