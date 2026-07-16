@@ -5,7 +5,7 @@ import { BRANDS, CATEGORY_TABS } from "../Data/brands";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // HELPER — renders logo image OR styled text fallback
-// ─────────────────────────────────────────────────────────────────────────────
+// ────────────────────────────────────────────────────────────────     ─────────────
 function BrandLogoDisplay({ brand, context = "card" }) {
   const logo =
     context === "detail" && brand.detailLogo ? brand.detailLogo : brand.logo;
