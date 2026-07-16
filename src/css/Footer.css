@@ -206,3 +206,21 @@
     text-align: center;
   }
 }
+
+.footer__brand-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer__logo {
+  width: 160px; /* Adjust as needed */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 600px) {
+  .footer__logo {
+    width: 160px;
+  }
+}

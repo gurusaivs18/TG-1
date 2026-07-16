@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../css/Footer.css";
-
+import targetOneLogo from "../assets/targetone_transparent.png"; // adjust path if needed
 export default function Footer() {
   return (
     <footer className="footer">
@@ -33,9 +33,16 @@ export default function Footer() {
           <div className="footer__grid">
             {/* Brand Column */}
             <div>
-              <div className="footer__brand-logo">
+              {/* <div className="footer__brand-logo">
                 <div className="footer__brand-mark">T</div>
                 <div className="footer__brand-name">Target One</div>
+              </div> */}
+              <div className="footer__brand-logo">
+                <img
+                  src={targetOneLogo}
+                  alt="Target One"
+                  className="footer__logo"
+                />
               </div>
               <p className="footer__tagline">
                 Target One is a technology-driven distribution and business
