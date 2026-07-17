@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/Home.css";
 import heroBackground from "../assets/tg11.webp";
 import UAENetworkMap from "../components/UAENetworkMap";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
 
 // brands (marquee)
@@ -161,6 +161,38 @@ const JOURNEY = [
   { year: "2026", milestone: "Regional Presence" },
 ];
 
+// ── Seamless marquee helper ──
+// Measures one full set of marquee items (via a hidden reference copy)
+// and works out how many visible copies are needed so the track always
+// covers at least ~2.2x the viewport width. This keeps the loop seamless
+// no matter how wide the screen gets, without hardcoding item counts.
+function useMarqueeRepeat(containerRef, measureRef, deps = []) {
+  const [repeat, setRepeat] = useState(3);
+
+  useEffect(() => {
+    const calc = () => {
+      if (!containerRef.current || !measureRef.current) return;
+      const setWidth = measureRef.current.scrollWidth;
+      const viewportWidth = containerRef.current.offsetWidth;
+      if (!setWidth) return;
+      const needed = Math.ceil((viewportWidth * 2.2) / setWidth) + 1;
+      setRepeat((prev) => (prev === needed ? prev : Math.max(3, needed)));
+    };
+
+    calc();
+    // images can finish loading slightly after mount, changing scrollWidth
+    const t = setTimeout(calc, 300);
+    window.addEventListener("resize", calc);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", calc);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
+
+  return repeat;
+}
+
 // ── Channel Modal ──
 function ChannelModal({ channel, onClose }) {
   const handleBackdropClick = useCallback(
@@ -299,6 +331,14 @@ export default function Home() {
   const navigate = useNavigate();
   const [activeChannel, setActiveChannel] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
+
+  // ── Brands marquee: dynamic repeat count so it never runs dry on wide screens ──
+  const brandsWrapRef = useRef(null);
+  const brandsSetRef = useRef(null);
+  const brandRepeat = useMarqueeRepeat(brandsWrapRef, brandsSetRef, [
+    BRANDS.length,
+  ]);
+  const brandItems = Array.from({ length: brandRepeat }, () => BRANDS).flat();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -484,14 +524,35 @@ export default function Home() {
             <h2 className="section-title">Our Brands</h2>
           </div>
         </div>
-        <div className="brands__marquee-wrap">
-          <div className="brands__marquee-track">
-            {[...BRANDS, ...BRANDS].map((brand, i) => (
+        <div className="brands__marquee-wrap" ref={brandsWrapRef}>
+          <div
+            className="brands__marquee-track"
+            style={{ "--marquee-repeat": brandRepeat }}
+          >
+            {brandItems.map((brand, i) => (
               <div
                 key={`${brand.name}-${i}`}
                 className={`brands__logo-item ${brand.className || ""}`}
               >
                 <img src={brand.img} alt={brand.name} />
+              </div>
+            ))}
+          </div>
+
+          {/* Hidden reference copy of exactly ONE brand set — used only
+              to measure its rendered width so we know how many visible
+              copies (above) are needed to fill the screen. */}
+          <div
+            className="brands__marquee-track brands__marquee-track--measure"
+            ref={brandsSetRef}
+            aria-hidden="true"
+          >
+            {BRANDS.map((brand, i) => (
+              <div
+                key={`measure-${brand.name}-${i}`}
+                className={`brands__logo-item ${brand.className || ""}`}
+              >
+                <img src={brand.img} alt="" />
               </div>
             ))}
           </div>
