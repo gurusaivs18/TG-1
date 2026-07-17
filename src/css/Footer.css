@@ -55,12 +55,12 @@
   gap: 48px;
 }
 
-.footer__brand-logo {
+/* .footer__brand-logo {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 16px;
-}
+} */
 
 .footer__brand-mark {
   width: 34px;
@@ -210,7 +210,7 @@
 .footer__brand-logo {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .footer__logo {
