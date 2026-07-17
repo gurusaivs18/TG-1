@@ -6,9 +6,9 @@ import { useEffect, useState, useCallback } from "react";
 import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
 
 // brands (marquee)
-import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
+// import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
 import benq from "../assets/logos/test2.jpeg";
-import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
+// import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
 import soundpeats from "../assets/logos/test4.jpeg";
 // import acefast from "../assets/brands/acefast.png";
 import alogic from "../assets/logos/test1.jpeg";
@@ -16,9 +16,9 @@ import yaber from "../assets/logos/test3.jpeg";
 
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
-  { name: "Marshall", img: marshall, className: "logo--marshall" },
+  // { name: "Marshall", img: marshall, className: "logo--marshall" },
   { name: "BenQ", img: benq, className: "logo--benq" },
-  { name: "Dicota", img: dicota, className: "logo--dicota" },
+  // { name: "Dicota", img: dicota, className: "logo--dicota" },
   { name: "SoundPEATS", img: soundpeats, className: "logo--soundpeats" },
   { name: "Alogic", img: alogic, className: "logo--alogic" },
   { name: "Yaber", img: yaber, className: "logo--yaber" },
