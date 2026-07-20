@@ -238,7 +238,7 @@ export const BRANDS = [
   },
   {
     id: "tp-link",
-    name: "TP-Link & Tapo",
+    name: "TP-Link",
     logo: tpLink,
     logoClass: "logo--tp-link",
     category: "Projectors & Networking",
