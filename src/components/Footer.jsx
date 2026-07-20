@@ -98,11 +98,7 @@ export default function Footer() {
                     Marshall
                   </Link>
                 </li>
-                <li>
-                  <Link to="/brands" className="footer__link">
-                    BenQ
-                  </Link>
-                </li>
+
                 <li>
                   <Link to="/brands" className="footer__link">
                     Dicota
@@ -111,16 +107,6 @@ export default function Footer() {
                 <li>
                   <Link to="/brands" className="footer__link">
                     SoundPEATS
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/brands" className="footer__link">
-                    AceFast
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/brands" className="footer__link">
-                    Alogic
                   </Link>
                 </li>
               </ul>
