@@ -1,14 +1,17 @@
-// src/data/brands.js
-//
-// Single source of truth for brand + category data.
-// Used by Brands.jsx (listing/detail page) AND Home.jsx
-// (Our Categories → modal → redirect-to-brand flow).
+import marshall from "../assets/Home Page Scroller cards/Marshall.jpg";
+import dicota from "../assets/Home Page Scroller cards/Dicota.jpg";
+import soundpeats from "../assets/Home Page Scroller cards/SoundPeats.jpg";
+import yaber from "../assets/Home Page Scroller cards/Yaber.jpg";
 
-import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
-import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
-import soundpeats from "../assets/soundpeats.jpeg";
-import yaber from "../assets/yaber.png";
-
+import choetic from "../assets/Home Page Scroller cards/Choetech.jpg";
+import ikarao from "../assets/Home Page Scroller cards/Ikarao.jpg";
+import iqibla from "../assets/Home Page Scroller cards/Iqibla.jpg";
+import qcy from "../assets/Home Page Scroller cards/QCY.jpg";
+import shokz from "../assets/Home Page Scroller cards/SHOKZ.jpg";
+import tapo from "../assets/Home Page Scroller cards/Tapo.jpg"; // currently unused — tp-link entry uses the combined tp-link|tapo lockup (tpLink import). Swap in if you want a separate Tapo sub-logo.
+import ticnote from "../assets/Home Page Scroller cards/TicNote.jpg";
+import titanSmart from "../assets/Home Page Scroller cards/Titan Smart.jpg";
+import tpLink from "../assets/Home Page Scroller cards/Tp link.jpg";
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────
   {
@@ -41,8 +44,8 @@ export const BRANDS = [
   {
     id: "shokz",
     name: "Shokz",
-    logo: null,
-    logoText: "SHOKZ",
+    logo: shokz,
+    logoClass: "logo--shokz",
     category: "Audio",
     tagline: "Open-Ear Design. Music On, Still Connected.",
     description:
@@ -84,8 +87,8 @@ export const BRANDS = [
   {
     id: "ikarao",
     name: "Ikarao",
-    logo: null,
-    logoText: "Ikarao®",
+    logo: ikarao,
+    logoClass: "logo--ikarao",
     category: "Audio",
     tagline: "Unleash the Singer in You.",
     description:
@@ -102,13 +105,34 @@ export const BRANDS = [
     ],
     accentColor: "#6a1b9a",
   },
+  {
+    id: "qcy",
+    name: "QCY",
+    logo: qcy,
+    logoClass: "logo--qcy",
+    category: "Audio",
+    tagline: "Block Out the Chaos. Everyday.",
+    description:
+      "QCY makes budget-friendly earbuds and headphones built for everyday chaos-blocking listening, including the MeloBuds A30 and H3 series. QCY focuses on accessible pricing without sacrificing the essentials — solid sound, all-day comfort, and reliable connectivity for daily use.",
+    subCategories: [
+      { name: "True Wireless", icon: "🎵" },
+      { name: "MeloBuds Series", icon: "🎧" },
+      { name: "H Series Headphones", icon: "🎶" },
+    ],
+    highlights: [
+      "Budget-Friendly Everyday Audio",
+      "MeloBuds A30 & H3 Series",
+      "Designed to Block Out Daily Chaos",
+    ],
+    accentColor: "#0288d1",
+  },
 
   // ── WEARABLE ──────────────────────────────────────────────────────────────
   {
     id: "titan-smart",
     name: "Titan Smart",
-    logo: null,
-    logoText: "TITAN SMART",
+    logo: titanSmart,
+    logoClass: "logo--titan-smart",
     category: "Wearable",
     tagline: "The Future of Smartwatches.",
     description:
@@ -125,32 +149,12 @@ export const BRANDS = [
     ],
     accentColor: "#1a237e",
   },
-  {
-    id: "fastrack-smart",
-    name: "Fastrack Smart",
-    logo: null,
-    logoText: "fastrack SMART",
-    category: "Wearable",
-    tagline: "Lag Free. Next-Gen Smart Living.",
-    description:
-      "Fastrack Smart is a bold, youth-driven smartwatch brand under the Titan Group umbrella. Built on a next-generation dual-core processor with a 60Hz AMOLED display, Hyper Personal UI, and a premium metal design — Fastrack Smart speaks the language of the next generation with equal parts style and substance.",
-    subCategories: [
-      { name: "AMOLED Smartwatches", icon: "⌚" },
-      { name: "Sports Series", icon: "🏃" },
-      { name: "Fashion Series", icon: "✨" },
-    ],
-    highlights: [
-      "Dual-Core Next-Gen Processor",
-      "60Hz AMOLED Refresh Rate",
-      "Hyper Personal UI with 3D Menu",
-    ],
-    accentColor: "#c62828",
-  },
+
   {
     id: "iqibla",
     name: "iQIBLA",
-    logo: null,
-    logoText: "iQIBLA",
+    logo: iqibla,
+    logoClass: "logo--iqibla",
     category: "Wearable",
     tagline: "Technology for Faith.",
     description:
@@ -190,48 +194,22 @@ export const BRANDS = [
     ],
     accentColor: "#e65100",
   },
+
   {
-    id: "ugreen",
-    name: "Ugreen",
-    logo: null,
-    logoText: "UGREEN",
+    id: "choetech",
+    name: "Choetech",
+    logo: choetic,
+    logoClass: "logo--choetech",
     category: "Accessories",
-    tagline: "Connect. Power. Energize Your Devices.",
+    tagline: "Power That Keeps Up With You.",
     description:
-      "Ugreen is a global technology accessories brand trusted by millions for premium charging solutions, cables, hubs, and power banks. With GaN charging technology, a portfolio exceeding 1,000 SKUs, and consistent engineering quality — Ugreen powers the fully connected lifestyle with reliability and speed.",
-    subCategories: [
-      { name: "GaN Fast Chargers", icon: "⚡" },
-      { name: "Cables & Hubs", icon: "🔌" },
-      { name: "Power Banks", icon: "🔋" },
-      { name: "Mobile Accessories", icon: "📱" },
-    ],
-    highlights: [
-      "GaN Charging Technology",
-      "1,000+ Product SKUs",
-      "Ugreen Connect Award 2024",
-    ],
-    accentColor: "#2e7d32",
-  },
-  {
-    id: "romoss",
-    name: "Romoss",
-    logo: null,
-    logoText: "ROMOSS",
-    category: "Accessories",
-    tagline: "Charge Fast. Last Long.",
-    description:
-      "Romoss is a specialist power bank and portable charging accessories brand, delivering reliable high-capacity power in slim, travel-ready form factors. With a focus on fast-charge technology and premium build quality, Romoss ensures your devices stay powered through even the longest days.",
+      "Choetech is a charging accessories brand specialising in power banks and portable charging solutions, built to keep devices powered reliably throughout the day. NOTE: brand details below are a placeholder — please confirm tagline, description, subcategories, and highlights so this entry can be finalized.",
     subCategories: [
       { name: "Power Banks", icon: "🔋" },
-      { name: "Fast Chargers", icon: "⚡" },
-      { name: "Charging Cables", icon: "🔌" },
+      { name: "Chargers", icon: "⚡" },
     ],
-    highlights: [
-      "High-Capacity Power Banks",
-      "Fast Charge & PD Technology",
-      "Slim & Travel-Friendly Design",
-    ],
-    accentColor: "#00695c",
+    highlights: ["Power Bank Specialist", "Reliable All-Day Charging"],
+    accentColor: "#455a64",
   },
 
   // ── PROJECTORS & NETWORKING ───────────────────────────────────────────────
@@ -261,8 +239,8 @@ export const BRANDS = [
   {
     id: "tp-link",
     name: "TP-Link & Tapo",
-    logo: null,
-    logoText: "tp-link | tapo",
+    logo: tpLink,
+    logoClass: "logo--tp-link",
     category: "Projectors & Networking",
     tagline: "Reliable Networking. Smart Home Simplified.",
     description:
@@ -280,13 +258,34 @@ export const BRANDS = [
     ],
     accentColor: "#0074c2",
   },
-
+  {
+    id: "tapo",
+    name: " Tapo",
+    logo: tapo,
+    logoClass: "logo--tp-link",
+    category: "Projectors & Networking",
+    tagline: "Reliable Networking. Smart Home Simplified.",
+    description:
+      "TP-Link is the world's #1 provider of Wi-Fi products, delivering high-performance networking solutions trusted by homes and businesses globally. Tapo — their smart home sub-brand — extends this expertise into smart cameras, sensors, bulbs, and plugs, making a fully connected smart home effortless and affordable.",
+    subCategories: [
+      { name: "Wi-Fi Routers", icon: "📡" },
+      { name: "Mesh Networking", icon: "🔗" },
+      { name: "Smart Cameras (Tapo)", icon: "📷" },
+      { name: "Smart Home Devices", icon: "🏠" },
+    ],
+    highlights: [
+      "World's #1 Wi-Fi Brand",
+      "Tapo Smart Home Ecosystem",
+      "Mesh & Whole-Home Coverage",
+    ],
+    accentColor: "#0074c2",
+  },
   // ── TECHNOLOGY / AI POWERED ───────────────────────────────────────────────
   {
     id: "ticnote",
     name: "TicNote",
-    logo: null,
-    logoText: "TicNote",
+    logo: ticnote,
+    logoClass: "logo--ticnote",
     category: "Technology / AI Powered",
     tagline: "Next Generation AI Voice Recorder.",
     description:

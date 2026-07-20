@@ -6,22 +6,35 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
 
 // brands (marquee)
-// import marshall from "../assets/marshall-logo-png_seeklogo-88775.png";
-import benq from "../assets/logos/test2.jpeg";
-// import dicota from "../assets/dicota-logo-png_seeklogo-322545.png";
-import soundpeats from "../assets/logos/test4.jpeg";
-// import acefast from "../assets/brands/acefast.png";
-import alogic from "../assets/logos/test1.jpeg";
-import yaber from "../assets/logos/test3.jpeg";
+import choetic from "../assets/Home Page Scroller cards/Choetech.jpg";
+import dicota from "../assets/Home Page Scroller cards/Dicota.jpg";
+import ikarao from "../assets/Home Page Scroller cards/Ikarao.jpg";
+import iquibla from "../assets/Home Page Scroller cards/Iqibla.jpg";
+import marshall from "../assets/Home Page Scroller cards/Marshall.jpg";
+import qcy from "../assets/Home Page Scroller cards/QCY.jpg";
+import shokz from "../assets/Home Page Scroller cards/SHOKZ.jpg";
+import SoundPeats from "../assets/Home Page Scroller cards/SoundPeats.jpg";
+import Tapo from "../assets/Home Page Scroller cards/Tapo.jpg";
+import ticnote from "../assets/Home Page Scroller cards/TicNote.jpg";
+import titanSmart from "../assets/Home Page Scroller cards/Titan Smart.jpg";
+import Tplink from "../assets/Home Page Scroller cards/Tp link.jpg";
+import Yaber from "../assets/Home Page Scroller cards/Yaber.jpg";
 
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
-  // { name: "Marshall", img: marshall, className: "logo--marshall" },
-  { name: "BenQ", img: benq, className: "logo--benq" },
-  // { name: "Dicota", img: dicota, className: "logo--dicota" },
-  { name: "SoundPEATS", img: soundpeats, className: "logo--soundpeats" },
-  { name: "Alogic", img: alogic, className: "logo--alogic" },
-  { name: "Yaber", img: yaber, className: "logo--yaber" },
+  { name: "Dicota", img: dicota, className: "logo--dicota" },
+  { name: "choetic", img: choetic, className: "logo--choetic" },
+  { name: "ikarao", img: ikarao, className: "logo--ikarao" },
+  { name: "iquibla", img: iquibla, className: "logo--iquibla" },
+  { name: "Marshall", img: marshall, className: "logo--marshall" },
+  { name: "qcy ", img: qcy, className: "logo--qcy " },
+  { name: " shokz", img: shokz, className: "logo-- shokz" },
+  { name: " SoundPeats", img: SoundPeats, className: "logo--SoundPeats" },
+  { name: " Tapo", img: Tapo, className: "logo-- Tapo" },
+  { name: " ticnote", img: ticnote, className: "logo--ticnote" },
+  { name: " titanSmart", img: titanSmart, className: "logo--titanSmart" },
+  { name: " Tplink", img: Tplink, className: "logo--Tplink" },
+  { name: "Yaber", img: Yaber, className: "logo--Yaber" },
 ];
 
 // Distribution Channels — replace logos with real imports when available
