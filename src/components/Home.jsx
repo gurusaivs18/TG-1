@@ -329,7 +329,6 @@ function CategoryModal({ category, brands, onClose, onSelectBrand }) {
                     </span>
                   )}
                 </div>
-                <span className="cat-modal__logo-name">{brand.name}</span>
               </button>
             ))}
           </div>
@@ -694,7 +693,7 @@ export default function Home() {
         <CategoryModal
           category={activeCategory}
           brands={BRAND_CATALOG.filter(
-            (b) => b.categoryId === activeCategory.id,
+            (b) => b.category === activeCategory.name,
           )}
           onClose={() => setActiveCategory(null)}
           onSelectBrand={handleSelectCategoryBrand}
