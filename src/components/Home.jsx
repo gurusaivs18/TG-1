@@ -20,6 +20,8 @@ import titanSmart from "../assets/Home Page Scroller cards/Titan Smart.webp";
 import Tplink from "../assets/Home Page Scroller cards/Tp link.webp";
 import Yaber from "../assets/Home Page Scroller cards/Yaber.webp";
 
+// Channels of Distribution partners logos
+import virginMegastore from "../assets/retail-partners-logo/virgin .jpeg";
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
   { name: "Dicota", img: dicota, className: "logo--dicota" },
@@ -45,7 +47,7 @@ const CHANNELS = [
     icon: "🏬",
     desc: "Premium electronics & tech retail chains across UAE & Qatar.",
     partners: [
-      { name: "Virgin Megastore", img: "/images/partners/virgin.png" },
+      { name: "Virgin Megastore", img: virginMegastore },
       { name: "Jumbo Electronics", img: "/images/partners/jumbo.png" },
       { name: "Emax", img: "/images/partners/emax.png" },
       { name: "Sharaf DG", img: "/images/partners/sharafdg.png" },
