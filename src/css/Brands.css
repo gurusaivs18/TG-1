@@ -130,7 +130,7 @@
 }
 
 /* Scale adjustments for existing assets */
-.bl-img--card.logo--marshall {
+/* .bl-img--card.logo--marshall {
   transform: scale(1.9);
 }
 .bl-img--card.logo--dicota {
@@ -144,7 +144,7 @@
 }
 .bl-img--card.logo--yaber {
   transform: scale(2);
-}
+} */
 
 /* Text logo fallback */
 .bl-text--card {

@@ -1,17 +1,17 @@
-import marshall from "../assets/Home Page Scroller cards/Marshall.jpg";
-import dicota from "../assets/Home Page Scroller cards/Dicota.jpg";
-import soundpeats from "../assets/Home Page Scroller cards/SoundPeats.jpg";
-import yaber from "../assets/Home Page Scroller cards/Yaber.jpg";
+import marshall from "../assets/brandsPageLogos/MarshallBR.webp";
+import dicota from "../assets/brandsPageLogos/DicotaBR.webp";
+import soundpeats from "../assets/brandsPageLogos/SoundpeatsBR.webp";
+import yaber from "../assets/brandsPageLogos/YaberBR.webp";
 
-import choetic from "../assets/Home Page Scroller cards/Choetech.jpg";
-import ikarao from "../assets/Home Page Scroller cards/Ikarao.jpg";
-import iqibla from "../assets/Home Page Scroller cards/Iqibla.jpg";
-import qcy from "../assets/Home Page Scroller cards/QCY.jpg";
-import shokz from "../assets/Home Page Scroller cards/SHOKZ.jpg";
-import tapo from "../assets/Home Page Scroller cards/Tapo.jpg"; // currently unused — tp-link entry uses the combined tp-link|tapo lockup (tpLink import). Swap in if you want a separate Tapo sub-logo.
-import ticnote from "../assets/Home Page Scroller cards/TicNote.jpg";
-import titanSmart from "../assets/Home Page Scroller cards/Titan Smart.jpg";
-import tpLink from "../assets/Home Page Scroller cards/Tp link.jpg";
+import choetic from "../assets/brandsPageLogos/ChoetechBR.webp";
+import ikarao from "../assets/brandsPageLogos/IkaraoBR.webp";
+import iqibla from "../assets/brandsPageLogos/IqiblaBR.webp";
+import qcy from "../assets/brandsPageLogos/QCYBR.webp";
+import shokz from "../assets/brandsPageLogos/SHOKZBR.webp";
+import tapo from "../assets/brandsPageLogos/TapoBR.webp"; // currently unused — tp-link entry uses the combined tp-link|tapo lockup (tpLink import). Swap in if you want a separate Tapo sub-logo.
+import ticnote from "../assets/brandsPageLogos/ticnoteBR.webp";
+import titanSmart from "../assets/brandsPageLogos/Titan SmartBR.webp";
+import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.jpeg";
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────
   {

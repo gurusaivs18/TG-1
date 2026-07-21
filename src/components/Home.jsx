@@ -6,19 +6,19 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
 
 // brands (marquee)
-import choetic from "../assets/Home Page Scroller cards/Choetech.jpg";
-import dicota from "../assets/Home Page Scroller cards/Dicota.jpg";
-import ikarao from "../assets/Home Page Scroller cards/Ikarao.jpg";
-import iquibla from "../assets/Home Page Scroller cards/Iqibla.jpg";
-import marshall from "../assets/Home Page Scroller cards/Marshall.jpg";
-import qcy from "../assets/Home Page Scroller cards/QCY.jpg";
-import shokz from "../assets/Home Page Scroller cards/SHOKZ.jpg";
-import SoundPeats from "../assets/Home Page Scroller cards/SoundPeats.jpg";
-import Tapo from "../assets/Home Page Scroller cards/Tapo.jpg";
-import ticnote from "../assets/Home Page Scroller cards/TicNote.jpg";
-import titanSmart from "../assets/Home Page Scroller cards/Titan Smart.jpg";
-import Tplink from "../assets/Home Page Scroller cards/Tp link.jpg";
-import Yaber from "../assets/Home Page Scroller cards/Yaber.jpg";
+import choetic from "../assets/Home Page Scroller cards/Choetech.webp";
+import dicota from "../assets/Home Page Scroller cards/Dicota.webp";
+import ikarao from "../assets/Home Page Scroller cards/Ikarao.webp";
+import iquibla from "../assets/Home Page Scroller cards/Iqibla.webp";
+import marshall from "../assets/Home Page Scroller cards/Marshall.webp";
+import qcy from "../assets/Home Page Scroller cards/QCY.webp";
+import shokz from "../assets/Home Page Scroller cards/SHOKZ.webp";
+import SoundPeats from "../assets/Home Page Scroller cards/SoundPeats.webp";
+import Tapo from "../assets/Home Page Scroller cards/Tapo.webp";
+import ticnote from "../assets/Home Page Scroller cards/TicNote.webp";
+import titanSmart from "../assets/Home Page Scroller cards/Titan Smart.webp";
+import Tplink from "../assets/Home Page Scroller cards/Tp link.webp";
+import Yaber from "../assets/Home Page Scroller cards/Yaber.webp";
 
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
