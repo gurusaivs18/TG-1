@@ -5,7 +5,7 @@ import { BRANDS, CATEGORY_TABS } from "../Data/brands";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // HELPER — renders logo image OR styled text fallback
-// ────────────────────────────────────────────────────────────────     ─────────────
+// ─────────────────────────────────────────────────────────────────────────────
 function BrandLogoDisplay({ brand, context = "card" }) {
   const logo =
     context === "detail" && brand.detailLogo ? brand.detailLogo : brand.logo;
@@ -27,6 +27,39 @@ function BrandLogoDisplay({ brand, context = "card" }) {
     >
       {brand.logoText || brand.name}
     </span>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HELPER — renders a single sub-category card
+// Prefers a supplied image (text baked into the artwork); falls back to the
+// icon + number + name layout for any sub-category that hasn't got an image yet.
+// ─────────────────────────────────────────────────────────────────────────────
+function BrandSubCard({ sub, index, accentColor }) {
+  if (sub.image) {
+    return (
+      <div
+        className="bd-sub-card bd-sub-card--image"
+        style={{ "--brand-accent": accentColor }}
+      >
+        <img
+          src={sub.image}
+          alt={sub.name}
+          className="bd-sub-card__img"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="bd-sub-card" style={{ "--brand-accent": accentColor }}>
+      <div className="bd-sub-card__icon">{sub.icon}</div>
+      <div className="bd-sub-card__num">
+        {String(index + 1).padStart(2, "0")}
+      </div>
+      <div className="bd-sub-card__name">{sub.name}</div>
+    </div>
   );
 }
 
@@ -76,6 +109,7 @@ function BrandCard({ brand, onSelect }) {
     </div>
   );
 }
+
 // ─────────────────────────────────────────────────────────────────────────────
 // BRAND DETAIL PAGE  (replaces listing when a brand is selected)
 // ─────────────────────────────────────────────────────────────────────────────
@@ -141,17 +175,12 @@ function BrandDetailPage({ brand, onBack }) {
             </h2>
             <div className="bd-subs-grid">
               {brand.subCategories.map((sub, i) => (
-                <div
+                <BrandSubCard
                   key={sub.name}
-                  className="bd-sub-card"
-                  style={{ "--brand-accent": brand.accentColor }}
-                >
-                  <div className="bd-sub-card__icon">{sub.icon}</div>
-                  <div className="bd-sub-card__num">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div className="bd-sub-card__name">{sub.name}</div>
-                </div>
+                  sub={sub}
+                  index={i}
+                  accentColor={brand.accentColor}
+                />
               ))}
             </div>
           </section>
@@ -189,7 +218,6 @@ export default function Brands() {
     if (match) setSelectedBrand(match);
   }, [searchParams]);
 
-  
   // Scroll-reveal for listing
   useEffect(() => {
     if (selectedBrand) return;

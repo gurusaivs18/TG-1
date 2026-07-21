@@ -12,6 +12,13 @@ import tapo from "../assets/brandsPageLogos/TapoBR.webp"; // currently unused �
 import ticnote from "../assets/brandsPageLogos/ticnoteBR.webp";
 import titanSmart from "../assets/brandsPageLogos/Titan SmartBR.webp";
 import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.jpeg";
+
+// ── Sub-category images ─────────────────────────────────────────────────
+// Drop each new "categories we carry" image import here as it's supplied,
+// then reference it in the matching subCategories entry below via `image:`.
+// Until an image exists, leave `image: null` and the icon/number/name
+// fallback layout will render automatically — nothing else needs to change.
+
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────
   {
@@ -26,13 +33,13 @@ export const BRANDS = [
       "Marshall is a British audio icon with more than six decades of heritage rooted in rock & roll. From the legendary amplifiers that shaped music history to today's range of premium wireless speakers and headphones, Marshall brings unmistakable style and powerful acoustic performance to every product. As the authorised distributor across UAE and Qatar, Target One brings the full Marshall portfolio to power retailers and major chains throughout the Gulf region.",
 
     subCategories: [
-      { name: "Home Speakers", icon: "🔊" },
-      { name: "TV Sound", icon: "📺" },
-      { name: "Portable Speakers", icon: "🎵" },
-      { name: "Party Speakers", icon: "🎉" },
-      { name: "Over-Ear Headphones", icon: "🎧" },
-      { name: "Earbuds", icon: "🎶" },
-      { name: "On-Ear Headphones", icon: "🎧" },
+      { name: "Home Speakers", icon: "🔊", image: null },
+      { name: "TV Sound", icon: "📺", image: null },
+      { name: "Portable Speakers", icon: "🎵", image: null },
+      { name: "Party Speakers", icon: "🎉", image: null },
+      { name: "Over-Ear Headphones", icon: "🎧", image: null },
+      { name: "Earbuds", icon: "🎶", image: null },
+      { name: "On-Ear Headphones", icon: "🎧", image: null },
     ],
     highlights: [
       "60+ Years of Audio Heritage",
@@ -51,10 +58,10 @@ export const BRANDS = [
     description:
       "Shokz pioneered the open-ear audio category with patented bone conduction technology, allowing listeners to enjoy clear audio while remaining fully aware of their surroundings. Designed for athletes, commuters, and professionals — Shokz delivers a truly unique listening experience that no traditional earphone can replicate.",
     subCategories: [
-      { name: "True Wireless", icon: "🎵" },
-      { name: "Sports", icon: "🏃" },
-      { name: "Communications", icon: "📞" },
-      { name: "Swimming", icon: "🏊" },
+      { name: "True Wireless", icon: "🎵", image: null },
+      { name: "Sports", icon: "🏃", image: null },
+      { name: "Communications", icon: "📞", image: null },
+      { name: "Swimming", icon: "🏊", image: null },
     ],
     highlights: [
       "Patented Bone Conduction Technology",
@@ -73,9 +80,9 @@ export const BRANDS = [
     description:
       "SoundPEATS delivers high-fidelity audio experiences at accessible price points. Specialising in true wireless earbuds with audiophile-grade drivers, active noise cancellation, and the latest Bluetooth connectivity — SoundPEATS makes premium listening available to everyone without compromise.",
     subCategories: [
-      { name: "True Wireless", icon: "🎵" },
-      { name: "Audiophile", icon: "🎼" },
-      { name: "Noise Cancelling", icon: "🔇" },
+      { name: "True Wireless", icon: "🎵", image: null },
+      { name: "Audiophile", icon: "🎼", image: null },
+      { name: "Noise Cancelling", icon: "🔇", image: null },
     ],
     highlights: [
       "Hi-Fi Audiophile Drivers",
@@ -94,9 +101,9 @@ export const BRANDS = [
     description:
       "Ikarao is a globally recognised smart karaoke brand that blends entertainment technology with premium audio engineering. From the award-winning Break X1 — the #1 karaoke machine with a built-in screen — to portable party speakers with built-in batteries, Ikarao transforms any space into a stage. Ikarao's Break X1 won Best Product in the Entertainment category at Channel Summit META 2025.",
     subCategories: [
-      { name: "Smart Karaoke Machines", icon: "🎤" },
-      { name: "Portable Speakers", icon: "🔊" },
-      { name: "Party Speakers", icon: "🎉" },
+      { name: "Smart Karaoke Machines", icon: "🎤", image: null },
+      { name: "Portable Speakers", icon: "🔊", image: null },
+      { name: "Party Speakers", icon: "🎉", image: null },
     ],
     highlights: [
       "🏆 Best Product — Channel Summit META 2025",
@@ -115,9 +122,9 @@ export const BRANDS = [
     description:
       "QCY makes budget-friendly earbuds and headphones built for everyday chaos-blocking listening, including the MeloBuds A30 and H3 series. QCY focuses on accessible pricing without sacrificing the essentials — solid sound, all-day comfort, and reliable connectivity for daily use.",
     subCategories: [
-      { name: "True Wireless", icon: "🎵" },
-      { name: "MeloBuds Series", icon: "🎧" },
-      { name: "H Series Headphones", icon: "🎶" },
+      { name: "True Wireless", icon: "🎵", image: null },
+      { name: "MeloBuds Series", icon: "🎧", image: null },
+      { name: "H Series Headphones", icon: "🎶", image: null },
     ],
     highlights: [
       "Budget-Friendly Everyday Audio",
@@ -138,9 +145,9 @@ export const BRANDS = [
     description:
       "Titan Smart, from India's iconic Titan Company, brings next-generation smartwatch technology to the Middle East. Featuring stunning AMOLED displays up to 3.53cm, AI-powered personalization, built-in GPS with Strava integration, and premium stainless steel construction — Titan Smart unites elegance with leading-edge wearable technology.",
     subCategories: [
-      { name: "AMOLED Smartwatches", icon: "⌚" },
-      { name: "Fitness Trackers", icon: "💪" },
-      { name: "Premium Design Series", icon: "✨" },
+      { name: "AMOLED Smartwatches", icon: "⌚", image: null },
+      { name: "Fitness Trackers", icon: "💪", image: null },
+      { name: "Premium Design Series", icon: "✨", image: null },
     ],
     highlights: [
       "3.53cm AMOLED · 600 Nits Brightness",
@@ -160,9 +167,9 @@ export const BRANDS = [
     description:
       "iQIBLA is the world's first Islamic Smart Zikr Ring — a revolutionary wearable that seamlessly fuses faith and technology. Designed for Muslims worldwide, it tracks Tasbeeh (Zikr), provides Qibla direction and prayer times, and connects to a dedicated companion app for a richer spiritual experience. Waterproof and available in stunning metallic designs.",
     subCategories: [
-      { name: "Smart Zikr Ring", icon: "💍" },
-      { name: "Islamic Wearables", icon: "🕌" },
-      { name: "Faith-Tech Accessories", icon: "📿" },
+      { name: "Smart Zikr Ring", icon: "💍", image: null },
+      { name: "Islamic Wearables", icon: "🕌", image: null },
+      { name: "Faith-Tech Accessories", icon: "📿", image: null },
     ],
     highlights: [
       "World's First Islamic Smart Ring",
@@ -183,9 +190,9 @@ export const BRANDS = [
     description:
       "Dicota is a leading European brand specialising in premium laptop bags, backpacks, and workspace accessories. Built on a foundation of functional design, durable materials, and ergonomic precision — Dicota keeps professionals organised and their devices protected across every journey.",
     subCategories: [
-      { name: "Backpacks", icon: "🎒" },
-      { name: "Laptop Bags & Sleeves", icon: "💼" },
-      { name: "Travel Accessories", icon: "✈️" },
+      { name: "Backpacks", icon: "🎒", image: null },
+      { name: "Laptop Bags & Sleeves", icon: "💼", image: null },
+      { name: "Travel Accessories", icon: "✈️", image: null },
     ],
     highlights: [
       "European Engineered Design",
@@ -205,8 +212,8 @@ export const BRANDS = [
     description:
       "Choetech is a charging accessories brand specialising in power banks and portable charging solutions, built to keep devices powered reliably throughout the day. NOTE: brand details below are a placeholder — please confirm tagline, description, subcategories, and highlights so this entry can be finalized.",
     subCategories: [
-      { name: "Power Banks", icon: "🔋" },
-      { name: "Chargers", icon: "⚡" },
+      { name: "Power Banks", icon: "🔋", image: null },
+      { name: "Chargers", icon: "⚡", image: null },
     ],
     highlights: ["Power Bank Specialist", "Reliable All-Day Charging"],
     accentColor: "#455a64",
@@ -224,10 +231,10 @@ export const BRANDS = [
     description:
       "Yaben is a premium entertainment projector brand redefining the home cinema experience. From ultra-compact portable projectors with built-in batteries for outdoor adventures to stunning laser projection systems for premier home theatres — Yaben delivers immersive big-screen entertainment wherever you are.",
     subCategories: [
-      { name: "Home Cinema", icon: "🎬" },
-      { name: "Laser Projectors", icon: "💡" },
-      { name: "Premier Theater", icon: "🎭" },
-      { name: "Portable Projectors", icon: "📽️" },
+      { name: "Home Cinema", icon: "🎬", image: null },
+      { name: "Laser Projectors", icon: "💡", image: null },
+      { name: "Premier Theater", icon: "🎭", image: null },
+      { name: "Portable Projectors", icon: "📽️", image: null },
     ],
     highlights: [
       "Laser Projection Technology",
@@ -246,10 +253,10 @@ export const BRANDS = [
     description:
       "TP-Link is the world's #1 provider of Wi-Fi products, delivering high-performance networking solutions trusted by homes and businesses globally. Tapo — their smart home sub-brand — extends this expertise into smart cameras, sensors, bulbs, and plugs, making a fully connected smart home effortless and affordable.",
     subCategories: [
-      { name: "Wi-Fi Routers", icon: "📡" },
-      { name: "Mesh Networking", icon: "🔗" },
-      { name: "Smart Cameras (Tapo)", icon: "📷" },
-      { name: "Smart Home Devices", icon: "🏠" },
+      { name: "Wi-Fi Routers", icon: "📡", image: null },
+      { name: "Mesh Networking", icon: "🔗", image: null },
+      { name: "Smart Cameras (Tapo)", icon: "📷", image: null },
+      { name: "Smart Home Devices", icon: "🏠", image: null },
     ],
     highlights: [
       "World's #1 Wi-Fi Brand",
@@ -268,10 +275,10 @@ export const BRANDS = [
     description:
       "TP-Link is the world's #1 provider of Wi-Fi products, delivering high-performance networking solutions trusted by homes and businesses globally. Tapo — their smart home sub-brand — extends this expertise into smart cameras, sensors, bulbs, and plugs, making a fully connected smart home effortless and affordable.",
     subCategories: [
-      { name: "Wi-Fi Routers", icon: "📡" },
-      { name: "Mesh Networking", icon: "🔗" },
-      { name: "Smart Cameras (Tapo)", icon: "📷" },
-      { name: "Smart Home Devices", icon: "🏠" },
+      { name: "Wi-Fi Routers", icon: "📡", image: null },
+      { name: "Mesh Networking", icon: "🔗", image: null },
+      { name: "Smart Cameras (Tapo)", icon: "📷", image: null },
+      { name: "Smart Home Devices", icon: "🏠", image: null },
     ],
     highlights: [
       "World's #1 Wi-Fi Brand",
@@ -291,9 +298,9 @@ export const BRANDS = [
     description:
       "TicNote is a cutting-edge AI-powered voice recorder that redefines how professionals capture and act on conversations. Powered by the Shadow AI Agent, TicNote delivers real-time transcription, intelligent meeting summaries, and multilingual support — purpose-built for lawyers, consultants, executives, and anyone who needs to capture every word with precision.",
     subCategories: [
-      { name: "AI Voice Recorders", icon: "🎙️" },
-      { name: "Smart Transcription", icon: "📝" },
-      { name: "AI Meeting Assistant", icon: "🤖" },
+      { name: "AI Voice Recorders", icon: "🎙️", image: null },
+      { name: "Smart Transcription", icon: "📝", image: null },
+      { name: "AI Meeting Assistant", icon: "🤖", image: null },
     ],
     highlights: [
       "Shadow AI Agent Technology",
