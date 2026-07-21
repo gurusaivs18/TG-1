@@ -11,7 +11,7 @@ import shokz from "../assets/brandsPageLogos/SHOKZBR.webp";
 import tapo from "../assets/brandsPageLogos/TapoBR.webp"; // currently unused — tp-link entry uses the combined tp-link|tapo lockup (tpLink import). Swap in if you want a separate Tapo sub-logo.
 import ticnote from "../assets/brandsPageLogos/ticnoteBR.webp";
 import titanSmart from "../assets/brandsPageLogos/Titan SmartBR.webp";
-import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.jpeg";
+import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.webp";
 
 // ── Sub-category images ─────────────────────────────────────────────────
 // Drop each new "categories we carry" image import here as it's supplied,

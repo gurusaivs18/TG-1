@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PageHero from "../components/PageHero";
 import "../css/Pages.css";
 import "../css/Home.css";
-
+import emailjs from "@emailjs/browser";
 const SUBJECTS = [
   "General Enquiry",
   "Retail Partnership",
@@ -33,7 +33,7 @@ export default function Contact() {
         });
       },
       { threshold: 0.05 },
-    );  
+    );
     document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
       observer.observe(el);
     });
@@ -48,9 +48,30 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    try {
+      await emailjs.send(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          phone: form.phone,
+          company: form.company,
+          subject: form.subject,
+          message: form.message,
+        },
+        "YOUR_PUBLIC_KEY",
+      );
+
+      setSubmitted(true);
+    } catch (error) {
+      console.log(error);
+      alert("Message failed. Please try again.");
+    }
   };
 
   return (
@@ -92,7 +113,12 @@ export default function Contact() {
                   <div className="contact__info-icon-wrap">✉️</div>
                   <div>
                     <div className="contact__info-label">Email</div>
-                    <div className="contact__info-value">info@targetone.ae</div>
+                    <a
+                      href="mailto:info@targetone.ae"
+                      className="contact__info-value"
+                    >
+                      info@targetone.ae
+                    </a>
                   </div>
                 </div>
                 <div className="contact__info-item">
