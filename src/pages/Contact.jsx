@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PageHero from "../components/PageHero";
 import "../css/Pages.css";
 import "../css/Home.css";
-import emailjs from "@emailjs/browser";
+
 const SUBJECTS = [
   "General Enquiry",
   "Retail Partnership",
@@ -48,32 +48,72 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        {
-          firstName: form.firstName,
-          lastName: form.lastName,
-          email: form.email,
-          phone: form.phone,
-          company: form.company,
-          subject: form.subject,
-          message: form.message,
-        },
-        "YOUR_PUBLIC_KEY",
-      );
+    const subject = encodeURIComponent(
+      `Contact Request from ${form.firstName} ${form.lastName}`,
+    );
 
-      setSubmitted(true);
-    } catch (error) {
-      console.log(error);
-      alert("Message failed. Please try again.");
-    }
+    const body = encodeURIComponent(
+      `Name: ${form.firstName} ${form.lastName}
+
+Email: ${form.email}
+
+Phone: ${form.phone}
+
+Company: ${form.company}
+
+Subject:
+${form.subject}
+
+Message:
+${form.message}`,
+    );
+
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=Marketing@targetoneme.com&su=${subject}&body=${body}`,
+      "_blank",
+    );
+
+    setSubmitted(true);
   };
+  //   const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
+  //   try {
+  //     await emailjs.send(
+  //       "YOUR_SERVICE_ID",
+  //       "YOUR_TEMPLATE_ID",
+  //       {
+  //         firstName: form.firstName,
+  //         lastName: form.lastName,
+  //         email: form.email,
+  //         phone: form.phone,
+  //         company: form.company,
+  //         subject: form.subject,
+  //         message: form.message,
+  //       },
+  //       "YOUR_PUBLIC_KEY",
+  //     );
+
+  //     setSubmitted(true);
+
+  //     setForm({
+  //       firstName: "",
+  //       lastName: "",
+  //       email: "",
+  //       phone: "",
+  //       company: "",
+  //       subject: "",
+  //       message: "",
+  //       isPartnership: false,
+  //     });
+  //   } catch (error) {
+  //     console.error("Email sending failed:", error);
+  //     alert("Message failed. Please try again.");
+  //   }
+  // };
   return (
     <>
       <PageHero
@@ -117,7 +157,7 @@ export default function Contact() {
                       href="mailto:info@targetone.ae"
                       className="contact__info-value"
                     >
-                      info@targetone.ae
+                      Marketing@targetoneme.com
                     </a>
                   </div>
                 </div>

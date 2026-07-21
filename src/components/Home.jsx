@@ -254,7 +254,6 @@ function ChannelModal({ channel, onClose }) {
                 <div className="ch-modal__logo-wrap">
                   <img src={p.img} alt={p.name} />
                 </div>
-                <span className="ch-modal__logo-name">{p.name}</span>
               </div>
             ))}
           </div>
