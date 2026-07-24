@@ -14,10 +14,7 @@ import titanSmart from "../assets/brandsPageLogos/Titan SmartBR.webp";
 import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.webp";
 
 // ── Sub-category images ─────────────────────────────────────────────────
-// Drop each new "categories we carry" image import here as it's supplied,
-// then reference it in the matching subCategories entry below via `image:`.
-// Until an image exists, leave `image: null` and the icon/number/name
-// fallback layout will render automatically — nothing else needs to change.
+import marshal from "../assets/brand images/100000.png";
 
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────
@@ -33,12 +30,16 @@ export const BRANDS = [
       "Marshall is a British audio icon with more than six decades of heritage rooted in rock & roll. From the legendary amplifiers that shaped music history to today's range of premium wireless speakers and headphones, Marshall brings unmistakable style and powerful acoustic performance to every product. As the authorised distributor across UAE and Qatar, Target One brings the full Marshall portfolio to power retailers and major chains throughout the Gulf region.",
 
     subCategories: [
-      { name: "Home Speakers", icon: "🔊", image: null },
-      { name: "TV Sound", icon: "📺", image: null },
-      { name: "Portable Speakers", icon: "🎵", image: null },
-      { name: "Party Speakers", icon: "🎉", image: null },
-      { name: "Over-Ear Headphones", icon: "🎧", image: null },
-      { name: "Earbuds", icon: "🎶", image: null },
+      {
+        name: "hi jinto loook at other cards ,when we add images the ui looks like this ",
+        icon: "🔊",
+        image: null,
+      },
+      { name: "TV Sound", icon: "📺", image: marshal },
+      { name: "Portable Speakers", icon: "🎵", image: marshal },
+      { name: "Party Speakers", icon: "🎉", image: marshal },
+      { name: "Over-Ear Headphones", icon: "🎧", image: marshal },
+      { name: "Earbuds", icon: "🎶", image: marshal },
       { name: "On-Ear Headphones", icon: "🎧", image: null },
     ],
     highlights: [

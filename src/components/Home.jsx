@@ -204,6 +204,7 @@ function useMarqueeRepeat(containerRef, measureRef, deps = []) {
     // images can finish loading slightly after mount, changing scrollWidth
     const t = setTimeout(calc, 300);
     window.addEventListener("resize", calc);
+
     return () => {
       clearTimeout(t);
       window.removeEventListener("resize", calc);
