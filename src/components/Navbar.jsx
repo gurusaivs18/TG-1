@@ -7,11 +7,8 @@ import qatarFlag from "../assets/qtrFlagnew.webp";
 const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
-  // { label: "Our Pressence", path: "/ourpressence" },
-  // { label: "Categories", path: "/categories" },
   { label: "Our Brands", path: "/brands" },
   { label: "Events", path: "/events" },
-  // { label: "Blogs", path: "/blogs" },
   { label: "Contact Us", path: "/contact" },
 ];
 
