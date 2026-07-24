@@ -21,7 +21,7 @@ import Tplink from "../assets/Home Page Scroller cards/Tp link.webp";
 import Yaber from "../assets/Home Page Scroller cards/Yaber.webp";
 
 // Channels of Distribution partners logos
-import virginMegastore from "../assets/retail-partners-logo/virgin .jpeg";
+import virginMegastore from "../assets/retail-partners-logo/Virgin - Retailer 202.jpg.jpeg";
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
   { name: "Dicota", img: dicota, className: "logo--dicota" },
