@@ -21,7 +21,13 @@ import Tplink from "../assets/Home Page Scroller cards/Tp link.webp";
 import Yaber from "../assets/Home Page Scroller cards/Yaber.webp";
 
 // Channels of Distribution partners logos
-import virginMegastore from "../assets/retail-partners-logo/Virgin - Retailer 202.jpg.jpeg";
+import virginMegastore from "../assets/retail-partners-logo/Retailers Card/Virgin - Retailer-27.jpg";
+import jumboElectronics from "../assets/retail-partners-logo/Retailers Card/Jumbo.jpg";
+import emax from "../assets/retail-partners-logo/Retailers Card/Max.jpg";
+import sharafDG from "../assets/retail-partners-logo/Retailers Card/Sharaf.jpg";
+import grandStores from "../assets/retail-partners-logo/Retailers Card/GS.jpg";
+import iStyle from "../assets/retail-partners-logo/Retailers Card/iSTYLE.jpg";
+import erosDigital from "../assets/retail-partners-logo/Retailers Card/Eros.jpg";
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
   { name: "Dicota", img: dicota, className: "logo--dicota" },
@@ -48,12 +54,12 @@ const CHANNELS = [
     desc: "Premium electronics & tech retail chains across UAE & Qatar.",
     partners: [
       { name: "Virgin Megastore", img: virginMegastore },
-      { name: "Jumbo Electronics", img: "/images/partners/jumbo.png" },
-      { name: "Emax", img: "/images/partners/emax.png" },
-      { name: "Sharaf DG", img: "/images/partners/sharafdg.png" },
-      { name: "Grand Stores", img: "/images/partners/grandstores.png" },
-      { name: "iStyle", img: "/images/partners/istyle.png" },
-      { name: "Eros Digital Home", img: "/images/partners/eros.png" },
+      { name: "Jumbo Electronics", img: jumboElectronics },
+      { name: "Emax", img: emax },
+      { name: "Sharaf DG", img: sharafDG },
+      { name: "Grand Stores", img: grandStores },
+      { name: "iStyle", img: iStyle },
+      { name: "Eros Digital Home", img: erosDigital },
     ],
   },
   {
