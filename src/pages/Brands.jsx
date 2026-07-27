@@ -205,19 +205,28 @@ function BrandDetailPage({ brand, onBack }) {
 // ─────────────────────────────────────────────────────────────────────────────
 export default function Brands() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [activeFilter, setActiveFilter] = useState("All");
+  const categoryFromUrl = searchParams.get("category");
+
+  const [activeFilter, setActiveFilter] = useState(categoryFromUrl || "All");
   const [selectedBrand, setSelectedBrand] = useState(null);
 
   // ── Deep-link support ──────────────────────────────────────────────────
   // Visiting /brands?brand=<id> (e.g. from the Home page category modal)
   // opens that brand's detail page directly, without an extra click.
   useEffect(() => {
-    const brandId = searchParams.get("brand");
-    if (!brandId) return;
-    const match = BRANDS.find((b) => b.id === brandId);
-    if (match) setSelectedBrand(match);
-  }, [searchParams]);
+    const category = searchParams.get("category");
 
+    if (category) {
+      setActiveFilter(category);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } else {
+      setActiveFilter("All");
+    }
+  }, [searchParams]);
   // Scroll-reveal for listing
   useEffect(() => {
     if (selectedBrand) return;
@@ -293,7 +302,17 @@ export default function Brands() {
               <button
                 key={f}
                 className={`filter-btn ${activeFilter === f ? "filter-btn--active" : ""}`}
-                onClick={() => setActiveFilter(f)}
+                onClick={() => {
+                  setActiveFilter(f);
+
+                  if (f === "All") {
+                    setSearchParams({});
+                  } else {
+                    setSearchParams({
+                      category: f,
+                    });
+                  }
+                }}
               >
                 {f}
               </button>

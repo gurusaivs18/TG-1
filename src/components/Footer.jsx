@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../css/Footer.css";
+import { BRAND_CATEGORIES } from "../data/brands";
 import targetOneLogo from "../assets/targetone_transparent.png"; // adjust path if needed
 export default function Footer() {
   return (
@@ -88,30 +89,28 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+            {/* Categories Links */}
 
-            {/* Brands Links */}
+            {/* Categories Links */}
             <div>
-              <div className="footer__col-title">Our Brands</div>
-              <ul className="footer__links">
-                <li>
-                  <Link to="/brands" className="footer__link">
-                    Marshall
-                  </Link>
-                </li>
+              <div className="footer__col-title">Categories</div>
 
-                <li>
-                  <Link to="/brands" className="footer__link">
-                    Dicota
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/brands" className="footer__link">
-                    SoundPEATS
-                  </Link>
-                </li>
+              <ul className="footer__links">
+                {BRAND_CATEGORIES.map((category) => (
+                  <li key={category.name}>
+                    <Link
+                      to={{
+                        pathname: "/brands",
+                        search: `?category=${encodeURIComponent(category.name)}`,
+                      }}
+                      className="footer__link"
+                    >
+                      {category.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-
             {/* Contact Info */}
             <div>
               <div className="footer__col-title">Contact</div>
