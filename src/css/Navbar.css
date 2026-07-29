@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #a3202d;
+  background: rgba(88, 107, 134);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition:
     transform 0.3s ease,
@@ -17,7 +17,7 @@
 
 /* scrolled state keeps the same look — kept explicit for future overrides */
 .navbar--scrolled {
-  background: #a3202d;
+  /* background: #a3202d; */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
@@ -51,7 +51,7 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 700;
-  color: #000000;
+  color: white;
   transition: color var(--transition);
   line-height: 1.1;
 }
@@ -85,7 +85,7 @@
   left: 14px;
   right: 14px;
   height: 2px;
-  background: #000000;
+  background: darkred;
   border-radius: 2px;
   transform: scaleX(0);
   transform-origin: center;
