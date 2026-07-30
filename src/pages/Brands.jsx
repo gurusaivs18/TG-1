@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "../css/Brands.css";
 import { BRANDS, CATEGORY_TABS } from "../Data/brands";
-
+import heroImage from "../assets/pages_hero/BRANDS_PAGE_Hero.png";
 // ─────────────────────────────────────────────────────────────────────────────
 // HELPER — renders logo image OR styled text fallback
 // ─────────────────────────────────────────────────────────────────────────────
@@ -297,7 +297,29 @@ export default function Brands() {
   return (
     <>
       {/* ── Page Hero ── */}
+      {/* <section className="page-hero-band reveal-left">
+        <div className="container">
+          <div className="section-header section-header--center">
+            <span className="section-eyebrow">Our Portfolio</span>
+            <h1 className="section-title">Our Brand Partners</h1>
+            <p className="section-subtitle">
+              We are the authorised distributor for world-class brands across
+              Audio, Wearables, Accessories, Projectors, Networking, and AI
+              Technology — spanning the UAE and Qatar.
+            </p>
+          </div>
+        </div>
+      </section> */}
+
       <section className="page-hero-band reveal-left">
+        <div className="hero-overlay"></div>
+
+        <img
+          src={heroImage}
+          alt="Our Brand Partners"
+          className="hero-bg-image"
+        />
+
         <div className="container">
           <div className="section-header section-header--center">
             <span className="section-eyebrow">Our Portfolio</span>
@@ -310,7 +332,6 @@ export default function Brands() {
           </div>
         </div>
       </section>
-
       {/* ── Brand Grid ── */}
       <section className="section reveal-right">
         <div className="container">

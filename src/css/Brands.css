@@ -9,7 +9,7 @@
 
 /* ── Page Hero Band ─────────────────────────────────────────── */
 .page-hero-band {
-  padding: var(--section-padding-y) 0 0;
+  /* padding: var(--section-padding-y) 0 0; */
   background: var(--color-white);
 }
 .page-hero-band + .section {
