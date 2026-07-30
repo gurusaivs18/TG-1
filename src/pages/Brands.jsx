@@ -210,23 +210,41 @@ export default function Brands() {
   const [activeFilter, setActiveFilter] = useState(categoryFromUrl || "All");
   const [selectedBrand, setSelectedBrand] = useState(null);
 
-  // ── Deep-link support ──────────────────────────────────────────────────
-  // Visiting /brands?brand=<id> (e.g. from the Home page category modal)
-  // opens that brand's detail page directly, without an extra click.
+  // ── URL <-> state sync ──────────────────────────────────────────────────
+  // This effect is the single source of truth that reads the URL and decides
+  // what to show:
+  //   /brands                 -> listing, "All"
+  //   /brands?category=Audio  -> listing, filtered to "Audio"
+  //   /brands?brand=marshall  -> detail page for that brand (deep link)
+  //
+  // IMPORTANT FIX: previously this effect only ever set `activeFilter` and
+  // never cleared `selectedBrand`. So if you were on a brand's detail page
+  // and clicked a Footer category link (which just changes `?category=X`
+  // in the URL), React Router updated searchParams, but `selectedBrand` was
+  // still set — so the component kept rendering <BrandDetailPage /> instead
+  // of going back to the filtered listing. We now explicitly clear
+  // `selectedBrand` whenever the URL doesn't contain a `brand` param.
   useEffect(() => {
     const category = searchParams.get("category");
+    const brandId = searchParams.get("brand");
 
-    if (category) {
-      setActiveFilter(category);
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+    if (brandId) {
+      // Deep link / internal navigation directly to a brand's detail page
+      const brand = BRANDS.find((b) => b.id === brandId);
+      setSelectedBrand(brand || null);
     } else {
-      setActiveFilter("All");
+      // No brand in the URL -> we should be on the listing, not detail page
+      setSelectedBrand(null);
     }
+
+    setActiveFilter(category || "All");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [searchParams]);
+
   // Scroll-reveal for listing
   useEffect(() => {
     if (selectedBrand) return;

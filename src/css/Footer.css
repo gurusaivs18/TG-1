@@ -46,7 +46,7 @@
 
 /* Footer Main */
 .footer__main {
-  padding: 72px 0 48px;
+  padding: 30px 0 30px;
 }
 
 .footer__grid {
@@ -126,15 +126,33 @@
 }
 
 .footer__link {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
   font-size: var(--text-sm);
   color: var(--text-on-dark-muted);
-  transition: color var(--transition);
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
 }
-
+.footer__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 10px;
+  transition: width 0.35s ease;
+}
 .footer__link:hover {
   color: var(--color-white);
+  transform: translateX(6px);
 }
-
+.footer__link:hover::after {
+  width: 100%;
+}
 /* Contact Info */
 .footer__contact-list {
   display: flex;
@@ -179,8 +197,7 @@
   display: flex;
   gap: 20px;
 }
-
-.footer__bottom-link {
+q .footer__bottom-link {
   font-size: var(--text-xs);
   color: var(--text-on-dark-muted);
   transition: color var(--transition);
@@ -199,11 +216,24 @@
 
 @media (max-width: 600px) {
   .footer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 20px;
   }
   .footer__van-banner-inner {
     flex-direction: column;
     text-align: center;
+  }
+  .footer__grid > div {
+    min-width: 0;
+  }
+  .footer__link,
+  .footer__contact-item,
+  .footer__tagline {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .footer__logo {
+    width: 130px;
   }
 }
 
