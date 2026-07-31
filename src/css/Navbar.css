@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgb(30, 28, 28);
+  background: rgb(23, 23, 21);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition:
     transform 0.3s ease,
@@ -175,7 +175,7 @@
   border: none;
   cursor: pointer;
   padding: 8px;
-  color: #000000;
+  color: #ffffff;
 }
 
 .navbar__hamburger span {
