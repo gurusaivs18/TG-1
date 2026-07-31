@@ -23,9 +23,9 @@ section {
   scroll-margin-top: 90px; /* adjust to your navbar height */
 }
 :root {
-  --color-primary: #a3202d;
-  --color-primary-dark: #8a1a25;
-  --color-primary-light: #c2263b;
+  --color-primary:darkred;
+  --color-primary-dark:rgb(230, 209, 209);
+  --color-primary-light:darkred;
   --color-secondary: #3b1a0a;
   --color-secondary-light: #5c2d1a;
   --color-accent: #c2410c;
