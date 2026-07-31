@@ -1,18 +1,27 @@
 .page-hero {
-  background: linear-gradient(135deg, var(--color-secondary) 0%, #0f0f24 100%);
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  padding: 160px 0 96px;
-  text-align: center;
   position: relative;
+  width: 100%;
   overflow: hidden;
 }
-.page-hero__title {
-  color: white;
+
+.hero-bg-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.35); /* optional */
+}
+
+.page-hero__title,
 .page-hero__subtitle {
-  color: white;
+  color: #fff;
 }

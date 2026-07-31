@@ -8,23 +8,12 @@ export default function PageHero({
   backgroundImage,
 }) {
   return (
-    <section
-      className="page-hero"
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `url(${backgroundImage})`,
-            }
-          : {}
-      }
-    >
-      <div className="container">
-        <div className="page-hero__inner">
-          {eyebrow && (
-            <span className="section-eyebrow section-eyebrow--light">
-              {eyebrow}
-            </span>
-          )}
+    <section className="page-hero">
+      <img src={backgroundImage} alt={title} className="hero-bg-image" />
+
+      <div className="page-hero-overlay">
+        <div className="container">
+          {eyebrow && <span className="page-hero__eyebrow">{eyebrow}</span>}
 
           <h1 className="page-hero__title">{title}</h1>
 

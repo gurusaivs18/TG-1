@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PageHero from "../components/PageHero";
 import "../css/Pages.css";
 import "../css/Home.css";
-
+import contactHero from "../assets/pages_hero/contact___us_img.png";
 const SUBJECTS = [
   "General Enquiry",
   "Retail Partnership",
@@ -116,11 +116,7 @@ ${form.message}`,
   // };
   return (
     <>
-      <PageHero
-        eyebrow="Reach Out"
-        title="Contact Us"
-        subtitle="Whether you're a retailer, brand, or partner — we'd love to hear from you. Our team typically responds within 24 hours."
-      />
+      <PageHero backgroundImage={contactHero} />
 
       <section className="section reveal-left">
         <div className="container">
