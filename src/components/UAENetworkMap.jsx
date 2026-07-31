@@ -79,10 +79,10 @@ export default function UAENetworkMap() {
       return isMobileCanvas() ? CITIES_MOBILE : CITIES;
     }
 
-    // Scale city coords — on mobile, center the whole cluster horizontally
+
     function cx(c) {
       if (!isMobileCanvas()) return c.rx * W();
-      // shift cluster to horizontal center: original range ~0.22–0.78, center ~0.50
+      
       const offset = W() * 0.5 - W() * 0.5;
       return c.rx * W() + offset;
     }
