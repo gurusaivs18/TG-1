@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgb(23, 23, 21);
+  background: rgb(9, 10, 11);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition:
     transform 0.3s ease,
@@ -96,8 +96,6 @@
 .navbar__link--active::after {
   transform: scaleX(1);
 }
-
-
 
 .navbar__cta {
   margin-left: 8px;
