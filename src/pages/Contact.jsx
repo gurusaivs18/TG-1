@@ -66,7 +66,7 @@ export default function Contact() {
     subject: Yup.string().required("Please select a subject"),
 
     message: Yup.string()
-      .min(20, "Message must be at least 20 characters")
+      .min(10, "Message must be at least 10 characters")
       .required("Message is required"),
   });
 
@@ -321,7 +321,6 @@ ${values.message}
                           value={values.phone}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          placeholder="+971 50 123 4567"
                         />
                         {showError("phone") && (
                           <span className="form-error">{errors.phone}</span>
@@ -402,7 +401,7 @@ ${values.message}
                         <small
                           style={{
                             color:
-                              values.message.length >= 20
+                              values.message.length >= 10
                                 ? "#16a34a"
                                 : "var(--text-secondary)",
                           }}
