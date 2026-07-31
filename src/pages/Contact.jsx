@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import PageHero from "../components/PageHero";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import "../css/Pages.css";
 import "../css/Home.css";
 import contactHero from "../assets/pages_hero/contact___us_img.png";
+
 const SUBJECTS = [
   "General Enquiry",
   "Retail Partnership",
@@ -13,112 +16,125 @@ const SUBJECTS = [
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    company: "",
-    subject: "",
-    message: "",
-    isPartnership: false,
-  });
   const [submitted, setSubmitted] = useState(false);
+  const revealRef = useRef(null);
 
+  // Local scroll-reveal: don't depend on a global observer that may only
+  // scan the DOM once on initial app load (and therefore miss this section
+  // when it's mounted later via client-side routing).
   useEffect(() => {
+    const el = revealRef.current;
+    if (!el) return;
+
+    // If it's already in the viewport when this mounts, reveal immediately.
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("active");
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("active");
+          observer.unobserve(el);
+        }
       },
-      { threshold: 0.05 },
+      { threshold: 0.1 },
     );
-    document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => {
-      observer.observe(el);
-    });
+
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
+  const validationSchema = Yup.object({
+    firstName: Yup.string()
+      .matches(/^[A-Za-z\s'-]+$/, "Enter a valid first name")
+      .min(2)
+      .required("First name is required"),
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    lastName: Yup.string()
+      .matches(/^[A-Za-z\s'-]+$/, "Enter a valid last name")
+      .min(2)
+      .required("Last name is required"),
 
-    const subject = encodeURIComponent(
-      `Contact Request from ${form.firstName} ${form.lastName}`,
-    );
+    email: Yup.string()
+      .email("Enter a valid email")
+      .required("Email is required"),
 
-    const body = encodeURIComponent(
-      `Name: ${form.firstName} ${form.lastName}
+    phone: Yup.string().matches(
+      /^\+?[0-9\s\-()]{7,15}$/,
+      "Enter a valid phone number",
+    ),
 
-Email: ${form.email}
+    company: Yup.string(),
 
-Phone: ${form.phone}
+    subject: Yup.string().required("Please select a subject"),
 
-Company: ${form.company}
+    message: Yup.string()
+      .min(20, "Message must be at least 20 characters")
+      .required("Message is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      company: "",
+      subject: "",
+      message: "",
+    },
+
+    validationSchema,
+
+    onSubmit: (values, { resetForm }) => {
+      const subject = encodeURIComponent(
+        `Contact Request from ${values.firstName} ${values.lastName}`,
+      );
+
+      const body = encodeURIComponent(`
+Name: ${values.firstName} ${values.lastName}
+
+Email: ${values.email}
+
+Phone: ${values.phone}
+
+Company: ${values.company}
 
 Subject:
-${form.subject}
+${values.subject}
 
 Message:
-${form.message}`,
-    );
+${values.message}
+`);
 
-    window.open(
-      `https://mail.google.com/mail/?view=cm&fs=1&to=Marketing@targetoneme.com&su=${subject}&body=${body}`,
-      "_blank",
-    );
+      window.open(
+        `https://mail.google.com/mail/?view=cm&fs=1&to=Marketing@targetoneme.com&su=${subject}&body=${body}`,
+        "_blank",
+      );
 
-    setSubmitted(true);
-  };
-  //   const handleSubmit = async (e) => {
-  //   e.preventDefault();
+      setSubmitted(true);
+      resetForm();
+    },
+  });
 
-  //   try {
-  //     await emailjs.send(
-  //       "YOUR_SERVICE_ID",
-  //       "YOUR_TEMPLATE_ID",
-  //       {
-  //         firstName: form.firstName,
-  //         lastName: form.lastName,
-  //         email: form.email,
-  //         phone: form.phone,
-  //         company: form.company,
-  //         subject: form.subject,
-  //         message: form.message,
-  //       },
-  //       "YOUR_PUBLIC_KEY",
-  //     );
+  const {
+    values,
+    errors,
+    touched,
+    submitCount,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = formik;
 
-  //     setSubmitted(true);
+  // Show an error once the field has been touched (blurred) OR after any
+  // submit attempt — covers users who go straight to Submit without
+  // blurring each field individually.
+  const showError = (field) =>
+    (touched[field] || submitCount > 0) && errors[field];
 
-  //     setForm({
-  //       firstName: "",
-  //       lastName: "",
-  //       email: "",
-  //       phone: "",
-  //       company: "",
-  //       subject: "",
-  //       message: "",
-  //       isPartnership: false,
-  //     });
-  //   } catch (error) {
-  //     console.error("Email sending failed:", error);
-  //     alert("Message failed. Please try again.");
-  //   }
-  // };
   return (
     <>
       <PageHero backgroundImage={contactHero} />
 
-      <section className="section reveal-left">
+      <section className="section reveal-left" ref={revealRef}>
         <div className="container">
           <div className="contact__grid">
             <div>
@@ -238,76 +254,110 @@ ${form.message}`,
               ) : (
                 <>
                   <h3 className="contact__form-title">Send Us a Message</h3>
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={handleSubmit} noValidate>
                     <div className="form-row">
                       <div className="form-group">
                         <label className="form-label">First Name *</label>
                         <input
-                          className="form-input"
+                          className={`form-input ${
+                            showError("firstName") ? "input-error" : ""
+                          }`}
                           name="firstName"
-                          value={form.firstName}
+                          value={values.firstName}
                           onChange={handleChange}
-                          required
+                          onBlur={handleBlur}
                           placeholder=" "
                         />
+                        {showError("firstName") && (
+                          <span className="form-error">{errors.firstName}</span>
+                        )}
                       </div>
+
                       <div className="form-group">
                         <label className="form-label">Last Name *</label>
                         <input
-                          className="form-input"
+                          className={`form-input ${
+                            showError("lastName") ? "input-error" : ""
+                          }`}
                           name="lastName"
-                          value={form.lastName}
+                          value={values.lastName}
                           onChange={handleChange}
-                          required
+                          onBlur={handleBlur}
                           placeholder=" "
                         />
+                        {showError("lastName") && (
+                          <span className="form-error">{errors.lastName}</span>
+                        )}
                       </div>
                     </div>
+
                     <div className="form-row">
                       <div className="form-group">
                         <label className="form-label">Email Address *</label>
                         <input
-                          className="form-input"
                           type="email"
+                          className={`form-input ${
+                            showError("email") ? "input-error" : ""
+                          }`}
                           name="email"
-                          value={form.email}
+                          value={values.email}
                           onChange={handleChange}
-                          required
+                          onBlur={handleBlur}
                           placeholder=" "
                         />
+                        {showError("email") && (
+                          <span className="form-error">{errors.email}</span>
+                        )}
                       </div>
+
                       <div className="form-group">
                         <label className="form-label">Phone Number</label>
                         <input
-                          className="form-input"
                           type="tel"
+                          className={`form-input ${
+                            showError("phone") ? "input-error" : ""
+                          }`}
                           name="phone"
-                          value={form.phone}
+                          value={values.phone}
                           onChange={handleChange}
-                          placeholder=" "
+                          onBlur={handleBlur}
+                          placeholder="+971 50 123 4567"
                         />
+                        {showError("phone") && (
+                          <span className="form-error">{errors.phone}</span>
+                        )}
                       </div>
                     </div>
+
                     <div className="form-group">
                       <label className="form-label">
                         Company / Organisation
                       </label>
                       <input
-                        className="form-input"
+                        className={`form-input ${
+                          showError("company") ? "input-error" : ""
+                        }`}
                         name="company"
-                        value={form.company}
+                        value={values.company}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         placeholder=" "
                       />
+                      {showError("company") && (
+                        <span className="form-error">{errors.company}</span>
+                      )}
                     </div>
+
                     <div className="form-group">
                       <label className="form-label">Subject *</label>
                       <select
-                        className="form-select"
+                        className={`form-select ${
+                          showError("subject") ? "input-error" : ""
+                        }`}
                         name="subject"
-                        value={form.subject}
+                        value={values.subject}
                         onChange={handleChange}
-                        required
+                        onBlur={handleBlur}
                       >
                         <option value="">Select a subject...</option>
                         {SUBJECTS.map((s) => (
@@ -316,19 +366,52 @@ ${form.message}`,
                           </option>
                         ))}
                       </select>
+
+                      {showError("subject") && (
+                        <span className="form-error">{errors.subject}</span>
+                      )}
                     </div>
+
                     <div className="form-group">
                       <label className="form-label">Message *</label>
                       <textarea
-                        className="form-textarea"
+                        className={`form-textarea ${
+                          showError("message") ? "input-error" : ""
+                        }`}
                         name="message"
-                        value={form.message}
+                        value={values.message}
                         onChange={handleChange}
-                        required
-                        placeholder=" "
+                        onBlur={handleBlur}
+                        placeholder="Tell us how we can help you..."
                         rows={5}
                       />
+
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          marginTop: 6,
+                        }}
+                      >
+                        {showError("message") ? (
+                          <span className="form-error">{errors.message}</span>
+                        ) : (
+                          <span />
+                        )}
+
+                        <small
+                          style={{
+                            color:
+                              values.message.length >= 20
+                                ? "#16a34a"
+                                : "var(--text-secondary)",
+                          }}
+                        >
+                          {values.message.length}
+                        </small>
+                      </div>
                     </div>
+
                     <button
                       type="submit"
                       className="btn btn-primary"

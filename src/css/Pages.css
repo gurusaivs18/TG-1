@@ -283,6 +283,7 @@
   margin-top: 3px;
 }
 
+
 @media (max-width: 768px) {
   .contact__grid {
     grid-template-columns: 1fr;
