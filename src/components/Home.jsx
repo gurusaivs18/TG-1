@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../css/Home.css";
-import heroBackground from "../assets/tg11.webp";
+import heroBackground from "../assets/pages_hero/Finalhero.png";
 import UAENetworkMap from "../components/UAENetworkMap";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
