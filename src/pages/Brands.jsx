@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "../css/Brands.css";
 import { BRANDS, CATEGORY_TABS } from "../Data/brands";
-import heroImage from "../assets/pages_hero/BRANDS_PAGE_Hero.png";
+import heroImage from "../assets/pages_hero/brands_paGE_image_final.png";
 // ─────────────────────────────────────────────────────────────────────────────
 // HELPER — renders logo image OR styled text fallback
 // ─────────────────────────────────────────────────────────────────────────────
