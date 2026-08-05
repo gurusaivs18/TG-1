@@ -23,9 +23,9 @@ section {
   scroll-margin-top: 90px; /* adjust to your navbar height */
 }
 :root {
-  --color-primary:darkred;
-  --color-primary-dark:rgb(230, 209, 209);
-  --color-primary-light:darkred;
+  --color-primary: darkred;
+  --color-primary-dark: rgb(230, 209, 209);
+  --color-primary-light: darkred;
   --color-secondary: #3b1a0a;
   --color-secondary-light: #5c2d1a;
   --color-accent: #c2410c;
@@ -461,6 +461,7 @@ button {
   color: var(--color-primary);
   margin-bottom: 12px;
   display: block;
+  margin: 10px auto;
 }
 .section-eyebrow--light {
   color: var(--color-accent);
