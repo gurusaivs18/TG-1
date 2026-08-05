@@ -15,11 +15,15 @@ import Contact from "./pages/Contact";
 // Scroll to Top on Route Change
 // -----------------------------
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [pathname]);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }, [location.pathname, location.search]);
 
   return null;
 }
@@ -30,16 +34,19 @@ function ScrollToTop() {
 function AppLayout() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
+function ScrollToTop() {
+  const location = useLocation();
 
   useEffect(() => {
-    setLoading(true);
-
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
   }, [location.pathname]);
+
+  return null;
+}
 
   return (
     <>

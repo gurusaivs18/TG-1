@@ -373,10 +373,9 @@
 
 /* ── Content area ── */
 .bd-content {
-  padding: 72px 0 80px;
-  max-width: 900px;
+    width: 100%;
+    max-width: 100%;
 }
-
 .bd-section {
   margin-bottom: 64px;
 }
@@ -467,26 +466,22 @@
    and hover lift/shadow from .bd-sub-card above. ── */
 .bd-sub-card--image {
   padding: 0;
-  aspect-ratio: 16 / 9;
-  background: var(--color-white); /* fills any letterbox space */
+  background: #fff;
   border: 1px solid var(--color-light-gray);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: var(--radius-md);
   overflow: hidden;
+
+  height: auto;
+  display: block;
 }
 
 .bd-sub-card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* was cover */
   display: block;
-  transition: transform var(--transition);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-.bd-sub-card--image:hover .bd-sub-card__img {
-  transform: scale(1.04);
-}
 /* ── CTA row ── */
 .bd-cta-row {
   display: flex;
@@ -570,6 +565,9 @@
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+  .bd-sub-card--image {
+    height: 180px;
   }
 }
 

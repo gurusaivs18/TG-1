@@ -14,7 +14,8 @@ import titanSmart from "../assets/brandsPageLogos/Titan SmartBR.webp";
 import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.webp";
 
 // ── Sub-category images ─────────────────────────────────────────────────
-import marshal from "../assets/brand images/100000.png";
+import marshal1 from "../assets/Brand-image-banners/Marshall.jpg.jpeg";
+import marshal2 from "../assets/Brand-image-banners/Marshall 2.jpg (1).jpeg";
 
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────
@@ -30,16 +31,12 @@ export const BRANDS = [
       "Marshall is a British audio icon with more than six decades of heritage rooted in rock & roll. From the legendary amplifiers that shaped music history to today's range of premium wireless speakers and headphones, Marshall brings unmistakable style and powerful acoustic performance to every product. As the authorised distributor across UAE and Qatar, Target One brings the full Marshall portfolio to power retailers and major chains throughout the Gulf region.",
 
     subCategories: [
-      {
-        name: "hi jinto loook at other cards ,when we add images the ui looks like this ",
-        icon: "🔊",
-        image: null,
-      },
-      { name: "TV Sound", icon: "📺", image: marshal },
-      { name: "Portable Speakers", icon: "🎵", image: marshal },
-      { name: "Party Speakers", icon: "🎉", image: marshal },
-      { name: "Over-Ear Headphones", icon: "🎧", image: marshal },
-      { name: "Earbuds", icon: "🎶", image: marshal },
+      { name: "TV Sound", icon: "📺", image: marshal1 },
+      { name: "TV Sound", icon: "📺", image: marshal2 },
+      { name: "Portable Speakers", icon: "🎵", image: null },
+      { name: "Party Speakers", icon: "🎉", image: null },
+      { name: "Over-Ear Headphones", icon: "🎧", image: null },
+      { name: "Earbuds", icon: "🎶", image: null },
       { name: "On-Ear Headphones", icon: "🎧", image: null },
     ],
     highlights: [

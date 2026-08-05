@@ -104,6 +104,9 @@ export default function Footer() {
                         pathname: "/brands",
                         search: `?category=${encodeURIComponent(category.name)}`,
                       }}
+                      onClick={() => {
+                        sessionStorage.setItem("fromFooterCategory", "true");
+                      }}
                       className="footer__link"
                     >
                       {category.name}

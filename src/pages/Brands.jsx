@@ -209,7 +209,10 @@ export default function Brands() {
 
   const [activeFilter, setActiveFilter] = useState(categoryFromUrl || "All");
   const [selectedBrand, setSelectedBrand] = useState(null);
+
   const filterSectionRef = useRef(null);
+  const isExternalCategoryRef = useRef(false);
+
   // ── URL <-> state sync ──────────────────────────────────────────────────
   // This effect is the single source of truth that reads the URL and decides
   // what to show:
@@ -224,33 +227,14 @@ export default function Brands() {
   // still set — so the component kept rendering <BrandDetailPage /> instead
   // of going back to the filtered listing. We now explicitly clear
   // `selectedBrand` whenever the URL doesn't contain a `brand` param.
+
   useEffect(() => {
-    const category = searchParams.get("category");
-    const brandId = searchParams.get("brand");
-
-    setActiveFilter(category || "All");
-
-    if (brandId) {
-      const brand = BRANDS.find((b) => b.id === brandId);
-      setSelectedBrand(brand || null);
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    } else {
-      setSelectedBrand(null);
-
-      // Wait until the page has rendered, then scroll
-      setTimeout(() => {
-        filterSectionRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 100);
-    }
-  }, [searchParams]);
-
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }, []);
   // Scroll-reveal for listing
   useEffect(() => {
     if (selectedBrand) return;
@@ -279,7 +263,40 @@ export default function Brands() {
 
     return () => observer.disconnect();
   }, [selectedBrand]);
+  useEffect(() => {
+    const fromFooter = sessionStorage.getItem("fromFooterCategory");
 
+    const category = searchParams.get("category");
+    const brandId = searchParams.get("brand");
+
+    setActiveFilter(category || "All");
+
+    if (brandId) {
+      const brand = BRANDS.find((b) => b.id === brandId);
+      setSelectedBrand(brand || null);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      return;
+    }
+
+    setSelectedBrand(null);
+
+    // Only footer category links should scroll
+    if (fromFooter) {
+      sessionStorage.removeItem("fromFooterCategory");
+
+      setTimeout(() => {
+        filterSectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
+  }, [searchParams]);
   const handleSelectBrand = (brand) => {
     setSelectedBrand(brand);
     setSearchParams({ brand: brand.id });
@@ -339,7 +356,7 @@ export default function Brands() {
         </div>
       </section>
       {/* ── Brand Grid ── */}
-      <section className="section reveal-right" ref={filterSectionRef}>
+      <section className="section reveal-right"ref={filterSectionRef}>
         {" "}
         <div className="container">
           {/* Filter bar */}
@@ -350,6 +367,9 @@ export default function Brands() {
                 className={`filter-btn ${activeFilter === f ? "filter-btn--active" : ""}`}
                 onClick={() => {
                   setActiveFilter(f);
+
+                  // prevent auto scrolling when clicking filter buttons
+                  isExternalCategoryRef.current = false;
 
                   if (f === "All") {
                     setSearchParams({});
