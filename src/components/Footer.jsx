@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/Footer.css";
 import { BRAND_CATEGORIES } from "../Data/brands";
 import targetOneLogo from "../assets/targetone_transparent.png"; // adjust path if needed
+
 export default function Footer() {
   return (
     <footer className="footer">

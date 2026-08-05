@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "../css/Brands.css";
 import { BRANDS, CATEGORY_TABS } from "../Data/brands";
@@ -209,7 +209,7 @@ export default function Brands() {
 
   const [activeFilter, setActiveFilter] = useState(categoryFromUrl || "All");
   const [selectedBrand, setSelectedBrand] = useState(null);
-
+  const filterSectionRef = useRef(null);
   // ── URL <-> state sync ──────────────────────────────────────────────────
   // This effect is the single source of truth that reads the URL and decides
   // what to show:
@@ -228,21 +228,27 @@ export default function Brands() {
     const category = searchParams.get("category");
     const brandId = searchParams.get("brand");
 
-    if (brandId) {
-      // Deep link / internal navigation directly to a brand's detail page
-      const brand = BRANDS.find((b) => b.id === brandId);
-      setSelectedBrand(brand || null);
-    } else {
-      // No brand in the URL -> we should be on the listing, not detail page
-      setSelectedBrand(null);
-    }
-
     setActiveFilter(category || "All");
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (brandId) {
+      const brand = BRANDS.find((b) => b.id === brandId);
+      setSelectedBrand(brand || null);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } else {
+      setSelectedBrand(null);
+
+      // Wait until the page has rendered, then scroll
+      setTimeout(() => {
+        filterSectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
   }, [searchParams]);
 
   // Scroll-reveal for listing
@@ -333,7 +339,8 @@ export default function Brands() {
         </div>
       </section>
       {/* ── Brand Grid ── */}
-      <section className="section reveal-right">
+      <section className="section reveal-right" ref={filterSectionRef}>
+        {" "}
         <div className="container">
           {/* Filter bar */}
           <div className="brands-page__filter-bar">
@@ -347,9 +354,7 @@ export default function Brands() {
                   if (f === "All") {
                     setSearchParams({});
                   } else {
-                    setSearchParams({
-                      category: f,
-                    });
+                    setSearchParams({ category: f });
                   }
                 }}
               >
