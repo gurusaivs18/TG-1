@@ -12,9 +12,9 @@
   /* padding: var(--section-padding-y) 0 0; */
   background: var(--color-white);
 }
-.page-hero-band + .section {
+/* .page-hero-band + .section {
   padding-top: 40px;
-}
+} */
 /* ── Filter Bar ─────────────────────────────────────────────── */
 .brands-page__filter-bar {
   display: flex;

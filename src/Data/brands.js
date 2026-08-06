@@ -28,7 +28,7 @@ export const BRANDS = [
     category: "Audio",
     tagline: "Legendary Sound. Iconic Design.",
     description:
-      "Marshall is a British audio icon with more than six decades of heritage rooted in rock & roll. From the legendary amplifiers that shaped music history to today's range of premium wireless speakers and headphones, Marshall brings unmistakable style and powerful acoustic performance to every product. As the authorised distributor across UAE and Qatar, Target One brings the full Marshall portfolio to power retailers and major chains throughout the Gulf region.",
+      "For over six decades, Marshall’s legacy has grown chord to chord, person to person, generation to generation. Marshall speakers combine legendary rock-inspired design with powerful, high-quality sound, delivering an exceptional audio experience for music lovers. Built with premium craftsmanship and advanced acoustic performance, they offer rich, balanced sound for every setting—whether at home, on the go, or during gatherings.",
 
     subCategories: [
       { name: "TV Sound", icon: "📺", image: marshal1 },
@@ -54,7 +54,7 @@ export const BRANDS = [
     category: "Audio",
     tagline: "Open-Ear Design. Music On, Still Connected.",
     description:
-      "Shokz pioneered the open-ear audio category with patented bone conduction technology, allowing listeners to enjoy clear audio while remaining fully aware of their surroundings. Designed for athletes, commuters, and professionals — Shokz delivers a truly unique listening experience that no traditional earphone can replicate.",
+      "SHOKZ is a leading innovator in open-ear audio technology, delivering premium wireless headphones powered by bone conduction and DirectPitch™ technology. Designed for comfort, safety, and all-day wear, SHOKZ lets users stay connected to their music while remaining aware of their surroundings—making it ideal for sports, work, and everyday life.",
     subCategories: [
       { name: "True Wireless", icon: "🎵", image: null },
       { name: "Sports", icon: "🏃", image: null },
@@ -76,7 +76,7 @@ export const BRANDS = [
     category: "Audio",
     tagline: "Hi-Fi Sound. Everyday Value.",
     description:
-      "SoundPEATS delivers high-fidelity audio experiences at accessible price points. Specialising in true wireless earbuds with audiophile-grade drivers, active noise cancellation, and the latest Bluetooth connectivity — SoundPEATS makes premium listening available to everyone without compromise.",
+      "SOUNDPEATS is a global audio brand known for delivering high-quality wireless earbuds and headphones that combine innovative technology, impressive sound performance, and exceptional value. Designed for everyday use, SOUNDPEATS products offer comfort, reliability, and advanced features to enhance music, calls, and entertainment on the go.",
     subCategories: [
       { name: "True Wireless", icon: "🎵", image: null },
       { name: "Audiophile", icon: "🎼", image: null },
@@ -97,7 +97,7 @@ export const BRANDS = [
     category: "Audio",
     tagline: "Unleash the Singer in You.",
     description:
-      "Ikarao is a globally recognised smart karaoke brand that blends entertainment technology with premium audio engineering. From the award-winning Break X1 — the #1 karaoke machine with a built-in screen — to portable party speakers with built-in batteries, Ikarao transforms any space into a stage. Ikarao's Break X1 won Best Product in the Entertainment category at Channel Summit META 2025.",
+      "IKARAO is an innovative karaoke entertainment brand that combines powerful audio performance with smart technology to deliver an immersive singing experience. Designed for home entertainment, parties, and gatherings, IKARAO karaoke systems bring together high-quality sound, interactive features, and user-friendly design for endless entertainment.",
     subCategories: [
       { name: "Smart Karaoke Machines", icon: "🎤", image: null },
       { name: "Portable Speakers", icon: "🔊", image: null },
@@ -118,7 +118,7 @@ export const BRANDS = [
     category: "Audio",
     tagline: "Block Out the Chaos. Everyday.",
     description:
-      "QCY makes budget-friendly earbuds and headphones built for everyday chaos-blocking listening, including the MeloBuds A30 and H3 series. QCY focuses on accessible pricing without sacrificing the essentials — solid sound, all-day comfort, and reliable connectivity for daily use.",
+      "QCY is a global audio brand specializing in innovative wireless earbuds, headphones, and smart audio solutions. Combining advanced technology, stylish design, and exceptional value, QCY delivers high-quality sound experiences with features such as noise cancellation, smart connectivity, and long-lasting performance for everyday users.",
     subCategories: [
       { name: "True Wireless", icon: "🎵", image: null },
       { name: "MeloBuds Series", icon: "🎧", image: null },
@@ -141,7 +141,7 @@ export const BRANDS = [
     category: "Wearable",
     tagline: "The Future of Smartwatches.",
     description:
-      "Titan Smart, from India's iconic Titan Company, brings next-generation smartwatch technology to the Middle East. Featuring stunning AMOLED displays up to 3.53cm, AI-powered personalization, built-in GPS with Strava integration, and premium stainless steel construction — Titan Smart unites elegance with leading-edge wearable technology.",
+      "Fastrack Smart is a smartwatch range from Titan’s youth-focused brand, Fastrack, designed for the young and active generation. Combining stylish designs with smart technology, Fastrack Smart offers features such as fitness tracking, health monitoring, smart notifications, and lifestyle-focused functionality to keep users connected and active.",
     subCategories: [
       { name: "AMOLED Smartwatches", icon: "⌚", image: null },
       { name: "Fitness Trackers", icon: "💪", image: null },
@@ -163,7 +163,7 @@ export const BRANDS = [
     category: "Wearable",
     tagline: "Technology for Faith.",
     description:
-      "iQIBLA is the world's first Islamic Smart Zikr Ring — a revolutionary wearable that seamlessly fuses faith and technology. Designed for Muslims worldwide, it tracks Tasbeeh (Zikr), provides Qibla direction and prayer times, and connects to a dedicated companion app for a richer spiritual experience. Waterproof and available in stunning metallic designs.",
+      "IQIBLA is the world’s first Islamic smart Zikr ring, combining spiritual practice with innovative technology. Designed to support daily remembrance, the smart ring features intelligent Zikr counting, prayer-related functions, and a seamless digital experience, helping users stay connected with their faith anytime and anywhere.",
     subCategories: [
       { name: "Smart Zikr Ring", icon: "💍", image: null },
       { name: "Islamic Wearables", icon: "🕌", image: null },
@@ -186,7 +186,7 @@ export const BRANDS = [
     category: "Accessories",
     tagline: "Make Your Daily Commute a Breeze.",
     description:
-      "Dicota is a leading European brand specialising in premium laptop bags, backpacks, and workspace accessories. Built on a foundation of functional design, durable materials, and ergonomic precision — Dicota keeps professionals organised and their devices protected across every journey.",
+      "DICOTA is a German brand specializing in premium laptop bags, backpacks, and sleeves. Known for its quality craftsmanship, innovative designs, and practical functionality, DICOTA delivers reliable protection and stylish carrying solutions for professionals and everyday users.",
     subCategories: [
       { name: "Backpacks", icon: "🎒", image: null },
       { name: "Laptop Bags & Sleeves", icon: "💼", image: null },
@@ -208,7 +208,7 @@ export const BRANDS = [
     category: "Accessories",
     tagline: "Power That Keeps Up With You.",
     description:
-      "Choetech is a charging accessories brand specialising in power banks and portable charging solutions, built to keep devices powered reliably throughout the day. NOTE: brand details below are a placeholder — please confirm tagline, description, subcategories, and highlights so this entry can be finalized.",
+      "CHOETECH is a leading consumer electronics brand specializing in innovative charging solutions and connectivity accessories. From wall chargers, travel chargers, cables, and USB-C hubs to other everyday tech essentials, CHOETECH combines reliability, performance, and convenience to keep users connected and powered wherever they go.",
     subCategories: [
       { name: "Power Banks", icon: "🔋", image: null },
       { name: "Chargers", icon: "⚡", image: null },
@@ -227,7 +227,7 @@ export const BRANDS = [
     category: "Projectors & Networking",
     tagline: "Entertainment Projector. Anywhere.",
     description:
-      "Yaben is a premium entertainment projector brand redefining the home cinema experience. From ultra-compact portable projectors with built-in batteries for outdoor adventures to stunning laser projection systems for premier home theatres — Yaben delivers immersive big-screen entertainment wherever you are.",
+      "YABER is a leading smart projector brand dedicated to delivering immersive home entertainment experiences through advanced projection technology. With powerful performance, high-quality visuals, and user-friendly features, YABER projectors transform everyday spaces into personal cinemas for movies, gaming, presentations, and more.",
     subCategories: [
       { name: "Home Cinema", icon: "🎬", image: null },
       { name: "Laser Projectors", icon: "💡", image: null },
@@ -249,7 +249,7 @@ export const BRANDS = [
     category: "Projectors & Networking",
     tagline: "Reliable Networking. Smart Home Simplified.",
     description:
-      "TP-Link is the world's #1 provider of Wi-Fi products, delivering high-performance networking solutions trusted by homes and businesses globally. Tapo — their smart home sub-brand — extends this expertise into smart cameras, sensors, bulbs, and plugs, making a fully connected smart home effortless and affordable.",
+      "TP-Link is a global leader in networking and smart connectivity solutions, offering reliable products designed to keep people and businesses connected. With a wide range of solutions including Wi-Fi routers, networking devices, and smart home products, TP-Link delivers seamless connectivity, advanced technology, and dependable performance for everyday digital needs.",
     subCategories: [
       { name: "Wi-Fi Routers", icon: "📡", image: null },
       { name: "Mesh Networking", icon: "🔗", image: null },
@@ -271,7 +271,7 @@ export const BRANDS = [
     category: "Projectors & Networking",
     tagline: "Reliable Networking. Smart Home Simplified.",
     description:
-      "TP-Link is the world's #1 provider of Wi-Fi products, delivering high-performance networking solutions trusted by homes and businesses globally. Tapo — their smart home sub-brand — extends this expertise into smart cameras, sensors, bulbs, and plugs, making a fully connected smart home effortless and affordable.",
+      "Tapo is a smart home brand by TP-Link, offering innovative and affordable smart devices designed to make everyday living more convenient and connected. With products including smart cameras, smart lighting, plugs, and other home automation solutions, Tapo helps users create a safer, smarter, and more efficient home environment.",
     subCategories: [
       { name: "Wi-Fi Routers", icon: "📡", image: null },
       { name: "Mesh Networking", icon: "🔗", image: null },
@@ -294,7 +294,7 @@ export const BRANDS = [
     category: "Technology / AI Powered",
     tagline: "Next Generation AI Voice Recorder.",
     description:
-      "TicNote is a cutting-edge AI-powered voice recorder that redefines how professionals capture and act on conversations. Powered by the Shadow AI Agent, TicNote delivers real-time transcription, intelligent meeting summaries, and multilingual support — purpose-built for lawyers, consultants, executives, and anyone who needs to capture every word with precision.",
+      "TicNote is an innovative AI-powered voice recorder designed to transform the way people capture, organize, and manage information. With advanced AI features including real-time transcription, intelligent note-taking, voice recording, and instant translation, TicNote helps professionals, students, content creators, and everyday users improve productivity and stay organized.",
     subCategories: [
       { name: "AI Voice Recorders", icon: "🎙️", image: null },
       { name: "Smart Transcription", icon: "📝", image: null },

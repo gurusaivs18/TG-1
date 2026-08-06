@@ -488,10 +488,9 @@ button {
 .section-subtitle--light {
   color: var(--text-on-dark-muted);
 }
-
-.section-header {
+ /* .section-header {
   margin-bottom: var(--gap-xl);
-}
+} */
 .section-header--center {
   text-align: center;
 }
