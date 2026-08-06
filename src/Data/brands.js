@@ -12,6 +12,7 @@ import tapo from "../assets/brandsPageLogos/TapoBR.webp"; // currently unused �
 import ticnote from "../assets/brandsPageLogos/ticnoteBR.webp";
 import titanSmart from "../assets/brandsPageLogos/Titan SmartBR.webp";
 import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.webp";
+import fastrackSMART from "../assets/brandsPageLogos/Fastrack.brandpg.png";
 
 // ── Sub-category images ─────────────────────────────────────────────────
 import marshal1 from "../assets/Brand-image-banners/Untitled-1.jpg.jpeg";
@@ -154,7 +155,27 @@ export const BRANDS = [
     ],
     accentColor: "#1a237e",
   },
-
+  {
+    id: "fastrack-smart",
+    name: "Fastrack Smart",
+    logo: fastrackSMART,
+    logoClass: "logo--fastrack",
+    category: "Wearable",
+    tagline: "The Future of Smartwatches.",
+    description:
+      "Fastrack Smart is a smartwatch range from Titan’s youth-focused brand, Fastrack, designed for the young and active generation. Combining stylish designs with smart technology, Fastrack Smart offers features such as fitness tracking, health monitoring, smart notifications, and lifestyle-focused functionality to keep users connected and active.",
+    subCategories: [
+      { name: "AMOLED Smartwatches", icon: "⌚", image: null },
+      { name: "Fitness Trackers", icon: "💪", image: null },
+      { name: "Premium Design Series", icon: "✨", image: null },
+    ],
+    highlights: [
+      "3.53cm AMOLED · 600 Nits Brightness",
+      "AI-Powered Personalization",
+      "Built-in GPS with Strava Support",
+    ],
+    accentColor: "#1a237e",
+  },
   {
     id: "iqibla",
     name: "iQIBLA",

@@ -17,6 +17,8 @@ import SoundPeats from "../assets/Home Page Scroller cards/SoundPeats.webp";
 import Tapo from "../assets/Home Page Scroller cards/Tapo.webp";
 import ticnote from "../assets/Home Page Scroller cards/TicNote.webp";
 import titanSmart from "../assets/Home Page Scroller cards/Titan Smart.webp";
+import fastrack from "../assets/Home Page Scroller cards/Fastrack.png";
+
 import Tplink from "../assets/Home Page Scroller cards/Tp link.webp";
 import Yaber from "../assets/Home Page Scroller cards/Yaber.webp";
 
@@ -43,6 +45,7 @@ const BRANDS = [
   { name: " titanSmart", img: titanSmart, className: "logo--titanSmart" },
   { name: " Tplink", img: Tplink, className: "logo--Tplink" },
   { name: "Yaber", img: Yaber, className: "logo--Yaber" },
+  { name: "fastrack", img: fastrack, className: "logo--fastrack" },
 ];
 
 // Distribution Channels — replace logos with real imports when available
