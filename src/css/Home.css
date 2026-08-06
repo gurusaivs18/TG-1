@@ -898,9 +898,7 @@
 
 /* ── ≤768px : mobile ── */
 @media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
-  }
+  
 
   .hero {
     min-height: 100svh;
