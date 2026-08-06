@@ -14,7 +14,7 @@ import titanSmart from "../assets/brandsPageLogos/Titan SmartBR.webp";
 import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.webp";
 
 // ── Sub-category images ─────────────────────────────────────────────────
-import marshal1 from "../assets/Brand-image-banners/Marshall.jpg.jpeg";
+import marshal1 from "../assets/Brand-image-banners/Untitled-1.jpg.jpeg";
 import marshal2 from "../assets/Brand-image-banners/Marshall 2.jpg (1).jpeg";
 
 export const BRANDS = [

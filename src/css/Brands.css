@@ -373,8 +373,8 @@
 
 /* ── Content area ── */
 .bd-content {
-    width: 100%;
-    max-width: 100%;
+  width: 100%;
+  max-width: 100%;
 }
 .bd-section {
   margin-bottom: 64px;
@@ -567,7 +567,8 @@
     transition: none !important;
   }
   .bd-sub-card--image {
-    height: 180px;
+    height: auto;
+    object-fit: contain;
   }
 }
 
