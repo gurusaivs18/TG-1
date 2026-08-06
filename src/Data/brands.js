@@ -161,7 +161,7 @@ export const BRANDS = [
     logo: fastrackSMART,
     logoClass: "logo--fastrack",
     category: "Wearable",
-    tagline: "The Future of Smartwatches.",
+    tagline: "Designed for the young and active generation. ",
     description:
       "Fastrack Smart is a smartwatch range from Titan’s youth-focused brand, Fastrack, designed for the young and active generation. Combining stylish designs with smart technology, Fastrack Smart offers features such as fitness tracking, health monitoring, smart notifications, and lifestyle-focused functionality to keep users connected and active.",
     subCategories: [

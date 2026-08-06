@@ -14,26 +14,11 @@ import Contact from "./pages/Contact";
 // -----------------------------
 // Scroll to Top on Route Change
 // -----------------------------
-function ScrollToTop() {
-  const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "auto",
-    });
-  }, [location.pathname, location.search]);
-
-  return null;
-}
-
-// -----------------------------
-// App Layout
-// -----------------------------
-function AppLayout() {
-  const location = useLocation();
-  const [loading, setLoading] = useState(false);
+// Only reacts to pathname changes now — NOT location.search.
+// Filters and brand selection use setSearchParams() (query-string only,
+// same pathname), so they must never trigger this global reset anymore.
+// Per-page scroll behavior (e.g. Brands detail view) is handled locally
+// inside that page instead.
 function ScrollToTop() {
   const location = useLocation();
 
@@ -47,6 +32,13 @@ function ScrollToTop() {
 
   return null;
 }
+
+// -----------------------------
+// App Layout
+// -----------------------------
+function AppLayout() {
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
 
   return (
     <>

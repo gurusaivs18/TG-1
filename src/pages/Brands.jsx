@@ -114,7 +114,10 @@ function BrandCard({ brand, onSelect }) {
 // BRAND DETAIL PAGE  (replaces listing when a brand is selected)
 // ─────────────────────────────────────────────────────────────────────────────
 function BrandDetailPage({ brand, onBack }) {
-  // Scroll to top on mount
+  // Single source of truth for "scroll to top when opening a brand's detail
+  // page". The global ScrollToTop (App.jsx) no longer fires on query-string
+  // changes, and the Brands listing effect below no longer duplicates this
+  // scroll — so this is the only place it happens now.
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -220,13 +223,10 @@ export default function Brands() {
   //   /brands?category=Audio  -> listing, filtered to "Audio"
   //   /brands?brand=marshall  -> detail page for that brand (deep link)
   //
-  // IMPORTANT FIX: previously this effect only ever set `activeFilter` and
-  // never cleared `selectedBrand`. So if you were on a brand's detail page
-  // and clicked a Footer category link (which just changes `?category=X`
-  // in the URL), React Router updated searchParams, but `selectedBrand` was
-  // still set — so the component kept rendering <BrandDetailPage /> instead
-  // of going back to the filtered listing. We now explicitly clear
-  // `selectedBrand` whenever the URL doesn't contain a `brand` param.
+  // NOTE: we no longer scroll here when a brand param is present — that's
+  // handled once, inside BrandDetailPage's own mount effect, to avoid the
+  // double/conflicting scroll-to-top that used to happen alongside the
+  // (now-fixed) global ScrollToTop in App.jsx.
 
   useEffect(() => {
     window.scrollTo({
@@ -235,6 +235,7 @@ export default function Brands() {
       behavior: "auto",
     });
   }, []);
+
   // Scroll-reveal for listing
   useEffect(() => {
     if (selectedBrand) return;
@@ -263,6 +264,7 @@ export default function Brands() {
 
     return () => observer.disconnect();
   }, [selectedBrand]);
+
   useEffect(() => {
     const fromFooter = sessionStorage.getItem("fromFooterCategory");
 
@@ -274,12 +276,8 @@ export default function Brands() {
     if (brandId) {
       const brand = BRANDS.find((b) => b.id === brandId);
       setSelectedBrand(brand || null);
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-
+      // Scrolling is handled by BrandDetailPage's own mount effect —
+      // intentionally not duplicated here.
       return;
     }
 
@@ -297,6 +295,7 @@ export default function Brands() {
       }, 100);
     }
   }, [searchParams]);
+
   const handleSelectBrand = (brand) => {
     setSelectedBrand(brand);
     setSearchParams({ brand: brand.id });
@@ -320,20 +319,6 @@ export default function Brands() {
   return (
     <>
       {/* ── Page Hero ── */}
-      {/* <section className="page-hero-band reveal-left">
-        <div className="container">
-          <div className="section-header section-header--center">
-            <span className="section-eyebrow">Our Portfolio</span>
-            <h1 className="section-title">Our Brand Partners</h1>
-            <p className="section-subtitle">
-              We are the authorised distributor for world-class brands across
-              Audio, Wearables, Accessories, Projectors, Networking, and AI
-              Technology — spanning the UAE and Qatar.
-            </p>
-          </div>
-        </div>
-      </section> */}
-
       <section className="page-hero-band reveal-left">
         <div className="hero-overlay"></div>
 
@@ -355,9 +340,9 @@ export default function Brands() {
           </div>
         </div>
       </section>
+
       {/* ── Brand Grid ── */}
-      <section className="section reveal-right"ref={filterSectionRef}>
-        {" "}
+      <section className="section reveal-right" ref={filterSectionRef}>
         <div className="container">
           {/* Filter bar */}
           <div className="brands-page__filter-bar">
