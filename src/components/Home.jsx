@@ -128,12 +128,12 @@ const CHANNELS = [
 const WHAT_WE_DO = [
   {
     icon: "🏪",
-    title: "Power Retail Distribution",
+    title: "Consumer Retail Distribution",
     desc: "Supplying major retailers with fast-moving electronics & accessories, backed by strong brand partnerships and reliable fulfillment.",
   },
   {
     icon: "🚐",
-    title: "IR Market Coverage (Van Sales)",
+    title: "Independent Reseller Coverage",
     desc: "Reaching small retailers through an efficient van sales model, ensuring wide market coverage and consistent availability.",
   },
   {
