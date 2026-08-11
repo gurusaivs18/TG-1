@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import "../css/Pages.css";
 import "../css/Home.css";
-import contactHero from "../assets/pages_hero/contact___us_img.png";
+import contactHero from "../assets/pages_hero/Final Contact US.png";
 
 const SUBJECTS = [
   "General Enquiry",
@@ -158,7 +158,7 @@ ${values.message}
                   <div className="contact__info-icon-wrap">📞</div>
                   <div>
                     <div className="contact__info-label">Phone</div>
-                    <div className="contact__info-value">+971 50 123 4567</div>
+                    <div className="contact__info-value">+971 52 249 5354</div>
                   </div>
                 </div>
                 <div className="contact__info-item">

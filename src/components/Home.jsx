@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../css/Home.css";
-import heroBackground from "../assets/pages_hero/Finalhero.png";
+import heroBackground from "../assets/pages_hero/Home Page Banner.jpg.jpeg";
 import UAENetworkMap from "../components/UAENetworkMap";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
@@ -52,7 +52,7 @@ const BRANDS = [
 const CHANNELS = [
   {
     id: "power-retailers",
-    label: "Power Retailers",
+    label: "Consumer Retail Distribution",
     icon: "🏬",
     desc: "Premium electronics & tech retail chains across UAE & Qatar.",
     partners: [
@@ -117,7 +117,7 @@ const CHANNELS = [
   },
   {
     id: "ir-channel",
-    label: "Independent Reseller Channel (IR)",
+    label: "Independent Reseller Coverage",
     icon: "🚐",
     desc: "A fleet of six vans ensuring widespread coverage across the UAE.",
     partners: [],
@@ -174,15 +174,6 @@ const TICKER_ITEMS = [
   "GCC",
   "ELECTRONICS",
   "ACCESSORIES",
-];
-
-const JOURNEY = [
-  { year: "2016", milestone: "Founded in UAE" },
-  { year: "2018", milestone: "Retail Network Expansion" },
-  { year: "2020", milestone: "Van Sales Model" },
-  { year: "2022", milestone: "Qatar Operations" },
-  { year: "2024", milestone: "B2B Platform Launch" },
-  { year: "2026", milestone: "Regional Presence" },
 ];
 
 // ── Seamless marquee helper ──
@@ -404,28 +395,25 @@ export default function Home() {
           <div className="hero__inner">
             <div className="hero__content">
               {/* Presence Flags */}
-              <div className="hero__presence">
+              {/* <div className="hero__presence">
                 <span className="hero__tag">🇦🇪 United Arab Emirates</span>
                 <span className="hero__tag">🇶🇦 Qatar</span>
                 <span className="hero__tag">
                   Dubai-based · GCC Distribution
                 </span>
-              </div>
-
+              </div> */}
+{/* 
               <h1 className="hero__title">
-                A Complete
-                <span className="hero__title-accent">
-                  {" "}
-                  Accessory Solutions
-                </span>{" "}
-                Partner for Modern Retail
-              </h1>
+                WE DON'T JUST,
+                <span className="hero__title-accent"> MOVE BOXES</span> WE BUILD
+                BRANDS
+              </h1> */}
 
-              <p className="hero__description">
+              {/* <p className="hero__description">
                 We distribute world-renowned electronics & accessory brands,
                 helping retailers grow with reliable supply, merchandising
                 support, and fast fulfillment across the Gulf region.
-              </p>
+              </p> */}
 
               <div className="hero__actions">
                 <Link to="/brands" className="btn btn-secondary">
@@ -474,9 +462,8 @@ export default function Home() {
               UAE & Qatar · Electronics Distribution
             </h2>
             <p className="section-subtitle">
-              We distribute electronics and accessories to Power Retailers and
-              the IR Market across the UAE and Qatar. Our strong supply chain
-              ensures access to the latest and most relevant products.
+              We distribute electronics and accessories distributed through an
+              omnichannel network across the UAE & Qatar.
             </p>
           </div>
           <div className="what-we-do__grid">
@@ -515,8 +502,8 @@ export default function Home() {
             <span className="section-eyebrow">Product Portfolio</span>
             <h2 className="section-title">Our Categories</h2>
             <p className="section-subtitle">
-              A focused portfolio of electronics and accessories distributed to
-              power retailers and IR markets across UAE & Qatar.
+              A focused portfolio of electronics and accessories distributed
+              through an omnichannel network across the UAE & Qatar.
             </p>
           </div>
           <div className="categories__grid">
@@ -597,9 +584,8 @@ export default function Home() {
             <span className="section-eyebrow">Market Presence</span>
             <h2 className="section-title">Channels of Distribution</h2>
             <p className="section-subtitle">
-              Working with leading retailers across every channel — from power
-              retail to e-commerce and travel retail — enabling strong brand
-              visibility and nationwide distribution.
+              Partnering with leading retailers across an omnichannel network to
+              drive strong brand visibility and nationwide distribution.
             </p>
           </div>
           <div className="channels__grid">
@@ -659,33 +645,6 @@ export default function Home() {
             <div className="van-sales__canvas-wrap">
               <UAENetworkMap />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Journey ── */}
-      <section className="section reveal-left">
-        <div className="container">
-          <div className="section-header section-header--center">
-            <span className="section-eyebrow">Our Journey</span>
-            <h2 className="section-title">
-              Building Regional Presence Since 2016
-            </h2>
-          </div>
-
-          <div className="journey__timeline">
-            {JOURNEY.map((item) => (
-              <div key={item.year} className="journey__item">
-                <div className="journey__year">{item.year}</div>
-
-                <div className="journey__center">
-                  <span className="journey__line" />
-                  <span className="journey__dot" />
-                </div>
-
-                <div className="journey__milestone">{item.milestone}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -47,7 +47,9 @@
   line-height: 1.7;
   opacity: 0.85;
 }
-
+.vm-card__text strong {
+  font-weight: 900;
+}
 .about-services__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

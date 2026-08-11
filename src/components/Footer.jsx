@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/Footer.css";
 import { BRAND_CATEGORIES } from "../Data/brands";
 import targetOneLogo from "../assets/targetone_transparent.png"; // adjust path if needed
-
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="footer">
@@ -129,9 +129,50 @@ export default function Footer() {
                 </li>
                 <li className="footer__contact-item">
                   <span className="footer__contact-icon">✉️</span>
-                  <span>info@targetone.ae</span>
+                  <a
+                    href="mailto:info@targetone.ae"
+                    className="contact__info-value"
+                  >
+                    Marketing@targetoneme.com
+                  </a>
                 </li>
               </ul>
+            </div>
+            {/* Social Media */}
+            <div>
+              <div className="footer__col-title">Follow Us</div>
+
+              <div className="footer__socials">
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer__social-link"
+                  aria-label="Facebook"
+                >
+                  <FaFacebookF />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer__social-link"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer__social-link"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedinIn />
+                </a>
+              </div>
             </div>
           </div>
         </div>
