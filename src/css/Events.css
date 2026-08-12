@@ -1,9 +1,4 @@
-/* ============================================================
-   EVENTS PAGE — Target One
-   ============================================================ */
-
-/* Filter Bar — single horizontal line */
-.events__filter-bar {
+/* .events__filter-bar {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -34,14 +29,12 @@
   margin: 0 4px;
 }
 
-/* Events Grid */
 .events__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--gap-md);
 }
 
-/* Event Card */
 .event-card {
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -159,7 +152,6 @@
   color: var(--text-muted);
 }
 
-/* Empty State */
 .events__empty {
   text-align: center;
   padding: 100px 0;
@@ -194,5 +186,211 @@
 @media (max-width: 768px) {
   .events__grid {
     grid-template-columns: 1fr;
+  }
+} */
+/* ============================================================
+   EVENTS — COMING SOON
+   ============================================================ */
+
+.coming-soon {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  padding: 80px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  overflow: hidden;
+
+  background: var(--color-white);
+  color: var(--text-primary);
+}
+
+/* Subtle decorative background */
+.coming-soon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(163, 32, 45, 0.05),
+      transparent 35%
+    ),
+    radial-gradient(circle at 80% 70%, rgba(163, 32, 45, 0.04), transparent 35%);
+}
+
+.coming-soon__content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Icon */
+.coming-soon__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(163, 32, 45, 0.08);
+  border: 1px solid rgba(163, 32, 45, 0.15);
+
+  font-size: 28px;
+}
+
+/* Coming Soon */
+.coming-soon__eyebrow {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: var(--text-sm);
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: var(--color-primary);
+}
+
+/* Main heading */
+.coming-soon__title {
+  margin: 0 0 18px;
+
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  color: var(--text-primary);
+}
+
+/* Description */
+.coming-soon__description {
+  max-width: 600px;
+  margin: 0 auto;
+
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  line-height: 1.8;
+
+  color: var(--text-secondary);
+}
+
+/* Decorative line */
+.coming-soon__line {
+  width: 60px;
+  height: 3px;
+
+  margin: 28px auto 20px;
+
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Bottom message */
+.coming-soon__message {
+  display: block;
+
+  font-size: var(--text-sm);
+  font-weight: 500;
+
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .coming-soon {
+    min-height: 380px;
+    padding: 64px 20px;
+  }
+
+  .coming-soon__icon {
+    width: 58px;
+    height: 58px;
+    font-size: 25px;
+    margin-bottom: 18px;
+  }
+
+  .coming-soon__description {
+    line-height: 1.7;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .coming-soon {
+    min-height: 360px;
+    padding: 56px 16px;
+  }
+
+  .coming-soon__icon {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .coming-soon__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .coming-soon__title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .coming-soon__description {
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  .coming-soon__line {
+    margin: 22px auto 16px;
+  }
+
+  .coming-soon__message {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================================
+   VERY SMALL SCREENS
+   ============================================================ */
+
+@media (max-width: 360px) {
+  .coming-soon {
+    min-height: 340px;
+    padding: 48px 14px;
+  }
+
+  .coming-soon__title {
+    font-size: 1.75rem;
+  }
+
+  .coming-soon__description {
+    font-size: 0.82rem;
   }
 }
