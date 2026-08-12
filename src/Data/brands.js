@@ -45,7 +45,7 @@ export const BRANDS = [
       "Rock & Roll DNA in Every Product",
       "Premium Wireless Speaker Range",
     ],
-    accentColor: "#1a1a1a",
+    accentColor: "black",
   },
   {
     id: "shokz",
@@ -67,7 +67,7 @@ export const BRANDS = [
       "IP68 Waterproof — Pool Ready",
       "Safe Open-Ear Awareness",
     ],
-    accentColor: "#111111",
+    accentColor: "black",
   },
   {
     id: "soundpeats",
@@ -88,7 +88,7 @@ export const BRANDS = [
       "Active Noise Cancellation",
       "IPX7 Waterproof Technology",
     ],
-    accentColor: "#1565c0",
+    accentColor: "black",
   },
   {
     id: "ikarao",
@@ -109,7 +109,7 @@ export const BRANDS = [
       "#1 Karaoke Machine with Built-in Screen",
       "Portable with Built-in Battery",
     ],
-    accentColor: "#6a1b9a",
+    accentColor: "black ",
   },
   {
     id: "qcy",
@@ -130,7 +130,7 @@ export const BRANDS = [
       "MeloBuds A30 & H3 Series",
       "Designed to Block Out Daily Chaos",
     ],
-    accentColor: "#0288d1",
+    accentColor: "black",
   },
 
   // ── WEARABLE ──────────────────────────────────────────────────────────────
@@ -153,7 +153,7 @@ export const BRANDS = [
       "AI-Powered Personalization",
       "Built-in GPS with Strava Support",
     ],
-    accentColor: "#1a237e",
+    accentColor: "black",
   },
   {
     id: "fastrack-smart",
@@ -174,7 +174,7 @@ export const BRANDS = [
       "AI-Powered Personalization",
       "Built-in GPS with Strava Support",
     ],
-    accentColor: "#1a237e",
+    accentColor: "black",
   },
   {
     id: "iqibla",
@@ -195,7 +195,7 @@ export const BRANDS = [
       "Zikr & Tasbeeh Digital Tracking",
       "Qibla Direction & Prayer Time Integration",
     ],
-    accentColor: "#b8860b",
+    accentColor: "black",
   },
 
   // ── ACCESSORIES ───────────────────────────────────────────────────────────
@@ -218,7 +218,7 @@ export const BRANDS = [
       'Protection Up to 16" Laptops',
       "Lightweight & Durable Materials",
     ],
-    accentColor: "#e65100",
+    accentColor: "black",
   },
 
   {
@@ -235,7 +235,7 @@ export const BRANDS = [
       { name: "Chargers", icon: "⚡", image: null },
     ],
     highlights: ["Power Bank Specialist", "Reliable All-Day Charging"],
-    accentColor: "#455a64",
+    accentColor: "black",
   },
 
   // ── PROJECTORS & NETWORKING ───────────────────────────────────────────────
@@ -260,7 +260,7 @@ export const BRANDS = [
       "Built-in Battery for Outdoor Use",
       "Smart OS with App Integration",
     ],
-    accentColor: "#e65c00",
+    accentColor: "black",
   },
   {
     id: "tp-link",
@@ -282,7 +282,7 @@ export const BRANDS = [
       "Tapo Smart Home Ecosystem",
       "Mesh & Whole-Home Coverage",
     ],
-    accentColor: "#0074c2",
+    accentColor: "black",
   },
   {
     id: "tapo",
@@ -304,7 +304,7 @@ export const BRANDS = [
       "Tapo Smart Home Ecosystem",
       "Mesh & Whole-Home Coverage",
     ],
-    accentColor: "#0074c2",
+    accentColor: "black",
   },
   // ── TECHNOLOGY / AI POWERED ───────────────────────────────────────────────
   {
@@ -326,7 +326,7 @@ export const BRANDS = [
       "Real-Time Transcription",
       "Multilingual Support",
     ],
-    accentColor: "#37474f",
+    accentColor: "black",
   },
 ];
 
