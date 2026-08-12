@@ -584,13 +584,13 @@ export default function Home() {
           <div className="van-sales__grid">
             <div className="van-sales__content">
               <span className="section-eyebrow section-eyebrow--light">
-                IR Sales Network
+                Independent Reseller Sales Network
               </span>
               <h2 className="section-title section-title--light">
                 Van Sales Coverage Across the UAE
               </h2>
               <p className="section-subtitle section-subtitle--light">
-                Our IR market distribution model enables fast-moving coverage to
+                Our Independent Reseller market distribution model enables fast-moving coverage to
                 thousands of small retailers through a structured van sales
                 network. We cover the entire UAE with dedicated routes, ensuring
                 strong market penetration and reliable last-mile delivery.
