@@ -159,7 +159,7 @@ ${values.message}
                   <div>
                     <div className="contact__info-label">Phone</div>
                     <div className="contact__info-value">
-                      +971-(0)4-344 9174
+                      +971 4 344 9174
                     </div>
                   </div>
                 </div>
