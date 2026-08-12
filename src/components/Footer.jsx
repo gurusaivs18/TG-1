@@ -128,7 +128,7 @@ export default function Footer() {
 
                 <li className="footer__contact-item">
                   <span className="footer__contact-icon">📞</span>
-                  <span>971-04-344 9174</span>
+                  <span>+971-(0)4-344 9174</span>
                 </li>
 
                 <li className="footer__contact-item">
