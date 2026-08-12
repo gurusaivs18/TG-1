@@ -25,8 +25,8 @@
   inset: 0;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 9%; /* % keeps buttons proportional to the image at every screen size */
+  justify-content:center;
+  padding-bottom: 10%; /* % keeps buttons proportional to the image at every screen size */
 }
 
 .hero__actions {
