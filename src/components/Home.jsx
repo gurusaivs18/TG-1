@@ -397,61 +397,16 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ── */}
-      <section
-        className="hero reveal-left"
-        style={{
-          "--hero-bg": `url(${heroBackground})`,
-          backgroundImage: `linear-gradient(rgba(15,15,36,0.35), rgba(15,15,36,0.35)), url(${heroBackground})`,
-        }}
-      >
-        <div className="hero__bg-grid" />
-        <div className="hero__accent" />
-        <div className="container">
-          <div className="hero__inner">
-            <div className="hero__content">
-              {/* Presence Flags */}
-              {/* <div className="hero__presence">
-                <span className="hero__tag">🇦🇪 United Arab Emirates</span>
-                <span className="hero__tag">🇶🇦 Qatar</span>
-                <span className="hero__tag">
-                  Dubai-based · GCC Distribution
-                </span>
-              </div> */}
-              {/* 
-              <h1 className="hero__title">
-                WE DON'T JUST,
-                <span className="hero__title-accent"> MOVE BOXES</span> WE BUILD
-                BRANDS
-              </h1> */}
-
-              {/* <p className="hero__description">
-                We distribute world-renowned electronics & accessory brands,
-                helping retailers grow with reliable supply, merchandising
-                support, and fast fulfillment across the Gulf region.
-              </p> */}
-
-              <div className="hero__actions">
-                <Link to="/brands" className="btn btn-secondary">
-                  Explore Our Brands →
-                </Link>
-                <Link to="/contact" className="btn btn-secondary">
-                  Become a Retail Partner
-                </Link>
-              </div>
-
-              {/* Stats bar */}
-              {/* <div className="hero__stats">
-                {STATS.map((s) => (
-                  <div key={s.label} className="hero__stat">
-                    <div className="hero__stat-num">
-                      {s.num}
-                      {s.suffix}
-                    </div>
-                    <div className="hero__stat-label">{s.label}</div>
-                  </div>
-                ))}
-              </div> */}
-            </div>
+      <section className="hero reveal-left">
+        <img src={heroBackground} alt="" className="hero__bg-img" />
+        <div className="hero__inner">
+          <div className="hero__actions">
+            <Link to="/brands" className="btn btn-secondary">
+              Explore Our Brands →
+            </Link>
+            <Link to="/contact" className="btn btn-secondary">
+              Become a Retail Partner
+            </Link>
           </div>
         </div>
       </section>

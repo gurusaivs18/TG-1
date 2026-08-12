@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../css/Pages.css";
 import "../css/Home.css";
 
-
 const EVENTS = [
   {
     id: 1,
@@ -152,6 +151,14 @@ export default function Events() {
                     {event.status === "upcoming"
                       ? "📅 Upcoming"
                       : "✓ Completed"}
+                  </div>
+                  <div className="event-card__placeholder">
+                    <span className="event-card__placeholder-title">
+                      Coming Soon
+                    </span>
+                    <span className="event-card__placeholder-sub">
+                      Stay tuned for more updates!
+                    </span>
                   </div>
                 </div>
                 <div className="event-card__body">
