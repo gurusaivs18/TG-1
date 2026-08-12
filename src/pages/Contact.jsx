@@ -158,7 +158,7 @@ ${values.message}
                   <div className="contact__info-icon-wrap">📞</div>
                   <div>
                     <div className="contact__info-label">Phone</div>
-                    <div className="contact__info-value">04-344 9174</div>
+                    <div className="contact__info-value">971-04-344 9174</div>
                   </div>
                 </div>
                 <div className="contact__info-item">
