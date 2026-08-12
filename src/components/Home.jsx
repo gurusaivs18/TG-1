@@ -267,9 +267,6 @@ function ChannelModal({ channel, onClose }) {
 }
 
 // ── Category Modal ──
-// Same interaction pattern as ChannelModal above, but lists every brand
-// inside the selected category. Clicking a logo redirects to that brand's
-// detail page on /brands.
 function CategoryModal({ category, brands, onClose, onSelectBrand }) {
   const handleBackdropClick = useCallback(
     (e) => {
