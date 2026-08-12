@@ -32,6 +32,38 @@
   opacity: 0.8;
 }
 
+/* ── "Coming soon" placeholder — centered inside the image block,
+   behind the date badge and status pill since those are absolutely
+   positioned to the corners and render above it. ── */
+.event-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 0 20px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.event-card__placeholder-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.event-card__placeholder-sub {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.22);
+}
+
 .event-card__date-badge {
   position: absolute;
   top: 16px;
@@ -282,7 +314,6 @@
   color: var(--text-on-dark-muted);
   margin-top: 3px;
 }
-
 
 @media (max-width: 768px) {
   .contact__grid {

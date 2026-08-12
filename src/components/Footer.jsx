@@ -116,32 +116,33 @@ export default function Footer() {
               </ul>
             </div>
             {/* Contact Info */}
+            {/* Contact Info */}
             <div>
               <div className="footer__col-title">Contact</div>
+
               <ul className="footer__contact-list">
                 <li className="footer__contact-item">
                   <span className="footer__contact-icon">📍</span>
                   <span>Dubai, United Arab Emirates</span>
                 </li>
+
                 <li className="footer__contact-item">
                   <span className="footer__contact-icon">📞</span>
                   <span>04-344 9174</span>
                 </li>
+
                 <li className="footer__contact-item">
                   <span className="footer__contact-icon">✉️</span>
                   <a
-                    href="mailto:info@targetone.ae"
+                    href="mailto:Marketing@targetoneme.com"
                     className="contact__info-value"
                   >
                     Marketing@targetoneme.com
                   </a>
                 </li>
               </ul>
-            </div>
-            {/* Social Media */}
-            <div>
-              <div className="footer__col-title">Follow Us</div>
 
+              {/* Social Media */}
               <div className="footer__socials">
                 <a
                   href="https://www.facebook.com/TargetOneME/"
