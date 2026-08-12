@@ -168,14 +168,14 @@ export default function About() {
       <section className="section reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
-            <p className="vm-card__text">
-               <strong>Target One LLC</strong> is a trusted, results-driven distributor with over
-              10 years of experience across the UAE and Qatar. We have built a
-              strong track record representing a diverse portfolio of leading
-              brands across audio, accessories, wearables, projectors,
-              networking, and AI-powered technology. Through our established
-              omnichannel network, we connect global brands with consumers
-              across the region, driving strong market presence, brand
+            <p className="vm-card__text" style={{ marginBottom: "1.5rem" }}>
+              <strong>Target One LLC</strong> is a trusted, results-driven
+              distributor with over 10 years of experience across the UAE and
+              Qatar. We have built a strong track record representing a diverse
+              portfolio of leading brands across audio, accessories, wearables,
+              projectors, networking, and AI-powered technology. Through our
+              established omnichannel network, we connect global brands with
+              consumers across the region, driving strong market presence, brand
               visibility, and sustainable distribution.
             </p>
             <span className="section-eyebrow">Our Purpose</span>
