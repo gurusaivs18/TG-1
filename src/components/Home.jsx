@@ -23,13 +23,33 @@ import Tplink from "../assets/Home Page Scroller cards/Tp link.webp";
 import Yaber from "../assets/Home Page Scroller cards/Yaber.webp";
 
 // Channels of Distribution partners logos
-import virginMegastore from "../assets/retail-partners-logo/Retailers Card/Virgin - Retailer-27.jpg";
-import jumboElectronics from "../assets/retail-partners-logo/Retailers Card/Jumbo.jpg";
-import emax from "../assets/retail-partners-logo/Retailers Card/Max.jpg";
-import sharafDG from "../assets/retail-partners-logo/Retailers Card/Sharaf.jpg";
-import grandStores from "../assets/retail-partners-logo/Retailers Card/GS.jpg";
-import iStyle from "../assets/retail-partners-logo/Retailers Card/iSTYLE.jpg";
-import erosDigital from "../assets/retail-partners-logo/Retailers Card/Eros.jpg";
+import virginMegastore from "../assets/partners-logo/Retailers Card/Virgin - Retailer-27.jpg";
+import jumboElectronics from "../assets/partners-logo/Retailers Card/Jumbo.jpg";
+import emax from "../assets/partners-logo/Retailers Card/Max.jpg";
+import sharafDG from "../assets/partners-logo/Retailers Card/Sharaf.jpg";
+import grandStores from "../assets/partners-logo/Retailers Card/GS.jpg";
+import iStyle from "../assets/partners-logo/Retailers Card/iSTYLE.jpg";
+import erosDigital from "../assets/partners-logo/Retailers Card/Eros.jpg";
+// hypermarkets
+import carrefour from "../assets/partners-logo/Hypermarkets/carrefour.jpg";
+import lulu from "../assets/partners-logo/Hypermarkets/lulu.jpg";
+import safari from "../assets/partners-logo/Hypermarkets/safari_mall.jpg";
+import geant from "../assets/partners-logo/Hypermarkets/geant.jpg";
+import unioncoop from "../assets/partners-logo/Hypermarkets/unio_coop.jpg";
+import nesto from "../assets/partners-logo/Hypermarkets/nesto.jpg";
+// ecommerce
+import amazon from "../assets/partners-logo/Ecommerce/amazon.jpg";
+import noon from "../assets/partners-logo/Ecommerce/noon.jpg";
+import namshi from "../assets/partners-logo/Ecommerce/namshi.jpg";
+import microless from "../assets/partners-logo/Ecommerce/microless.jpg";
+import careem from "../assets/partners-logo/Ecommerce/careem.jpg";
+// operator
+import etisalat from "../assets/partners-logo/Operator/etisalat.jpg";
+// travel retail
+import dubaiDutyFree from "../assets/partners-logo/Travel/dubaiDutyfree.jpg";
+import abudhabiDutyFree from "../assets/partners-logo/Travel/abudhabiDuty.jpg";
+import whSmith from "../assets/partners-logo/Travel/wh-smith.jpg";
+
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
   { name: "Dicota", img: dicota, className: "logo--dicota" },
@@ -71,12 +91,12 @@ const CHANNELS = [
     icon: "🛒",
     desc: "High-footfall hypermarket chains serving millions of shoppers.",
     partners: [
-      { name: "Carrefour", img: "/images/partners/carrefour.png" },
-      { name: "LuLu Hypermarket", img: "/images/partners/lulu.png" },
-      { name: "Safari", img: "/images/partners/safari.png" },
-      { name: "Géant", img: "/images/partners/geant.png" },
-      { name: "Union Coop", img: "/images/partners/unioncoop.png" },
-      { name: "Nesto", img: "/images/partners/nesto.png" },
+      { name: "Carrefour", img: carrefour },
+      { name: "LuLu Hypermarket", img: lulu },
+      { name: "Safari", img: safari },
+      { name: "Géant", img: geant },
+      { name: "Union Coop", img: unioncoop },
+      { name: "Nesto", img: nesto },
     ],
   },
   {
@@ -85,11 +105,11 @@ const CHANNELS = [
     icon: "🛍️",
     desc: "Leading online marketplaces and digital-first retail platforms.",
     partners: [
-      { name: "Amazon", img: "/images/partners/amazon.png" },
-      { name: "Noon", img: "/images/partners/noon.png" },
-      { name: "Namshi", img: "/images/partners/namshi.png" },
-      { name: "Microless", img: "/images/partners/microless.png" },
-      { name: "Careem", img: "/images/partners/careem.png" },
+      { name: "Amazon", img: amazon },
+      { name: "Noon", img: noon },
+      { name: "Namshi", img: namshi },
+      { name: "Microless", img: microless },
+      { name: "Careem", img: careem },
     ],
   },
   {
@@ -97,9 +117,7 @@ const CHANNELS = [
     label: "Operator",
     icon: "📡",
     desc: "Telecom operator retail channels with nationwide coverage.",
-    partners: [
-      { name: "Etisalat by e&", img: "/images/partners/etisalat.png" },
-    ],
+    partners: [{ name: "Etisalat by e&", img: etisalat }],
   },
   {
     id: "travel-retail",
@@ -107,12 +125,12 @@ const CHANNELS = [
     icon: "✈️",
     desc: "Duty-free and airport retail locations serving global travellers.",
     partners: [
-      { name: "Dubai Duty Free", img: "/images/partners/dubaidutyfree.png" },
+      { name: "Dubai Duty Free", img: dubaiDutyFree },
       {
         name: "Abu Dhabi Duty Free",
-        img: "/images/partners/abudhabidutyfree.png",
+        img: abudhabiDutyFree,
       },
-      { name: "WHSmith", img: "/images/partners/whsmith.png" },
+      { name: "WHSmith", img: whSmith },
     ],
   },
   {
@@ -148,12 +166,12 @@ const WHAT_WE_DO = [
   },
 ];
 
-const STATS = [
-  { num: "10", suffix: "+", label: "Years in Market" },
-  { num: "15", suffix: "", label: "Power Retailers" },
-  { num: "7", suffix: "", label: "Emirates Covered" },
-  { num: "1000", suffix: "+", label: "Quality Products" },
-];
+// const STATS = [
+//   { num: "10", suffix: "+", label: "Years in Market" },
+//   { num: "15", suffix: "", label: "Power Retailers" },
+//   { num: "7", suffix: "", label: "Emirates Covered" },
+//   { num: "1000", suffix: "+", label: "Quality Products" },
+// ];
 
 const TICKER_ITEMS = [
   "DISTRIBUTION",
@@ -399,7 +417,7 @@ export default function Home() {
                   Dubai-based · GCC Distribution
                 </span>
               </div> */}
-{/* 
+              {/* 
               <h1 className="hero__title">
                 WE DON'T JUST,
                 <span className="hero__title-accent"> MOVE BOXES</span> WE BUILD
@@ -422,7 +440,7 @@ export default function Home() {
               </div>
 
               {/* Stats bar */}
-              <div className="hero__stats">
+              {/* <div className="hero__stats">
                 {STATS.map((s) => (
                   <div key={s.label} className="hero__stat">
                     <div className="hero__stat-num">
@@ -432,7 +450,7 @@ export default function Home() {
                     <div className="hero__stat-label">{s.label}</div>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -476,7 +494,7 @@ export default function Home() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="stats-section reveal-right">
+      {/* <section className="stats-section reveal-right">
         <div className="container">
           <div className="stats-section__grid">
             {STATS.map((s) => (

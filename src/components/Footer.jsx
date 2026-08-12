@@ -144,7 +144,7 @@ export default function Footer() {
 
               <div className="footer__socials">
                 <a
-                  href="https://www.facebook.com/"
+                  href="https://www.facebook.com/TargetOneME/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer__social-link"
@@ -154,7 +154,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/targetoneme/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer__social-link"
@@ -164,7 +164,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/company/targetone-llc/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer__social-link"
