@@ -52,7 +52,7 @@ section {
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
   --text-6xl: 3.75rem;
-  --section-padding-y:36px;
+  --section-padding-y: 36px;
   --section-padding-y-sm: 64px;
   --container-max: 1200px;
   --container-pad: 24px;
@@ -488,7 +488,7 @@ button {
 .section-subtitle--light {
   color: var(--text-on-dark-muted);
 }
- /* .section-header {
+/* .section-header {
   margin-bottom: var(--gap-xl);
 } */
 .section-header--center {
@@ -520,8 +520,8 @@ button {
   border-color: white;
 }
 .btn-primary:hover {
-  background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  background: rgb(77, 25, 25);
+  border-color: darkred solid 2px;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(163, 32, 45, 0.35);
 }
