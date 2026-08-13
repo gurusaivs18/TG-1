@@ -89,15 +89,17 @@ const CHANNELS = [
     desc: "Premium electronics & tech retail chains across UAE & Qatar.",
     partners: [
       { name: "Virgin Megastore", img: virginMegastore },
+      { name: "Jumbo Electronics", img: jumboElectronics },
+      { name: "Sharaf DG", img: sharafDG },
+      { name: "Grand Stores", img: grandStores },
       { name: "Myshops", img: myshops },
       { name: "Al Anees", img: alAnees },
       { name: "Ecity", img: Ecity },
       { name: "Jarir", img: Jarir },
       { name: "TechnoBlue", img: TechnoBlue },
-      { name: "Jumbo Electronics", img: jumboElectronics },
+
       { name: "Emax", img: emax },
-      { name: "Sharaf DG", img: sharafDG },
-      { name: "Grand Stores", img: grandStores },
+
       { name: "iStyle", img: iStyle },
       { name: "Eros Digital Home", img: erosDigital },
     ],
@@ -600,7 +602,7 @@ export default function Home() {
           <div className="van-sales__grid">
             <div className="van-sales__content">
               <h2 className="section-title section-title--light">
-                Independent Reseller Sales Network
+                Independent Reseller Sales Coverage
               </h2>
               <p className="section-subtitle section-subtitle--light">
                 Our independent reseller distribution model delivers extensive
