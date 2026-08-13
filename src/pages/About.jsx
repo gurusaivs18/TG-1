@@ -211,8 +211,7 @@ export default function About() {
       <section className="section section--gray reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
-            <span className="section-eyebrow">Product Portfolio</span>
-            <h2 className="section-title">Our Categories</h2>
+            <h2 className="section-title">Our Product Portfolio</h2>
             <p className="section-subtitle">
               A focused portfolio of electronics and accessories distributed
               through an omnichannel network across the UAE & Qatar.

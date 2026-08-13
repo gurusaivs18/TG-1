@@ -255,11 +255,7 @@ export const BRANDS = [
       { name: "Smart Cameras (Tapo)", icon: "📷", image: null },
       { name: "Smart Home Devices", icon: "🏠", image: null },
     ],
-    highlights: [
-      "World's #1 Wi-Fi Brand",
-      "Tapo Smart Home Ecosystem",
-      "Mesh & Whole-Home Coverage",
-    ],
+    highlights: ["World's #1 Wi-Fi Brand", "Mesh & Whole-Home Coverage"],
     accentColor: "black",
   },
   {
@@ -277,11 +273,7 @@ export const BRANDS = [
       { name: "Smart Cameras (Tapo)", icon: "📷", image: null },
       { name: "Smart Home Devices", icon: "🏠", image: null },
     ],
-    highlights: [
-      "World's #1 Wi-Fi Brand",
-      "Tapo Smart Home Ecosystem",
-      "Mesh & Whole-Home Coverage",
-    ],
+    highlights: ["Tapo Smart Home Ecosystem", "Mesh & Whole-Home Coverage"],
     accentColor: "black",
   },
   {
