@@ -47,9 +47,8 @@ export default function Footer() {
                 />
               </div>
               <p className="footer__tagline">
-                Target One is a technology-driven distribution and business
-                solutions company, enabling brands to scale through smart
-                logistics, digital systems, and data intelligence.
+                Connecting global technology brands with regional markets
+                through trusted partnerships and seamless distribution.
               </p>
               <div className="footer__flags">
                 <span className="footer__flag-badge">

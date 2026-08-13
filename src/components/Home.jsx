@@ -30,25 +30,37 @@ import sharafDG from "../assets/partners-logo/Retailers Card/Sharaf.jpg";
 import grandStores from "../assets/partners-logo/Retailers Card/GS.jpg";
 import iStyle from "../assets/partners-logo/Retailers Card/iSTYLE.jpg";
 import erosDigital from "../assets/partners-logo/Retailers Card/Eros.jpg";
+import myshops from "../assets/partners-logo/Retailers Card/Myshops.jpg";
+import alAnees from "../assets/partners-logo/Retailers Card/Al Anees.jpg";
+import Ecity from "../assets/partners-logo/Retailers Card/Ecity.jpg";
+import Jarir from "../assets/partners-logo/Retailers Card/Jarir.jpg";
+import TechnoBlue from "../assets/partners-logo/Retailers Card/TechnoBlue.jpg";
+
 // hypermarkets
 import carrefour from "../assets/partners-logo/Hypermarkets/carrefour.jpg";
 import lulu from "../assets/partners-logo/Hypermarkets/lulu.jpg";
 import safari from "../assets/partners-logo/Hypermarkets/safari_mall.jpg";
-import geant from "../assets/partners-logo/Hypermarkets/geant.jpg";
-import unioncoop from "../assets/partners-logo/Hypermarkets/unio_coop.jpg";
 import nesto from "../assets/partners-logo/Hypermarkets/nesto.jpg";
+import rawabi from "../assets/partners-logo/Hypermarkets/Rawabi.jpg";
+import saudia from "../assets/partners-logo/Hypermarkets/saudia_hyper.jpg";
+
 // ecommerce
+
 import amazon from "../assets/partners-logo/Ecommerce/amazon.jpg";
 import noon from "../assets/partners-logo/Ecommerce/noon.jpg";
 import namshi from "../assets/partners-logo/Ecommerce/namshi.jpg";
 import microless from "../assets/partners-logo/Ecommerce/microless.jpg";
 import careem from "../assets/partners-logo/Ecommerce/careem.jpg";
+import snoonu from "../assets/partners-logo/Ecommerce/Snoonu.jpg";
+import starlink from "../assets/partners-logo/Ecommerce/Starlink.jpg";
+import nology from "../assets/partners-logo/Ecommerce/Nology.jpg";
+
 // operator
+
 import etisalat from "../assets/partners-logo/Operator/etisalat.jpg";
 // travel retail
 import dubaiDutyFree from "../assets/partners-logo/Travel/dubaiDutyfree.jpg";
-import abudhabiDutyFree from "../assets/partners-logo/Travel/abudhabiDuty.jpg";
-import whSmith from "../assets/partners-logo/Travel/wh-smith.jpg";
+import jeddah from "../assets/partners-logo/Travel/Jeddah Duty Free.jpg";
 
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
@@ -77,6 +89,11 @@ const CHANNELS = [
     desc: "Premium electronics & tech retail chains across UAE & Qatar.",
     partners: [
       { name: "Virgin Megastore", img: virginMegastore },
+      { name: "Myshops", img: myshops },
+      { name: "Al Anees", img: alAnees },
+      { name: "Ecity", img: Ecity },
+      { name: "Jarir", img: Jarir },
+      { name: "TechnoBlue", img: TechnoBlue },
       { name: "Jumbo Electronics", img: jumboElectronics },
       { name: "Emax", img: emax },
       { name: "Sharaf DG", img: sharafDG },
@@ -91,12 +108,12 @@ const CHANNELS = [
     icon: "🛒",
     desc: "High-footfall hypermarket chains serving millions of shoppers.",
     partners: [
-      { name: "Carrefour", img: carrefour },
       { name: "LuLu Hypermarket", img: lulu },
+      { name: "Carrefour", img: carrefour },
       { name: "Safari", img: safari },
-      { name: "Géant", img: geant },
-      { name: "Union Coop", img: unioncoop },
       { name: "Nesto", img: nesto },
+      { name: "Rawabi", img: rawabi },
+      { name: "Saudia", img: saudia },
     ],
   },
   {
@@ -110,27 +127,26 @@ const CHANNELS = [
       { name: "Namshi", img: namshi },
       { name: "Microless", img: microless },
       { name: "Careem", img: careem },
+      { name: "Nology", img: nology },
+      { name: "Snoonu", img: snoonu },
+      { name: "Starlink", img: starlink },
     ],
   },
   {
     id: "operator",
-    label: "Operator",
+    label: "Telecom Operator",
     icon: "📡",
     desc: "Telecom operator retail channels with nationwide coverage.",
     partners: [{ name: "Etisalat by e&", img: etisalat }],
   },
   {
     id: "travel-retail",
-    label: "Travel Retail",
+    label: "Travel Operator",
     icon: "✈️",
     desc: "Duty-free and airport retail locations serving global travellers.",
     partners: [
       { name: "Dubai Duty Free", img: dubaiDutyFree },
-      {
-        name: "Abu Dhabi Duty Free",
-        img: abudhabiDutyFree,
-      },
-      { name: "WHSmith", img: whSmith },
+      { name: "Jeddah Duty Free", img: jeddah },
     ],
   },
   {
@@ -146,23 +162,23 @@ const CHANNELS = [
 const WHAT_WE_DO = [
   {
     icon: "🏪",
-    title: "Consumer Retail Distribution",
-    desc: "Supplying major retailers with fast-moving electronics & accessories, backed by strong brand partnerships and reliable fulfillment.",
+    title: "Power Retail Distribution",
+    desc: "We supply leading retailers with high-demand electronics and accessories, supported by strong brand partnerships and dependable fulfillment capabilities.",
   },
   {
     icon: "🚐",
     title: "Independent Reseller Coverage",
-    desc: "Reaching small retailers through an efficient van sales model, ensuring wide market coverage and consistent availability.",
+    desc: "Expanding market reach through an efficient door-to-door van sales network, enabling wide coverage and consistent product availability across the channel.",
   },
   {
     icon: "🔗",
-    title: "Strong Supply Chain & Sourcing",
-    desc: "Strategic sourcing helps us meet market demand quickly — balancing availability, pricing, and product relevance.",
+    title: "Strong Supply Chain &  Logistics",
+    desc: "A robust supply chain and logistics network ensuring timely delivery and consistent availability.",
   },
   {
     icon: "📦",
-    title: "Modern Product Portfolio",
-    desc: "Focused on the latest, most relevant products that retailers demand — built for sell-through and customer satisfaction.",
+    title: "Our Global Brand Portfolio",
+    desc: "Bringing the latest technology and innovations to markets across the region.",
   },
 ];
 
@@ -432,8 +448,9 @@ export default function Home() {
               UAE & Qatar · Electronics Distribution
             </h2>
             <p className="section-subtitle">
-              We distribute electronics and accessories distributed through an
-              omnichannel network across the UAE & Qatar.
+              We are a leading distributor of consumer electronics and accessory
+              brands, with an established omnichannel presence spanning the UAE
+              and Qatar.
             </p>
           </div>
           <div className="what-we-do__grid">
@@ -469,11 +486,11 @@ export default function Home() {
       <section className="section section--gray reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
-            <span className="section-eyebrow">Product Portfolio</span>
-            <h2 className="section-title">Our Categories</h2>
+            <h2 className="section-title">Brand Portfolio</h2>
             <p className="section-subtitle">
-              A focused portfolio of electronics and accessories distributed
-              through an omnichannel network across the UAE & Qatar.
+              A diverse portfolio of electronics and accessories, delivered
+              through an established omnichannel distribution network across the
+              UAE and Qatar.
             </p>
           </div>
           <div className="categories__grid">
@@ -500,8 +517,7 @@ export default function Home() {
       <section className="section reveal-right">
         <div className="container">
           <div className="section-header section-header--center">
-            <span className="section-eyebrow">Our Portfolio</span>
-            <h2 className="section-title">Our Brands</h2>
+            <h2 className="section-title">Brand Portfolio</h2>
           </div>
         </div>
         <div className="brands__marquee-wrap" ref={brandsWrapRef}>
@@ -551,11 +567,11 @@ export default function Home() {
       <section className="section section--gray reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
-            <span className="section-eyebrow">Market Presence</span>
             <h2 className="section-title">Channels of Distribution</h2>
             <p className="section-subtitle">
-              Partnering with leading retailers across an omnichannel network to
-              drive strong brand visibility and nationwide distribution.
+              Building strategic retail partnerships across an extensive
+              omnichannel network to enhance brand visibility, market
+              penetration, and distribution across the region.
             </p>
           </div>
           <div className="channels__grid">
@@ -583,17 +599,16 @@ export default function Home() {
         <div className="container">
           <div className="van-sales__grid">
             <div className="van-sales__content">
-              <span className="section-eyebrow section-eyebrow--light">
-                Independent Reseller Sales Network
-              </span>
               <h2 className="section-title section-title--light">
-                Van Sales Coverage Across the UAE
+                Independent Reseller Sales Network
               </h2>
               <p className="section-subtitle section-subtitle--light">
-                Our Independent Reseller market distribution model enables fast-moving coverage to
-                thousands of small retailers through a structured van sales
-                network. We cover the entire UAE with dedicated routes, ensuring
-                strong market penetration and reliable last-mile delivery.
+                Our independent reseller distribution model delivers extensive
+                market reach through a structured door-to-door van sales
+                network. With dedicated routes covering the UAE, we connect
+                brands with thousands of independent retailers, driving deeper
+                market penetration, consistent product availability, and
+                efficient last-mile distribution.
               </p>
               <div className="van-sales__metrics">
                 {[

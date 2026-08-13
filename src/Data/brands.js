@@ -238,36 +238,14 @@ export const BRANDS = [
     accentColor: "black",
   },
 
-  // ── PROJECTORS & NETWORKING ───────────────────────────────────────────────
-  {
-    id: "yaber",
-    name: "Yaber",
-    logo: yaber,
-    logoClass: "logo--yaber",
-    logoText: "Yaber",
-    category: "Projectors & Networking",
-    tagline: "Entertainment Projector. Anywhere.",
-    description:
-      "YABER is a leading smart projector brand dedicated to delivering immersive home entertainment experiences through advanced projection technology. With powerful performance, high-quality visuals, and user-friendly features, YABER projectors transform everyday spaces into personal cinemas for movies, gaming, presentations, and more.",
-    subCategories: [
-      { name: "Home Cinema", icon: "🎬", image: null },
-      { name: "Laser Projectors", icon: "💡", image: null },
-      { name: "Premier Theater", icon: "🎭", image: null },
-      { name: "Portable Projectors", icon: "📽️", image: null },
-    ],
-    highlights: [
-      "Laser Projection Technology",
-      "Built-in Battery for Outdoor Use",
-      "Smart OS with App Integration",
-    ],
-    accentColor: "black",
-  },
+  // ── NETWORKING ───────────────────────────────────────────────
+
   {
     id: "tp-link",
     name: "TP-Link",
     logo: tpLink,
     logoClass: "logo--tp-link",
-    category: "Projectors & Networking",
+    category: "Networking",
     tagline: "Reliable Networking. Smart Home Simplified.",
     description:
       "TP-Link is a global leader in networking and smart connectivity solutions, offering reliable products designed to keep people and businesses connected. With a wide range of solutions including Wi-Fi routers, networking devices, and smart home products, TP-Link delivers seamless connectivity, advanced technology, and dependable performance for everyday digital needs.",
@@ -289,7 +267,7 @@ export const BRANDS = [
     name: " Tapo",
     logo: tapo,
     logoClass: "logo--tp-link",
-    category: "Projectors & Networking",
+    category: "Networking",
     tagline: "Reliable Networking. Smart Home Simplified.",
     description:
       "Tapo is a smart home brand by TP-Link, offering innovative and affordable smart devices designed to make everyday living more convenient and connected. With products including smart cameras, smart lighting, plugs, and other home automation solutions, Tapo helps users create a safer, smarter, and more efficient home environment.",
@@ -306,13 +284,36 @@ export const BRANDS = [
     ],
     accentColor: "black",
   },
+  {
+    id: "yaber",
+    name: "Yaber",
+    logo: yaber,
+    logoClass: "logo--yaber",
+    logoText: "Yaber",
+    category: "Projectors",
+    tagline: "Entertainment Projector. Anywhere.",
+    description:
+      "YABER is a leading smart projector brand dedicated to delivering immersive home entertainment experiences through advanced projection technology. With powerful performance, high-quality visuals, and user-friendly features, YABER projectors transform everyday spaces into personal cinemas for movies, gaming, presentations, and more.",
+    subCategories: [
+      { name: "Home Cinema", icon: "🎬", image: null },
+      { name: "Laser Projectors", icon: "💡", image: null },
+      { name: "Premier Theater", icon: "🎭", image: null },
+      { name: "Portable Projectors", icon: "📽️", image: null },
+    ],
+    highlights: [
+      "Laser Projection Technology",
+      "Built-in Battery for Outdoor Use",
+      "Smart OS with App Integration",
+    ],
+    accentColor: "black",
+  },
   // ── TECHNOLOGY / AI POWERED ───────────────────────────────────────────────
   {
     id: "ticnote",
     name: "TicNote",
     logo: ticnote,
     logoClass: "logo--ticnote",
-    category: "Technology / AI Powered",
+    category: "AI Powered",
     tagline: "Next Generation AI Voice Recorder.",
     description:
       "TicNote is an innovative AI-powered voice recorder designed to transform the way people capture, organize, and manage information. With advanced AI features including real-time transcription, intelligent note-taking, voice recording, and instant translation, TicNote helps professionals, students, content creators, and everyday users improve productivity and stay organized.",
@@ -336,8 +337,9 @@ export const CATEGORY_TABS = [
   "Audio",
   "Wearable",
   "Accessories",
-  "Projectors & Networking",
-  "Technology / AI Powered",
+  "Networking",
+  "Projectors",
+  "AI Powered",
 ];
 
 // ── Category nav cards (Home page "Our Categories" section) ───────────────
@@ -358,12 +360,17 @@ export const BRAND_CATEGORIES = [
     desc: "Power banks, chargers, cables & laptop bags.",
   },
   {
-    name: "Projectors & Networking",
+    name: "Networking",
     icon: "📡",
-    desc: "Home cinema projectors, routers & smart home devices.",
+    desc: "Routers & smart home devices.",
   },
   {
-    name: "Technology / AI Powered",
+    name: "Projectors",
+    icon: "️📽️",
+    desc: "Home cinema projectors & portable display devices.",
+  },
+  {
+    name: "AI Powered",
     icon: "🤖",
     desc: "AI voice recorders & next-generation smart devices.",
   },

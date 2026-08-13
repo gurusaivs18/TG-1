@@ -12,7 +12,7 @@ const SERVICES = [
   },
   {
     icon: "🚐",
-    title: "Independent Reseller Coverage",
+    title: "Independent Reseller Sales Network",
     desc: "Daily van routes reaching independent retailers across all 7 UAE emirates.",
   },
   {
