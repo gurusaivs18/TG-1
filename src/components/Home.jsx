@@ -486,7 +486,7 @@ export default function Home() {
       <section className="section section--gray reveal-left">
         <div className="container">
           <div className="section-header section-header--center">
-            <h2 className="section-title">Brand Portfolio</h2>
+            <h2 className="section-title">Product Portfolio</h2>
             <p className="section-subtitle">
               A diverse portfolio of electronics and accessories, delivered
               through an established omnichannel distribution network across the
