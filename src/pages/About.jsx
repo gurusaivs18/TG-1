@@ -267,8 +267,8 @@ export default function About() {
               Let's Grow Your Brand Together…
             </h2>
             <p className="cta-banner__sub">
-              If you’re looking for the right distribution partner to grow your
-              brand, we’d love to start a conversation.
+              If you're looking for the right distribution partner to grow your
+              brand, we'd love to start a conversation.
             </p>
             <div className="cta-banner__actions">
               <Link to="/contact" className="btn btn-dark">
