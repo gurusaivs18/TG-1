@@ -2,48 +2,60 @@ import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-const folder = path.join(process.cwd(), "src/assets/brandsPageLogos");
+const folder = path.join(process.cwd(), "src/assets");
 
 const allowedExtensions = [".jpg", ".jpeg", ".png"];
 
+async function getAllFiles(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      files.push(...(await getAllFiles(fullPath)));
+    } else {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
 async function convertImages() {
-  const files = fs.readdirSync(folder);
+  const files = await getAllFiles(folder);
 
-  for (const file of files) {
-    const ext = path.extname(file).toLowerCase();
+  let converted = 0;
 
-    // Skip webp files
+  for (const oldPath of files) {
+    const ext = path.extname(oldPath).toLowerCase();
+
     if (!allowedExtensions.includes(ext)) {
       continue;
     }
 
-    const oldPath = path.join(folder, file);
-
-    const newName = path.basename(file, ext) + ".webp";
-
-    const newPath = path.join(folder, newName);
+    const newPath =
+      path.join(path.dirname(oldPath), path.basename(oldPath, ext)) + ".webp";
 
     try {
-      console.log(`Converting: ${file}`);
+      console.log(`Converting: ${oldPath}`);
 
-      await sharp(oldPath)
-        .webp({
-          quality: 85,
-        })
-        .toFile(newPath);
+      await sharp(oldPath).webp({ quality: 85 }).toFile(newPath);
 
-      // Check conversion success
       if (fs.existsSync(newPath)) {
         fs.unlinkSync(oldPath);
+        converted++;
 
-        console.log(`✓ Converted and deleted: ${file}`);
+        console.log(`✓ Converted: ${oldPath}`);
       }
     } catch (error) {
-      console.log(`❌ Failed: ${file}`, error.message);
+      console.error(`❌ Failed: ${oldPath}`);
+      console.error(error.message);
     }
   }
 
-  console.log("Finished");
+  console.log(`\nFinished! ${converted} images converted to WebP.`);
 }
 
 convertImages();

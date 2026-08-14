@@ -40,7 +40,6 @@
 
 .filter-btn:hover {
   border-color: var(--color-primary);
-  color: var(--color-primary);
 }
 
 .filter-btn--active {

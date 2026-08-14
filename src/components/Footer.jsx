@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../css/Footer.css";
 import { BRAND_CATEGORIES } from "../Data/brands";
-import targetOneLogo from "../assets/targetone_transparent.png"; // adjust path if needed
+import targetOneLogo from "../assets/Company_logos/targetone_transparent.webp"; // adjust path if needed
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 export default function Footer() {
   return (

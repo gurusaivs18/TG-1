@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../css/Home.css";
-import heroBackground from "../assets/pages_hero/Home Page Banner.jpg.jpeg";
+import heroBackground from "../assets/pages_hero/Home Page Banner.jpg.webp";
 import UAENetworkMap from "../components/UAENetworkMap";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
@@ -17,50 +17,50 @@ import SoundPeats from "../assets/Home Page Scroller cards/SoundPeats.webp";
 import Tapo from "../assets/Home Page Scroller cards/Tapo.webp";
 import ticnote from "../assets/Home Page Scroller cards/TicNote.webp";
 import titanSmart from "../assets/Home Page Scroller cards/Titan Smart.webp";
-import fastrack from "../assets/Home Page Scroller cards/Fastrack.png";
+import fastrack from "../assets/Home Page Scroller cards/Fastrack.webp";
 
 import Tplink from "../assets/Home Page Scroller cards/Tp link.webp";
 import Yaber from "../assets/Home Page Scroller cards/Yaber.webp";
 
 // Channels of Distribution partners logos
-import virginMegastore from "../assets/partners-logo/Retailers Card/Virgin - Retailer-27.jpg";
-import jumboElectronics from "../assets/partners-logo/Retailers Card/Jumbo.jpg";
-import emax from "../assets/partners-logo/Retailers Card/Max.jpg";
-import sharafDG from "../assets/partners-logo/Retailers Card/Sharaf.jpg";
-import grandStores from "../assets/partners-logo/Retailers Card/GS.jpg";
-import iStyle from "../assets/partners-logo/Retailers Card/iSTYLE.jpg";
-import erosDigital from "../assets/partners-logo/Retailers Card/Eros.jpg";
-import myshops from "../assets/partners-logo/Retailers Card/Myshops.jpg";
-import alAnees from "../assets/partners-logo/Retailers Card/Al Anees.jpg";
-import Ecity from "../assets/partners-logo/Retailers Card/Ecity.jpg";
-import Jarir from "../assets/partners-logo/Retailers Card/Jarir.jpg";
-import TechnoBlue from "../assets/partners-logo/Retailers Card/TechnoBlue.jpg";
+import virginMegastore from "../assets/partners-logo/Retailers Card/Virgin - Retailer-27.webp";
+import jumboElectronics from "../assets/partners-logo/Retailers Card/Jumbo.webp";
+import emax from "../assets/partners-logo/Retailers Card/Max.webp";
+import sharafDG from "../assets/partners-logo/Retailers Card/Sharaf.webp";
+import grandStores from "../assets/partners-logo/Retailers Card/GS.webp";
+import iStyle from "../assets/partners-logo/Retailers Card/iSTYLE.webp";
+import erosDigital from "../assets/partners-logo/Retailers Card/Eros.webp";
+import myshops from "../assets/partners-logo/Retailers Card/Myshops.webp";
+import alAnees from "../assets/partners-logo/Retailers Card/Al Anees.webp";
+import Ecity from "../assets/partners-logo/Retailers Card/Ecity.webp";
+import Jarir from "../assets/partners-logo/Retailers Card/Jarir.webp";
+import TechnoBlue from "../assets/partners-logo/Retailers Card/TechnoBlue.webp";
 
 // hypermarkets
-import carrefour from "../assets/partners-logo/Hypermarkets/carrefour.jpg";
-import lulu from "../assets/partners-logo/Hypermarkets/lulu.jpg";
-import safari from "../assets/partners-logo/Hypermarkets/safari_mall.jpg";
-import nesto from "../assets/partners-logo/Hypermarkets/nesto.jpg";
-import rawabi from "../assets/partners-logo/Hypermarkets/Rawabi.jpg";
-import saudia from "../assets/partners-logo/Hypermarkets/saudia_hyper.jpg";
+import carrefour from "../assets/partners-logo/Hypermarkets/carrefour.webp";
+import lulu from "../assets/partners-logo/Hypermarkets/lulu.webp";
+import safari from "../assets/partners-logo/Hypermarkets/safari_mall.webp";
+import nesto from "../assets/partners-logo/Hypermarkets/nesto.webp";
+import rawabi from "../assets/partners-logo/Hypermarkets/Rawabi.webp";
+import saudia from "../assets/partners-logo/Hypermarkets/saudia_hyper.webp";
 
 // ecommerce
 
-import amazon from "../assets/partners-logo/Ecommerce/amazon.jpg";
-import noon from "../assets/partners-logo/Ecommerce/noon.jpg";
-import namshi from "../assets/partners-logo/Ecommerce/namshi.jpg";
-import microless from "../assets/partners-logo/Ecommerce/microless.jpg";
-import careem from "../assets/partners-logo/Ecommerce/careem.jpg";
-import snoonu from "../assets/partners-logo/Ecommerce/Snoonu.jpg";
-import starlink from "../assets/partners-logo/Ecommerce/Starlink.jpg";
-import nology from "../assets/partners-logo/Ecommerce/Nology.jpg";
+import amazon from "../assets/partners-logo/Ecommerce/amazon.webp";
+import noon from "../assets/partners-logo/Ecommerce/noon.webp";
+import namshi from "../assets/partners-logo/Ecommerce/namshi.webp";
+import microless from "../assets/partners-logo/Ecommerce/microless.webp";
+import careem from "../assets/partners-logo/Ecommerce/careem.webp";
+import snoonu from "../assets/partners-logo/Ecommerce/Snoonu.webp";
+import starlink from "../assets/partners-logo/Ecommerce/Starlink.webp";
+import nology from "../assets/partners-logo/Ecommerce/Nology.webp";
 
 // operator
 
-import etisalat from "../assets/partners-logo/Operator/etisalat.jpg";
+import etisalat from "../assets/partners-logo/Operator/etisalat.webp";
 // travel retail
-import dubaiDutyFree from "../assets/partners-logo/Travel/dubaiDutyfree.jpg";
-import jeddah from "../assets/partners-logo/Travel/Jeddah Duty Free.jpg";
+import dubaiDutyFree from "../assets/partners-logo/Travel/dubaiDutyfree.webp";
+import jeddah from "../assets/partners-logo/Travel/Jeddah Duty Free.webp";
 
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [

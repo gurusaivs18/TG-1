@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../css/Navbar.css";
-import logo from "../assets/targetone_transparent.png";
+import logo from "../assets/Company_logos/targetone_transparent.webp";
 import uaeFlag from "../assets/uaeFlagnew.webp";
 import qatarFlag from "../assets/qtrFlagnew.webp";
 const NAV_LINKS = [

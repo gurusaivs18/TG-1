@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import "../css/Pages.css";
 import "../css/Home.css";
-import contactHero from "../assets/pages_hero/Final Contact US.png";
+import contactHero from "../assets/pages_hero/Final Contact US.webp";
 
 const SUBJECTS = [
   "General Enquiry",

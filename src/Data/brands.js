@@ -12,11 +12,11 @@ import tapo from "../assets/brandsPageLogos/TapoBR.webp"; // currently unused �
 import ticnote from "../assets/brandsPageLogos/ticnoteBR.webp";
 import titanSmart from "../assets/brandsPageLogos/Titan SmartBR.webp";
 import tpLink from "../assets/brandsPageLogos/Tp Link - Brand Card.jpg.webp";
-import fastrackSMART from "../assets/brandsPageLogos/Fastrack.brandpg.png";
+import fastrackSMART from "../assets/brandsPageLogos/Fastrack.brandpg.webp";
 
 // ── Sub-category images ─────────────────────────────────────────────────
-import marshal1 from "../assets/Brand-image-banners/Marshall-1.jpg.jpeg";
-import marshal2 from "../assets/Brand-image-banners/Marshall 2.jpg (1).jpeg";
+import marshal1 from "../assets/Brand-image-banners/Marshall-1.jpg.webp";
+import marshal2 from "../assets/Brand-image-banners/Marshall 2.jpg (1).webp";
 
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────
