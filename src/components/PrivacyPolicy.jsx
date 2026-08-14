@@ -1,4 +1,3 @@
-
 import "../css/PrivacyPolicy.css";
 
 export default function PrivacyPolicy() {
@@ -44,9 +43,8 @@ export default function PrivacyPolicy() {
           <article className="privacy-article">
             <div className="privacy-intro">
               <p>
-                Target One ("Target One", "we", "our", or "us") respects your
-                privacy and is committed to protecting the personal information
-                you provide when using our website.
+                We respects your privacy and is committed to protecting the
+                personal information you provide when using our website.
               </p>
 
               <p>
