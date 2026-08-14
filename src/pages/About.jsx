@@ -7,33 +7,33 @@ import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
 const SERVICES = [
   {
     icon: "🏪",
-    title: "Consumer Retail Distribution",
-    desc: "Supplying major electronics retailers with premium brand portfolios and logistics support.",
+    title: "Intelligent Distribution:",
+    desc: "Multi-Channel Distribution across retail online & B2B",
   },
   {
     icon: "🚐",
-    title: "Independent Reseller Sales Network",
-    desc: "Daily van routes reaching independent retailers across all 7 UAE emirates.",
+    title: "Market & Brand Development:",
+    desc: "Driving brand growth through local expertise and strategic market access.",
   },
   {
     icon: "🔗",
-    title: "Supply Chain & Sourcing",
-    desc: "Strategic global sourcing that delivers the right products at the right time.",
+    title: "Sales & Commercial Excellence:",
+    desc: "Maximising growth through strategic sales, strong partnerships, and market-driven execution.",
   },
   {
     icon: "📱",
-    title: "Brand Representation",
-    desc: "Full brand management including in-store merchandising, POS support, and sell-through programs.",
+    title: "Retail & E-Commerce Enablement",
+    desc: "Strengthening retail and online presence through connected channels and smarter execution.",
   },
   {
     icon: "📊",
-    title: "B2B Digital Platform",
-    desc: "Real-time ordering, inventory visibility, and retailer-facing tools for smarter operations.",
+    title: "Supply Chain & Logistics",
+    desc: "Ensuring efficient, agile, and reliable movement of products from source to market.",
   },
   {
     icon: "🤝",
-    title: "Retailer Partnerships",
-    desc: "Long-term, value-based partnerships that help retailers grow their electronics categories.",
+    title: "After-Sales & Service:",
+    desc: "Delivering reliable support, warranty solutions, and service that build lasting customer trust.",
   },
 ];
 
@@ -188,10 +188,10 @@ export default function About() {
               <div className="vm-card__label">Vision</div>
               <div className="vm-card__title">Our Vision</div>
               <p className="vm-card__text">
-                To become the most trusted and technology-driven electronics
-                accessories distribution partner across the GCC and emerging
-                markets — building bridges between global brands and regional
-                retail excellence.
+                To establish ourselves as a trusted, technology-led distribution
+                partner across the GCC and emerging markets, connecting global
+                brands with regional expertise to drive stronger retail
+                experiences, smarter distribution, and sustainable growth.
               </p>
             </div>
             <div className="vm-card vm-card--mission">
@@ -199,10 +199,10 @@ export default function About() {
               <div className="vm-card__label">Mission</div>
               <div className="vm-card__title">Our Mission</div>
               <p className="vm-card__text">
-                To connect global brands with regional retailers through
-                intelligent distribution, real-time inventory visibility, and
-                scalable supply chain solutions that drive sustainable growth
-                for every partner we work with.
+                Our mission is to bridge global brands and regional markets
+                through intelligent distribution and technology-led supply chain
+                solutions, creating greater visibility, operational efficiency,
+                and sustainable growth for every partner we serve.
               </p>
             </div>
           </div>
@@ -264,11 +264,11 @@ export default function About() {
         <div className="container">
           <div className="cta-banner__inner">
             <h2 className="cta-banner__title">
-              Let's Build Something Together
+              Let's Grow Your Brand Together…
             </h2>
             <p className="cta-banner__sub">
-              Whether you're a brand looking for distribution or a retailer
-              seeking supply — we'd love to connect.
+              If you’re looking for the right distribution partner to grow your
+              brand, we’d love to start a conversation.
             </p>
             <div className="cta-banner__actions">
               <Link to="/contact" className="btn btn-dark">
