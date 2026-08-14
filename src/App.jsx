@@ -13,7 +13,7 @@ import Brands from "./pages/Brands";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./components/PrivacyPolicy";
-import TermsOfUse from "./components/TermsOfUse";
+// import TermsOfUse from "./components/TermsOfUse";
 // ---------------------------------------------
 // Scroll to Top + Page Loader
 // ---------------------------------------------
@@ -67,7 +67,7 @@ function AppContent() {
           {/* Fallback */}
           <Route path="*" element={<Home />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          {/* <Route path="/terms-of-use" element={<TermsOfUse />} /> */}
         </Routes>
       </main>
 
