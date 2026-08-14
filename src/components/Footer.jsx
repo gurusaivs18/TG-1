@@ -186,12 +186,12 @@ export default function Footer() {
               © {new Date().getFullYear()} Target One. All rights reserved.
             </p>
             <div className="footer__bottom-links">
-              <a href="#" className="footer__bottom-link">
+              <Link to="/privacy-policy" className="footer__bottom-link">
                 Privacy Policy
-              </a>
-              <a href="#" className="footer__bottom-link">
+              </Link>
+              <Link to="/terms-of-use" className="footer__bottom-link">
                 Terms of Use
-              </a>
+              </Link>
             </div>
           </div>
         </div>
