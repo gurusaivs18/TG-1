@@ -4,7 +4,7 @@ import heroBackground from "../assets/pages_hero/Home Page Banner.jpg.webp";
 import UAENetworkMap from "../components/UAENetworkMap";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { BRANDS as BRAND_CATALOG, BRAND_CATEGORIES } from "../Data/brands";
-
+import DistributionVan from "../components/DistributionVan";
 // brands (marquee)
 import choetic from "../assets/Home Page Scroller cards/Choetech.webp";
 import dicota from "../assets/Home Page Scroller cards/Dicota.webp";
@@ -414,6 +414,7 @@ export default function Home() {
 
   return (
     <>
+      <DistributionVan />
       {/* ── Hero ── */}
       <section className="hero reveal-left">
         <img src={heroBackground} alt="" className="hero__bg-img" />

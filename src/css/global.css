@@ -9,16 +9,6 @@ body {
   overflow-x: hidden;
   max-width: 100%;
 }
-/* button,
-a,
-.brand-card {
-  outline: none;
-}
-button:focus:not(:focus-visible),
-a:focus:not(:focus-visible),
-.brand-card:focus:not(:focus-visible) {
-  outline: none;
-} */
 section {
   scroll-margin-top: 90px; /* adjust to your navbar height */
 }
@@ -121,16 +111,16 @@ button {
 }
 
 /* ============================================================
-   SECTION SYSTEM — Gradient-Built Decorative Layer
+   SECTION SYSTEM — Gradient-Built, Now Animated Decorative Layer
    ────────────────────────────────────────────────────────────
-   Every section keeps its OWN distinct motif (lines, rings,
-   spokes, lattice, coil, isometric grid...) — exactly like
-   before — but every motif is now built purely from CSS
-   gradients (linear / radial / conic), not inline SVG data-URIs.
-   Zero image payload, infinitely crisp at any resolution, and
-   each one reads as a deliberate, engineered pattern rather
-   than decoration. Only the home hero and the footer sit
-   outside this system, since they carry their own backgrounds.
+   Same motifs, same selectors, same gradients — every ::before
+   /::after below is untouched in what it draws. The only
+   additions are: (1) a slightly larger canvas so motion never
+   reveals a hard edge, (2) a per-section @keyframes loop that
+   actually moves the pattern (drifting, rotating, or pulsing),
+   and (3) a :hover rule that reacts to the cursor — the cheapest
+   possible "interactivity" with zero JS and zero markup changes.
+   Reduced-motion users still get the static motif underneath.
 ============================================================ */
 
 .section {
@@ -164,10 +154,10 @@ button {
   pointer-events: none;
 }
 
-/* ── DEFAULT .section — Fine Diagonal Crosshatch
-   Two thin diagonal line-grids crossing at 90°. Reads as
-   engraved paper / engineered precision. The most neutral,
-   "default surface" motif in the system.
+/* ── DEFAULT .section — Fine Diagonal Crosshatch, now drifting
+   Both grids share a 56px tile, so sliding background-position
+   by exactly 56px loops with zero seam — reads as an engraved
+   surface quietly gliding past, like a conveyor.
 */
 .section::before {
   content: "";
@@ -190,12 +180,15 @@ button {
       transparent 1px,
       transparent 56px
     );
+  animation: crosshatch-drift 12s linear infinite;
+}
+.section:hover::before {
+  animation-duration: 4s;
 }
 
-/* ── .section--gray — Concentric Ripple Rings
-   Rings echoing outward from the top-right corner. Soft,
-   organic counterpoint to the crosshatch above — a "ripple"
-   or rose-mandala echo rendered purely in radial-gradient.
+/* ── .section--gray — Concentric Ripple Rings, now breathing
+   The ring stack scales up and fades at the edge of each cycle,
+   like a ripple continually re-emitting from the same point.
 */
 .section--gray {
   background-color: var(--color-off-white);
@@ -208,12 +201,15 @@ button {
     transparent 1px,
     transparent 30px
   );
+  animation: ripple-breathe 5s ease-in-out infinite;
+}
+.section--gray:hover::before {
+  animation-duration: 2s;
 }
 
-/* ── .section--dark — Radar Pulse
-   Centered concentric rings, white-on-brown. High-tech,
-   authoritative, like a signal sweeping outward from the
-   middle of the panel.
+/* ── .section--dark — Radar Pulse, now sweeping
+   Rings expand outward from center and reset, exactly like a
+   radar returning a ping — the panel reads as "live" at rest.
 */
 .section--dark {
   background-color: var(--color-secondary);
@@ -232,12 +228,16 @@ button {
     transparent 1px,
     transparent 50px
   );
+  animation: radar-sweep 4s ease-out infinite;
+}
+.section--dark:hover::before {
+  animation-duration: 1.6s;
 }
 
-/* ── .section--red — Sunburst Spokes
-   Rays fanning from the bottom-left corner via a repeating
-   conic-gradient. Bold, directional energy on the brand-red
-   surface, never busy enough to fight the foreground content.
+/* ── .section--red — Sunburst Spokes, now rotating
+   Oversized and centered on the same corner as the conic
+   gradient's origin, so a full 360° spin never shows a seam —
+   the whole panel reads like a slowly turning beacon.
 */
 .section--red {
   background-color: var(--color-primary);
@@ -246,7 +246,10 @@ button {
 .section--red::before {
   content: "";
   position: absolute;
-  inset: 0;
+  width: 220%;
+  height: 220%;
+  left: -10%;
+  bottom: -10%;
   z-index: 0;
   pointer-events: none;
   background-image: repeating-conic-gradient(
@@ -254,6 +257,11 @@ button {
     rgba(255, 255, 255, 0.08) 0deg 3deg,
     transparent 3deg 19deg
   );
+  transform-origin: 0% 100%;
+  animation: sunburst-spin 18s linear infinite;
+}
+.section--red:hover::before {
+  animation-duration: 6s;
 }
 .section--red::after {
   content: "";
@@ -270,18 +278,21 @@ button {
   right: -100px;
   pointer-events: none;
   z-index: 0;
+  animation: glow-pulse 3.5s ease-in-out infinite;
 }
 
-/* ── Stats section — Wave Interference Moiré
-   Two near-vertical line grids at slightly offset angles,
-   overlapping to create a subtle diamond moiré — the visual
-   shorthand for "interference / signal" without using a wave
-   SVG path. Brand-red glow bleeds from the top-right corner.
+/* ── Stats section — Wave Interference Moiré, now interfering
+   Each line-grid gets its own background-position keyframe
+   (comma-separated per layer) so the two grids drift apart at
+   different speeds — the diamond moiré itself visibly shifts,
+   like two signals beating against each other.
 */
 .stats-section {
   position: relative;
   overflow: hidden;
   background-color: var(--color-secondary);
+}
+.stats-section {
   color: var(--text-on-dark);
 }
 .stats-section::before {
@@ -305,6 +316,10 @@ button {
       transparent 1px,
       transparent 34px
     );
+  animation: moire-interference 9s linear infinite;
+}
+.stats-section:hover::before {
+  animation-duration: 3s;
 }
 .stats-section::after {
   content: "";
@@ -321,12 +336,12 @@ button {
   );
   pointer-events: none;
   z-index: 0;
+  animation: glow-pulse 4s ease-in-out infinite;
 }
 
-/* ── Van Sales — Coverage Rings from the Map Edge
-   Concentric rings anchored to the right edge, exactly where
-   the network map canvas sits — visually reads as the map's
-   signal radius pulsing outward across the whole panel.
+/* ── Van Sales — Coverage Rings, now pinging outward from the map
+   Same breathing scale used for the ripple motif, tuned larger
+   and darker to read as a live network signal, not decoration.
 */
 .van-sales {
   position: relative;
@@ -346,13 +361,16 @@ button {
     transparent 1px,
     transparent 60px
   );
+  animation: coverage-ping 4.5s ease-in-out infinite;
+}
+.van-sales:hover::before {
+  animation-duration: 1.8s;
 }
 
-/* ── Journey section — Coiled Spring Lines
-   Tight, steep diagonal lines packed closely together —
-   reads like a coiled spring or a roll of measuring tape,
-   reinforcing the idea of time and progression along the
-   timeline beneath it.
+/* ── Journey section — Coiled Spring Lines, now unwinding
+   16px tile, so the diagonal glides in a tight, fast loop —
+   reads like tape or a spring literally paying out alongside
+   the timeline it sits behind.
 */
 .section:has(.journey__timeline) {
   background-color: #ffffff;
@@ -365,12 +383,16 @@ button {
     transparent 2px,
     transparent 16px
   );
+  animation: spring-unwind 3s linear infinite;
+}
+.section:has(.journey__timeline):hover::before {
+  animation-duration: 1.2s;
 }
 
-/* ── Partners section — Diamond Lattice
-   Two diagonal line-grids at ±60° crossing into a triangular
-   lattice — a structural, "network of partners" feel without
-   literally drawing hexagons.
+/* ── Partners section — Diamond Lattice, now weaving
+   The two ±60° grids are animated in OPPOSITE directions via
+   per-layer background-position, so the lattice itself appears
+   to weave and re-tighten rather than just slide as one block.
 */
 .section:has(.partners__grid) {
   background-color: var(--color-off-white);
@@ -391,12 +413,16 @@ button {
       transparent 1px,
       transparent 32px
     );
+  animation: lattice-weave 10s linear infinite;
+}
+.section:has(.partners__grid):hover::before {
+  animation-duration: 3.5s;
 }
 
-/* ── Brands section — Isometric Triangular Grid
-   Three line-grids at 0°/60°/120° overlapping into a full
-   isometric lattice — the same "3D structure / logistics"
-   read as the old cube pattern, built from pure gradients.
+/* ── Brands section — Isometric Triangular Grid, now floating
+   All three 0°/60°/120° layers drift together along one shared
+   diagonal path so the lattice reads as a single floating plane
+   rather than three independent grids.
 */
 .section:has(.brands__marquee-wrap) {
   background-color: #ffffff;
@@ -424,12 +450,16 @@ button {
       transparent 1px,
       transparent 42px
     );
+  animation: isometric-float 14s linear infinite;
+}
+.section:has(.brands__marquee-wrap):hover::before {
+  animation-duration: 5s;
 }
 
-/* ── What We Do section — Spiral Coil Corner
-   Tightly-spaced concentric rings anchored bottom-right,
-   approximating a coiled spiral winding into the corner —
-   precise and engineered, echoing the old Archimedean spiral.
+/* ── What We Do section — Spiral Coil Corner, now winding
+   Anchored and rotated from the exact same bottom-right corner
+   the radial gradient originates from, so it oscillates like a
+   coil winding and unwinding into the page's edge.
 */
 .section:has(.what-we-do__grid) {
   background-color: #ffffff;
@@ -442,6 +472,109 @@ button {
     transparent 1px,
     transparent 22px
   );
+  transform-origin: 100% 100%;
+  animation: spiral-wind 6s ease-in-out infinite;
+}
+.section:has(.what-we-do__grid):hover::before {
+  animation-duration: 2.4s;
+}
+
+/* ---------- Decorative-layer keyframes ---------- */
+@keyframes crosshatch-drift {
+  to {
+    background-position:
+      56px 56px,
+      -56px 56px;
+  }
+}
+@keyframes ripple-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+@keyframes radar-sweep {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+@keyframes sunburst-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+@keyframes moire-interference {
+  to {
+    background-position:
+      68px 0,
+      -68px 0;
+  }
+}
+@keyframes coverage-ping {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+@keyframes spring-unwind {
+  to {
+    background-position: -16px -16px;
+  }
+}
+@keyframes lattice-weave {
+  to {
+    background-position:
+      64px 0,
+      -64px 0;
+  }
+}
+@keyframes isometric-float {
+  to {
+    background-position:
+      42px 42px,
+      42px 42px,
+      42px 42px;
+  }
+}
+@keyframes spiral-wind {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.08);
+  }
 }
 
 .section--tight {
@@ -488,9 +621,6 @@ button {
 .section-subtitle--light {
   color: var(--text-on-dark-muted);
 }
-/* .section-header {
-  margin-bottom: var(--gap-xl);
-} */
 .section-header--center {
   text-align: center;
 }
@@ -610,6 +740,160 @@ button {
   letter-spacing: 0.04em;
 }
 
+/* ============================================================
+   VAN LOADER — runs once on every page load / refresh
+   ────────────────────────────────────────────────────────────
+   Markup needed (paste once, right after the opening <body> tag):
+
+   <div class="van-loader" aria-hidden="true">
+     <div class="van-loader__shadow"></div>
+     <div class="van-loader__bounce">
+       <svg class="van-loader__svg" viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+         <rect x="15" y="15" width="115" height="55" rx="6" fill="var(--color-primary)"/>
+         <rect x="15" y="15" width="115" height="12" rx="6" fill="rgba(255,255,255,0.14)"/>
+         <rect x="15" y="66" width="173" height="8" fill="var(--color-secondary)"/>
+         <path d="M130,70 L130,35 Q130,25 140,25 L160,25 Q170,25 176,35 L188,56 L188,70 Z" fill="var(--color-secondary)"/>
+         <path d="M140,30 L157,30 Q162,30 165,36 L171,50 L143,50 Z" fill="rgba(196,225,255,0.9)"/>
+         <circle cx="186" cy="45" r="3" fill="#fff"/>
+         <rect x="184" y="60" width="10" height="9" rx="2" fill="var(--color-accent)"/>
+       </svg>
+
+       <span class="van-loader__dust"></span>
+       <span class="van-loader__dust"></span>
+       <span class="van-loader__dust"></span>
+       <span class="van-loader__dust"></span>
+       <span class="van-loader__dust"></span>
+     </div>
+   </div>
+
+   That's the only structural addition anywhere in this build —
+   everything else below is pure CSS driving it.
+============================================================ */
+
+.van-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.van-loader__bounce {
+  position: absolute;
+  top: 62%;
+  width: 190px;
+  transform: translate(-280px, -50%);
+  animation: van-drive-x 2.3s cubic-bezier(0.61, 0.06, 0.4, 0.98) forwards;
+}
+
+.van-loader__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 10px rgba(59, 26, 10, 0.25));
+  animation: van-bounce 0.26s ease-in-out infinite;
+}
+
+/* Dust kicks up from the rear (trailing) wheel — 5 staggered
+   puffs, each drifting back and up while it fades and expands,
+   so it reads as continuous dust thrown from a rolling tire
+   rather than one repeating sprite. */
+.van-loader__dust {
+  position: absolute;
+  left: 36px;
+  top: 84px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 169, 143, 0.65) 0%,
+    rgba(196, 169, 143, 0) 72%
+  );
+  opacity: 0;
+  animation: dust-puff 0.55s ease-out infinite;
+}
+.van-loader__dust:nth-child(2) {
+  animation-delay: 0.11s;
+}
+.van-loader__dust:nth-child(3) {
+  animation-delay: 0.22s;
+}
+.van-loader__dust:nth-child(4) {
+  animation-delay: 0.33s;
+}
+.van-loader__dust:nth-child(5) {
+  animation-delay: 0.44s;
+}
+
+.van-loader__shadow {
+  position: absolute;
+  top: 62%;
+  width: 150px;
+  height: 14px;
+  margin-top: 34px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(59, 26, 10, 0.3) 0%,
+    transparent 75%
+  );
+  transform: translate(-260px, 0);
+  animation: van-drive-x 2.3s cubic-bezier(0.61, 0.06, 0.4, 0.98) forwards;
+}
+
+@keyframes van-drive-x {
+  0% {
+    transform: translate(-280px, -50%);
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(100vw + 120px), -50%);
+    opacity: 0;
+  }
+}
+@keyframes van-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes dust-puff {
+  0% {
+    transform: translate(0, 0) scale(0.3);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-46px, -16px) scale(1.7);
+    opacity: 0;
+  }
+}
+
+/* let clicks through the moment the drive-through finishes */
+.van-loader {
+  animation: van-loader-release 0s 2.3s forwards;
+}
+@keyframes van-loader-release {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .van-loader {
+    display: none;
+  }
+}
+
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
   width: 6px;
@@ -663,5 +947,22 @@ button {
   .section:has(.partners__grid)::before,
   .section:has(.brands__marquee-wrap)::before {
     opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section::before,
+  .section--gray::before,
+  .section--dark::before,
+  .section--red::before,
+  .section--red::after,
+  .stats-section::before,
+  .stats-section::after,
+  .van-sales::before,
+  .section:has(.journey__timeline)::before,
+  .section:has(.partners__grid)::before,
+  .section:has(.brands__marquee-wrap)::before,
+  .section:has(.what-we-do__grid)::before {
+    animation: none !important;
   }
 }
