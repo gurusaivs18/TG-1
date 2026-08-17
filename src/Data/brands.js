@@ -94,11 +94,6 @@ export const BRANDS = [
     subCategories: [
       { name: "H-speakers", icon: "📺", image: marshal1 },
       { name: "TV Sound", icon: "📺", image: marshal2 },
-      { name: "Portable Speakers", icon: "🎵", image: null },
-      { name: "Party Speakers", icon: "🎉", image: null },
-      { name: "Over-Ear Headphones", icon: "🎧", image: null },
-      { name: "Earbuds", icon: "🎶", image: null },
-      { name: "On-Ear Headphones", icon: "🎧", image: null },
     ],
     highlights: [
       "60+ Years of Audio Heritage",
