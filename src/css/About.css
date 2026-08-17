@@ -9,16 +9,75 @@
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
+
+  /* Smooth color transition */
+  transition:
+    background-color 1.2s ease,
+    color 1.2s ease,
+    box-shadow 1.2s ease;
 }
+
+/* ============================================================
+   VISION / MISSION COLOR EXCHANGE
+   Initial:
+   Vision  = Brown
+   Mission = Red
+
+   After 2 seconds:
+   Vision  = Red
+   Mission = Brown
+
+   Then continuously alternates.
+   ============================================================ */
 
 .vm-card--vision {
   background: var(--color-secondary);
   color: var(--text-on-dark);
+
+  animation: vision-color-exchange 6s ease-in-out infinite;
 }
 
 .vm-card--mission {
   background: var(--color-primary);
   color: var(--text-on-dark);
+
+  animation: mission-color-exchange 6s ease-in-out infinite;
+}
+
+/* Vision starts brown, becomes red after 2 seconds */
+@keyframes vision-color-exchange {
+  0%,
+  28% {
+    background-color: var(--color-secondary);
+  }
+
+  40%,
+  78% {
+    background-color: var(--color-primary);
+  }
+
+  90%,
+  100% {
+    background-color: var(--color-secondary);
+  }
+}
+
+/* Mission starts red, becomes brown after 2 seconds */
+@keyframes mission-color-exchange {
+  0%,
+  28% {
+    background-color: var(--color-primary);
+  }
+
+  40%,
+  78% {
+    background-color: var(--color-secondary);
+  }
+
+  90%,
+  100% {
+    background-color: var(--color-primary);
+  }
 }
 
 .vm-card__icon {
@@ -47,6 +106,7 @@
   line-height: 1.7;
   opacity: 0.85;
 }
+
 .vm-card__text strong {
   font-weight: 900;
 }
