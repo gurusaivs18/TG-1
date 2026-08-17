@@ -361,8 +361,8 @@ export const BRANDS = [
     description:
       "TicNote is an innovative AI-powered voice recorder designed to transform the way people capture, organize, and manage information. With advanced AI features including real-time transcription, intelligent note-taking, voice recording, and instant translation, TicNote helps professionals, students, content creators, and everyday users improve productivity and stay organized.",
     subCategories: [
-      { name: "AI Voice Recorders", icon: "🎙️", image: ticnote1 },
       { name: "Smart Transcription", icon: "📝", image: ticnote2 },
+      { name: "AI Voice Recorders", icon: "🎙️", image: ticnote1 },
     ],
     highlights: [
       "Shadow AI Agent Technology",
