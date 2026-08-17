@@ -15,7 +15,300 @@
   height: auto;
   display: block;
 }
+/* ============================================================
+   HERO — FLOATING 3D CUBE PARTICLE FIELD
+============================================================ */
 
+.hero-cube-field {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  perspective: 1000px;
+}
+
+/* Individual cube */
+.hero-cube {
+  position: absolute;
+
+  left: var(--x);
+  top: var(--y);
+
+  width: var(--size);
+  height: var(--size);
+
+  transform-style: preserve-3d;
+
+  opacity: 0;
+
+  animation:
+    cube-float var(--duration) ease-in-out var(--delay) infinite,
+    cube-opacity 7s ease-in-out var(--delay) infinite;
+
+  will-change: transform, opacity;
+}
+
+/* ------------------------------------------------------------
+   CUBE FACES
+------------------------------------------------------------ */
+
+.hero-cube > span {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border: 1px solid rgba(255, 255, 255, 0.48);
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.025)
+  );
+
+  box-shadow:
+    inset 0 0 7px rgba(255, 255, 255, 0.08),
+    0 0 8px rgba(255, 255, 255, 0.05);
+
+  backface-visibility: visible;
+}
+
+/* Front */
+.hero-cube__front {
+  transform: translateZ(calc(var(--size) / 2));
+}
+
+/* Back */
+.hero-cube__back {
+  transform: rotateY(180deg) translateZ(calc(var(--size) / 2));
+}
+
+/* Right */
+.hero-cube__right {
+  transform: rotateY(90deg) translateZ(calc(var(--size) / 2));
+}
+
+/* Left */
+.hero-cube__left {
+  transform: rotateY(-90deg) translateZ(calc(var(--size) / 2));
+}
+
+/* Top */
+.hero-cube__top {
+  transform: rotateX(90deg) translateZ(calc(var(--size) / 2));
+}
+
+/* Bottom */
+.hero-cube__bottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--size) / 2));
+}
+
+/* ============================================================
+   CUBE VARIATIONS
+============================================================ */
+
+/* White glass */
+.hero-cube--1 > span {
+  border-color: rgba(255, 255, 255, 0.55);
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+/* Red glass */
+.hero-cube--2 > span {
+  border-color: rgba(190, 20, 45, 0.55);
+
+  background: linear-gradient(
+    135deg,
+    rgba(190, 20, 45, 0.25),
+    rgba(190, 20, 45, 0.025)
+  );
+
+  box-shadow:
+    inset 0 0 8px rgba(210, 30, 50, 0.12),
+    0 0 12px rgba(190, 20, 45, 0.15);
+}
+
+/* Dark glass */
+.hero-cube--3 > span {
+  border-color: rgba(20, 20, 20, 0.5);
+
+  background: linear-gradient(
+    135deg,
+    rgba(30, 30, 30, 0.3),
+    rgba(0, 0, 0, 0.03)
+  );
+}
+
+/* Bright cube */
+.hero-cube--4 > span {
+  border-color: rgba(255, 255, 255, 0.75);
+
+  box-shadow:
+    0 0 14px rgba(255, 255, 255, 0.12),
+    inset 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+/* Small red accent */
+.hero-cube--5 > span {
+  border-color: rgba(220, 30, 50, 0.7);
+
+  background: rgba(200, 16, 46, 0.08);
+
+  box-shadow: 0 0 14px rgba(200, 16, 46, 0.22);
+}
+
+/* Ultra subtle */
+.hero-cube--6 > span {
+  border-color: rgba(255, 255, 255, 0.28);
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+/* ============================================================
+   FLOATING MOTION
+============================================================ */
+
+@keyframes cube-float {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)
+      rotateZ(var(--rotate));
+  }
+
+  20% {
+    transform: translate3d(18px, -25px, 80px) rotateX(90deg) rotateY(80deg)
+      rotateZ(calc(var(--rotate) + 40deg));
+  }
+
+  40% {
+    transform: translate3d(-20px, -45px, 160px) rotateX(170deg) rotateY(160deg)
+      rotateZ(calc(var(--rotate) + 110deg));
+  }
+
+  60% {
+    transform: translate3d(30px, -10px, 100px) rotateX(240deg) rotateY(220deg)
+      rotateZ(calc(var(--rotate) + 180deg));
+  }
+
+  80% {
+    transform: translate3d(-15px, 25px, 40px) rotateX(300deg) rotateY(290deg)
+      rotateZ(calc(var(--rotate) + 250deg));
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg)
+      rotateZ(calc(var(--rotate) + 360deg));
+  }
+}
+
+/* ============================================================
+   FADE / DEPTH
+============================================================ */
+
+@keyframes cube-opacity {
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.65;
+  }
+
+  35% {
+    opacity: 0.9;
+  }
+
+  55% {
+    opacity: 0.45;
+  }
+
+  75% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   EXTRA PARTICLE MOTION
+   Gives different cubes different movement character
+============================================================ */
+
+.hero-cube--2 {
+  animation-name: cube-float-red, cube-opacity;
+}
+
+.hero-cube--4 {
+  animation-name: cube-float-fast, cube-opacity;
+}
+
+.hero-cube--5 {
+  animation-name: cube-float-red, cube-opacity;
+}
+
+@keyframes cube-float-red {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  25% {
+    transform: translate3d(-30px, -35px, 120px) rotateX(100deg) rotateY(130deg)
+      rotateZ(80deg);
+  }
+
+  50% {
+    transform: translate3d(35px, -15px, 200px) rotateX(190deg) rotateY(220deg)
+      rotateZ(170deg);
+  }
+
+  75% {
+    transform: translate3d(-20px, 35px, 100px) rotateX(280deg) rotateY(300deg)
+      rotateZ(260deg);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg)
+      rotateZ(360deg);
+  }
+}
+
+@keyframes cube-float-fast {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
+  }
+
+  30% {
+    transform: translate3d(25px, -40px, 180px) rotateX(130deg) rotateY(100deg)
+      rotateZ(120deg);
+  }
+
+  60% {
+    transform: translate3d(-35px, 15px, 260px) rotateX(230deg) rotateY(250deg)
+      rotateZ(220deg);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(360deg) rotateY(360deg)
+      rotateZ(360deg);
+  }
+}
+.hero-cube {
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.hero-cube > span {
+  transform-origin: center center;
+}
 /* Only overlay the buttons */
 .hero__inner {
   position: absolute;
@@ -99,7 +392,6 @@
     font-size: 9px;
     white-space: nowrap;
   }
-  
 }
 /* ---------- Scroll Ticker ---------- */
 .ticker {

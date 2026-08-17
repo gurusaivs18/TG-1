@@ -414,13 +414,42 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ── */}
+      {/* ── Hero ── */}
       <section className="hero reveal-left">
         <img src={heroBackground} alt="" className="hero__bg-img" />
+
+        {/* Floating 3D cube particle field */}
+        <div className="hero-cube-field" aria-hidden="true">
+          {Array.from({ length: 65 }).map((_, i) => (
+            <span
+              key={i}
+              className={`hero-cube hero-cube--${(i % 6) + 1}`}
+              style={{
+                "--x": `${4 + ((i * 17) % 88)}%`,
+                "--y": `${8 + ((i * 29) % 72)}%`,
+                "--size": `${5 + ((i * 13) % 12)}px`,
+                "--delay": `${-((i * 1.37) % 18)}s`,
+                "--duration": `${12 + ((i * 7) % 15)}s`,
+                "--depth": `${300 + ((i * 43) % 500)}px`,
+                "--rotate": `${(i * 37) % 360}deg`,
+              }}
+            >
+              <span className="hero-cube__front" />
+              <span className="hero-cube__back" />
+              <span className="hero-cube__right" />
+              <span className="hero-cube__left" />
+              <span className="hero-cube__top" />
+              <span className="hero-cube__bottom" />
+            </span>
+          ))}
+        </div>
+
         <div className="hero__inner">
           <div className="hero__actions">
             <Link to="/brands" className="btn btn-secondary">
               Explore Our Brands →
             </Link>
+
             <Link to="/contact" className="btn btn-secondary">
               Become a Retail Partner
             </Link>
