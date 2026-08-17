@@ -453,14 +453,14 @@ const LOCATIONS = {
   UAE: {
     location: "Dubai, United Arab Emirates",
     phone: "+971 4 344 9174",
-    email: "market@targetoneme.com",
+    email: "marketing@targetoneme.com",
     hours: "Mon - Fri: 9:00 AM - 6:00 PM GST",
   },
 
   Qatar: {
     location: "Doha, Qatar",
     phone: "+971 43090 9740",
-    email: "market@targetoneme.com",
+    email: "marketing@targetoneme.com",
     hours: "Mon - Fri: 9:00 AM - 6:00 PM GST",
   },
 };
