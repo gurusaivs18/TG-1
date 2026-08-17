@@ -136,7 +136,7 @@ export default function Footer() {
                     href="mailto:Marketing@targetoneme.com"
                     className="contact__info-value"
                   >
-                    Marketing@targetoneme.com
+                    marketing@targetoneme.com
                   </a>
                 </li>
               </ul>

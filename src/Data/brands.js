@@ -89,7 +89,7 @@ export const BRANDS = [
     category: "Audio",
     tagline: "Legendary Sound. Iconic Design.",
     description:
-      "For over six decades, Marshall’s legacy has grown chord to chord, person to person, generation to generation. Marshall speakers combine legendary rock-inspired design with powerful, high-quality sound, delivering an exceptional audio experience for music lovers. Built with premium craftsmanship and advanced acoustic performance, they offer rich, balanced sound for every setting—whether at home, on the go, or during gatherings.",
+      "For over six decades, Marshall's legacy has grown chord to chord, person to person, generation to generation. Marshall speakers combine legendary rock-inspired design with powerful, high-quality sound, delivering an exceptional audio experience for music lovers. Built with premium craftsmanship and advanced acoustic performance, they offer rich, balanced sound for every setting—whether at home, on the go, or during gatherings.",
 
     subCategories: [
       { name: "H-speakers", icon: "📺", image: marshal1 },
@@ -207,7 +207,6 @@ export const BRANDS = [
     subCategories: [
       { name: "AMOLED Smartwatches", icon: "⌚", image: titan1 },
       { name: "Fitness Trackers", icon: "💪", image: titanW2 },
-      { name: "Premium Design Series", icon: "✨", image: null },
     ],
     highlights: [
       "3.53cm AMOLED · 600 Nits Brightness",
@@ -228,7 +227,6 @@ export const BRANDS = [
     subCategories: [
       { name: "AMOLED Smartwatches", icon: "⌚", image: fastrack1 },
       { name: "Fitness Trackers", icon: "💪", image: fastrack2 },
-      { name: "Premium Design Series", icon: "✨", image: null },
     ],
     highlights: [
       "3.53cm AMOLED · 600 Nits Brightness",
@@ -272,7 +270,6 @@ export const BRANDS = [
     subCategories: [
       { name: "Backpacks", icon: "🎒", image: dicota1 },
       { name: "Laptop Bags & Sleeves", icon: "💼", image: dicota2 },
-      { name: "Travel Accessories", icon: "✈️", image: null },
     ],
     highlights: [
       "European Engineered Design",
@@ -350,7 +347,6 @@ export const BRANDS = [
       { name: "Home Cinema", icon: "🎬", image: yaber1 },
       { name: "Laser Projectors", icon: "💡", image: yaber2 },
       { name: "Premier Theater", icon: "🎭", image: yaber3 },
-      // { name: "Portable Projectors", icon: "📽️", image: null },
     ],
     highlights: [
       "Laser Projection Technology",
@@ -372,7 +368,6 @@ export const BRANDS = [
     subCategories: [
       { name: "AI Voice Recorders", icon: "🎙️", image: ticnote1 },
       { name: "Smart Transcription", icon: "📝", image: ticnote2 },
-      // { name: "AI Meeting Assistant", icon: "🤖", image: null },
     ],
     highlights: [
       "Shadow AI Agent Technology",
