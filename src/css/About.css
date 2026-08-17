@@ -1,3 +1,7 @@
+/* ============================================================
+   VISION / MISSION CARDS
+   ============================================================ */
+
 .vm-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -10,76 +14,66 @@
   position: relative;
   overflow: hidden;
 
-  /* Smooth color transition */
   transition:
-    background-color 1.2s ease,
-    color 1.2s ease,
-    box-shadow 1.2s ease;
+    background-color 0.6s ease,
+    color 0.6s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
 }
 
 /* ============================================================
-   VISION / MISSION COLOR EXCHANGE
-   Initial:
+   DEFAULT
    Vision  = Brown
    Mission = Red
-
-   After 2 seconds:
-   Vision  = Red
-   Mission = Brown
-
-   Then continuously alternates.
    ============================================================ */
 
 .vm-card--vision {
-  background: var(--color-secondary);
+  background-color: var(--color-secondary);
   color: var(--text-on-dark);
-
-  animation: vision-color-exchange 6s ease-in-out infinite;
 }
 
 .vm-card--mission {
-  background: var(--color-primary);
+  background-color: var(--color-primary);
   color: var(--text-on-dark);
-
-  animation: mission-color-exchange 6s ease-in-out infinite;
 }
 
-/* Vision starts brown, becomes red after 2 seconds */
-@keyframes vision-color-exchange {
-  0%,
-  28% {
-    background-color: var(--color-secondary);
-  }
+/* ============================================================
+   HOVER VISION
+   Vision  = Red
+   Mission = Brown
+   ============================================================ */
 
-  40%,
-  78% {
-    background-color: var(--color-primary);
-  }
-
-  90%,
-  100% {
-    background-color: var(--color-secondary);
-  }
+.vm-grid:has(.vm-card--vision:hover) .vm-card--vision {
+  background-color: var(--color-primary);
 }
 
-/* Mission starts red, becomes brown after 2 seconds */
-@keyframes mission-color-exchange {
-  0%,
-  28% {
-    background-color: var(--color-primary);
-  }
-
-  40%,
-  78% {
-    background-color: var(--color-secondary);
-  }
-
-  90%,
-  100% {
-    background-color: var(--color-primary);
-  }
+.vm-grid:has(.vm-card--vision:hover) .vm-card--mission {
+  background-color: var(--color-secondary);
 }
 
+/* ============================================================
+   WHEN MISSION IS HOVERED
+   Return to normal arrangement:
+   Vision  = Brown
+   Mission = Red
+   ============================================================ */
+
+.vm-grid:has(.vm-card--mission:hover) .vm-card--vision {
+  background-color: var(--color-secondary);
+}
+
+.vm-grid:has(.vm-card--mission:hover) .vm-card--mission {
+  background-color: var(--color-primary);
+}
+
+/* ============================================================
+   CARD HOVER
+   ============================================================ */
+
+.vm-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
 .vm-card__icon {
   font-size: 32px;
   margin-bottom: 16px;

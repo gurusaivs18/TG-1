@@ -20,63 +20,63 @@ import fastrackSMART from "../assets/brandsPageLogos/Fastrack.brandpg.webp";
 import marshal1 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/Marshall-1.jpg.webp";
 import marshal2 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/Marshall 2.jpg (1).webp";
 // shokzz
-import shokz01 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz01.jpg";
-import shokz02 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz02.jpg";
-import shokz03 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz03.jpg";
-import shokz04 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz04.jpg";
+import shokz01 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz01.webp";
+import shokz02 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz02.webp";
+import shokz03 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz03.webp";
+import shokz04 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz04.webp";
 // soundpeats
-import soundpeats1 from "../assets/Brand-image-banners/Audio/Soundpeats_brand_images/soundpeats01.jpg";
-import soundpeats2 from "../assets/Brand-image-banners/Audio/Soundpeats_brand_images/soundpeats02.jpg";
-import soundpeats3 from "../assets/Brand-image-banners/Audio/Soundpeats_brand_images/soundpeats03.jpg";
+import soundpeats1 from "../assets/Brand-image-banners/Audio/Soundpeats_brand_images/soundpeats01.webp";
+import soundpeats2 from "../assets/Brand-image-banners/Audio/Soundpeats_brand_images/soundpeats02.webp";
+import soundpeats3 from "../assets/Brand-image-banners/Audio/Soundpeats_brand_images/soundpeats03.webp";
 // Ikarao
-import ikarao1 from "../assets/Brand-image-banners/Audio/Ikarao_brand_images/ikarao1.jpg";
-import ikarao2 from "../assets/Brand-image-banners/Audio/Ikarao_brand_images/ikarao2.jpg";
-import ikarao3 from "../assets/Brand-image-banners/Audio/Ikarao_brand_images/ikarao3.jpg";
+import ikarao1 from "../assets/Brand-image-banners/Audio/Ikarao_brand_images/ikarao1.webp";
+import ikarao2 from "../assets/Brand-image-banners/Audio/Ikarao_brand_images/ikarao2.webp";
+import ikarao3 from "../assets/Brand-image-banners/Audio/Ikarao_brand_images/ikarao3.webp";
 // QCY
-import qcy1 from "../assets/Brand-image-banners/Audio/QCY_brand_images/qcy1.jpg";
-import qcy2 from "../assets/Brand-image-banners/Audio/QCY_brand_images/qcy2.jpg";
-import qcy3 from "../assets/Brand-image-banners/Audio/QCY_brand_images/qcy3.jpg";
-import qcy4 from "../assets/Brand-image-banners/Audio/QCY_brand_images/qcy4.jpg";
+import qcy1 from "../assets/Brand-image-banners/Audio/QCY_brand_images/qcy1.webp";
+import qcy2 from "../assets/Brand-image-banners/Audio/QCY_brand_images/qcy2.webp";
+import qcy3 from "../assets/Brand-image-banners/Audio/QCY_brand_images/qcy3.webp";
+import qcy4 from "../assets/Brand-image-banners/Audio/QCY_brand_images/qcy4.webp";
 
 // WEARABLE
 
 // titan
-import titan1 from "../assets/Brand-image-banners/WEARBALES/Titan_brand_images/titan1.jpg";
-import titanW2 from "../assets/Brand-image-banners/WEARBALES/Titan_brand_images/titanW2.jpg";
+import titan1 from "../assets/Brand-image-banners/WEARBALES/Titan_brand_images/titan1.webp";
+import titanW2 from "../assets/Brand-image-banners/WEARBALES/Titan_brand_images/titanW2.webp";
 // fastrack
-import fastrack1 from "../assets/Brand-image-banners/WEARBALES/FASTRACK_brand_images/Fastrack01.jpg";
-import fastrack2 from "../assets/Brand-image-banners/WEARBALES/FASTRACK_brand_images/fastrack02.jpg";
+import fastrack1 from "../assets/Brand-image-banners/WEARBALES/FASTRACK_brand_images/Fastrack01.webp";
+import fastrack2 from "../assets/Brand-image-banners/WEARBALES/FASTRACK_brand_images/fastrack02.webp";
 // IQUIBLA
-import iquibla1 from "../assets/Brand-image-banners/WEARBALES/IQIBLA_brand_images/iquibla1.jpg";
-import iquibla2 from "../assets/Brand-image-banners/WEARBALES/IQIBLA_brand_images/iquibla2.jpg";
-import iquibla3 from "../assets/Brand-image-banners/WEARBALES/IQIBLA_brand_images/iquibla3.jpg";
+import iquibla1 from "../assets/Brand-image-banners/WEARBALES/IQIBLA_brand_images/iquibla1.webp";
+import iquibla2 from "../assets/Brand-image-banners/WEARBALES/IQIBLA_brand_images/iquibla2.webp";
+import iquibla3 from "../assets/Brand-image-banners/WEARBALES/IQIBLA_brand_images/iquibla3.webp";
 // ACCESSORIES
 // DICOTA
-import dicota1 from "../assets/Brand-image-banners/Accessoriees/Dicota_brand_images/dicota1.jpg";
-import dicota2 from "../assets/Brand-image-banners/Accessoriees/Dicota_brand_images/dicota2.jpg";
+import dicota1 from "../assets/Brand-image-banners/Accessoriees/Dicota_brand_images/dicota1.webp";
+import dicota2 from "../assets/Brand-image-banners/Accessoriees/Dicota_brand_images/dicota2.webp";
 // CHOETECH
-import choetech1 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech1.jpg";
-import choetech2 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech2.jpg";
-import choetech3 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech3.jpg";
-import choetech4 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech4.jpg";
-import choetech5 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech5.jpg";
-import choetech6 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech6.jpg";
+import choetech1 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech1.webp";
+import choetech2 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech2.webp";
+import choetech3 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech3.webp";
+import choetech4 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech4.webp";
+import choetech5 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech5.webp";
+import choetech6 from "../assets/Brand-image-banners/Accessoriees/Choetech_brand_images/choetech6.webp";
 // NETWORKING
 // tp-link
-import tplink1 from "../assets/Brand-image-banners/Networking/Tp-Link/Tplink 1.jpg";
-import tplink2 from "../assets/Brand-image-banners/Networking/Tp-Link/Tplink 2.jpg";
-import tplink3 from "../assets/Brand-image-banners/Networking/Tp-Link/Tplink (3).jpg";
+import tplink1 from "../assets/Brand-image-banners/Networking/Tp-Link/Tplink 1.webp";
+import tplink2 from "../assets/Brand-image-banners/Networking/Tp-Link/Tplink 2.webp";
+import tplink3 from "../assets/Brand-image-banners/Networking/Tp-Link/Tplink (3).webp";
 //
-import tapo1 from "../assets/Brand-image-banners/Networking/Tapo/Tapo.jpg";
+import tapo1 from "../assets/Brand-image-banners/Networking/Tapo/Tapo.webp";
 
 //  Projectors
 //  yaber
-import yaber1 from "../assets/Brand-image-banners/Projectors/Yaber_brand_images/yaber1.jpg";
-import yaber2 from "../assets/Brand-image-banners/Projectors/Yaber_brand_images/yaber2.jpg";
-import yaber3 from "../assets/Brand-image-banners/Projectors/Yaber_brand_images/yaber3.jpg";
+import yaber1 from "../assets/Brand-image-banners/Projectors/Yaber_brand_images/yaber1.webp";
+import yaber2 from "../assets/Brand-image-banners/Projectors/Yaber_brand_images/yaber2.webp";
+import yaber3 from "../assets/Brand-image-banners/Projectors/Yaber_brand_images/yaber3.webp";
 // TECHNOLOGY / AI POWERED
-import ticnote1 from "../assets/Brand-image-banners/AI Powered/ticnote1.jpg";
-import ticnote2 from "../assets/Brand-image-banners/AI Powered/ticnote2.jpg";
+import ticnote1 from "../assets/Brand-image-banners/AI Powered/ticnote1.webp";
+import ticnote2 from "../assets/Brand-image-banners/AI Powered/ticnote2.webp";
 
 export const BRANDS = [
   // ── AUDIO ─────────────────────────────────────────────────────────────────

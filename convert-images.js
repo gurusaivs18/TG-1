@@ -4,7 +4,16 @@ import sharp from "sharp";
 
 const folder = path.join(process.cwd(), "src/assets");
 
-const allowedExtensions = [".jpg", ".jpeg", ".png"];
+// Image formats that Sharp can convert to WebP
+const allowedExtensions = [
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".gif",
+  ".tif",
+  ".tiff",
+  ".avif",
+];
 
 async function getAllFiles(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -24,38 +33,70 @@ async function getAllFiles(dir) {
 }
 
 async function convertImages() {
+  console.log("🔍 Scanning assets folder...\n");
+
   const files = await getAllFiles(folder);
 
   let converted = 0;
+  let skipped = 0;
+  let failed = 0;
 
   for (const oldPath of files) {
     const ext = path.extname(oldPath).toLowerCase();
 
+    // Already WebP → leave it alone
+    if (ext === ".webp") {
+      skipped++;
+      continue;
+    }
+
+    // Not an image format we want to convert
     if (!allowedExtensions.includes(ext)) {
       continue;
     }
 
-    const newPath =
-      path.join(path.dirname(oldPath), path.basename(oldPath, ext)) + ".webp";
+    const directory = path.dirname(oldPath);
+    const filename = path.basename(oldPath, ext);
+
+    const newPath = path.join(directory, `${filename}.webp`);
 
     try {
-      console.log(`Converting: ${oldPath}`);
+      console.log(`🔄 Converting: ${oldPath}`);
 
-      await sharp(oldPath).webp({ quality: 85 }).toFile(newPath);
+      await sharp(oldPath)
+        .webp({
+          quality: 85,
+        })
+        .toFile(newPath);
 
+      // Only delete original after WebP was successfully created
       if (fs.existsSync(newPath)) {
         fs.unlinkSync(oldPath);
+
         converted++;
 
-        console.log(`✓ Converted: ${oldPath}`);
+        console.log(`   ✓ Created: ${newPath}`);
+        console.log(`   🗑 Deleted: ${oldPath}\n`);
+      } else {
+        failed++;
+
+        console.error(`❌ WebP was not created, original kept: ${oldPath}\n`);
       }
     } catch (error) {
+      failed++;
+
       console.error(`❌ Failed: ${oldPath}`);
-      console.error(error.message);
+      console.error(`   ${error.message}\n`);
     }
   }
 
-  console.log(`\nFinished! ${converted} images converted to WebP.`);
+  console.log("========================================");
+  console.log("         IMAGE CONVERSION DONE");
+  console.log("========================================");
+  console.log(`✓ Converted : ${converted}`);
+  console.log(`↷ WebP kept : ${skipped}`);
+  console.log(`❌ Failed    : ${failed}`);
+  console.log("========================================");
 }
 
 convertImages();
