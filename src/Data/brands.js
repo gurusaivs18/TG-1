@@ -98,13 +98,15 @@ export const BRANDS = [
       "For over six decades, Marshall's legacy has grown chord to chord, person to person, generation to generation. Marshall speakers combine legendary rock-inspired design with powerful, high-quality sound, delivering an exceptional audio experience for music lovers. Built with premium craftsmanship and advanced acoustic performance, they offer rich, balanced sound for every setting—whether at home, on the go, or during gatherings.",
 
     subCategories: [
-      { name: "H-speakers", icon: "📺", image: marshal1 },
-      { name: "TV Sound", icon: "📺", image: marshal2 },
-      { name: "TV Sound", icon: "📺", image: marshall3 },
-      { name: "TV Sound", icon: "📺", image: marshall4 },
-      { name: "TV Sound", icon: "📺", image: marshall5 },
       { name: "TV Sound", icon: "📺", image: marshall6 },
+      { name: "TV Sound", icon: "📺", image: marshall5 },
       { name: "TV Sound", icon: "📺", image: marshall7 },
+
+      { name: "H-speakers", icon: "📺", image: marshal1 },
+      { name: "TV Sound", icon: "📺", image: marshall3 },
+      { name: "TV Sound", icon: "📺", image: marshal2 },
+
+      { name: "TV Sound", icon: "📺", image: marshall4 },
     ],
     highlights: [
       "60+ Years of Audio Heritage",
