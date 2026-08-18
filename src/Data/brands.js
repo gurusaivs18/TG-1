@@ -19,11 +19,11 @@ import fastrackSMART from "../assets/brandsPageLogos/Fastrack.brandpg.webp";
 // marshall
 import marshal1 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/Marshall-1.jpg.webp";
 import marshal2 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/Marshall 2.jpg (1).webp";
-import marshall3 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall3.jpg";
-import marshall4 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall4.jpg";
-import marshall5 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall5.jpg";
-import marshall6 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall6.jpg";
-import marshall7 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall7.jpg";
+import marshall3 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall3.webp";
+import marshall4 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall4.webp";
+import marshall5 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall5.webp";
+import marshall6 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall6.webp";
+import marshall7 from "../assets/Brand-image-banners/Audio/Marshall_brand_images/marshall7.webp";
 
 // shokzz
 import shokz01 from "../assets/Brand-image-banners/Audio/SHOKZ_brand_images/shokz01.webp";
