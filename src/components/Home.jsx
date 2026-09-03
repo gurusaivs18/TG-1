@@ -59,7 +59,7 @@ import nology from "../assets/partners-logo/Ecommerce/Nology.webp";
 import etisalat from "../assets/partners-logo/Operator/etisalat.webp";
 // travel retail
 import dubaiDutyFree from "../assets/partners-logo/Travel/dubaiDutyfree.webp";
-import jeddah from "../assets/partners-logo/Travel/Jeddah Duty Free.webp";
+import lagerde from "../assets/partners-logo/Travel/lagerde.webp";
 
 // Brand data (marquee only — the modal below uses BRAND_CATALOG)
 const BRANDS = [
@@ -147,7 +147,7 @@ const CHANNELS = [
     desc: "Duty-free and airport retail locations serving global travellers.",
     partners: [
       { name: "Dubai Duty Free", img: dubaiDutyFree },
-      { name: "Jeddah Duty Free", img: jeddah },
+      { name: "Jeddah Duty Free", img: lagerde },
     ],
   },
   {
